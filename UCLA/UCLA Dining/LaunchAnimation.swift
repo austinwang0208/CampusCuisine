@@ -20,63 +20,51 @@ struct LaunchAnimation: View {
     //for storing API call output
     @State private var result: [String: [String : [String]]]?
     
-    //for retrieving school name
+    //for knowing which school we need to call api for
     var selectedKey : String
-    //@State private var isPresented: Bool = false
-    //@State private var selectedKey: String? = UserDefaults.standard.string(forKey: "selectedKey")
     
     var body: some View {
-        //if selectedKey != nil {
-            if result != nil && isActive {
-                ContentView(APIoutput : result!)
-            }
-            else {
-                ZStack {
-                    Color(.black)
-                        .ignoresSafeArea(.all)
+        if result != nil && isActive {
+            ContentView(APIoutput : result!)
+        }
+        else {
+            ZStack {
+                Color(.black)
+                    .ignoresSafeArea(.all)
+                VStack{
                     VStack{
-                        VStack{
-                            Image("LaunchScreenImage")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 100, height: 100)
-                        }
-                        .scaleEffect(size)
-                        .opacity(opacity)
-                        .onAppear{
-                            withAnimation(.easeIn(duration: 1.2)) {
-                                self.size = 0.9
-                                self.opacity = 1.0
-                            }
+                        Image("LaunchScreenImage")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+                    }
+                    .scaleEffect(size)
+                    .opacity(opacity)
+                    .onAppear{
+                        withAnimation(.easeIn(duration: 1.2)) {
+                            self.size = 0.9
+                            self.opacity = 1.0
                         }
                     }
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation{
-                                self.isActive=true
-                            }
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        withAnimation{
+                            self.isActive=true
                         }
-                        
-                        makePostRequest { result in
-                            switch result {
-                            case .success(let dictionary):
-                                self.result = dictionary
-                            case .failure(let error):
-                                print(error)
-                            }
+                    }
+                    
+                    makePostRequest { result in
+                        switch result {
+                        case .success(let dictionary):
+                            self.result = dictionary
+                        case .failure(let error):
+                            print(error)
                         }
                     }
                 }
             }
-        //}
-        //else {
-        //    Button("Select Your University") {
-        //        self.isPresented = true
-        //    }
-        //    .sheet(isPresented: $isPresented) {
-        //        FillInView(selectedKey: self.$selectedKey)
-        //    }
-        //}
+        }
     }
     
     func makePostRequest(completion: @escaping (Result<[String: [String : [String]]], Error>) -> Void) {
