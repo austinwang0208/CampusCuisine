@@ -47,48 +47,14 @@ struct ContentView: View {
                             VStack {
                                 //Dining Hall buttons
                                 VStack{
-                                    
-                                    let EpicuriaData = Hall(
-                                        name: "Epicuria at Covel",
-                                        dishes: APIoutput["Epicuria"] ?? NoData,
-                                        image: "Epicuria at Covel"
-                                    )
-                                    
-                                    let DeNeveData = Hall(
-                                        name: "De Neve",
-                                        dishes: APIoutput["DeNeve"] ?? NoData,
-                                        image: "De Neve"
-                                    )
-                                    
-                                    let BruinPlateData = Hall(
-                                        name: "Bruin Plate",
-                                        //change back to BruinPlate after testing
-                                        dishes: APIoutput["BruinPlate"] ?? NoData,
-                                        image: "Bruin Plate"
-                                    )
-                                    
-                                    //Spacer()
-                                    //Epicuria Icon
-                                    NavigationLink(
-                                        destination: Menu(hall: EpicuriaData),
-                                        label: {
-                                            FoodIcon(hall: EpicuriaData)
-                                        })
-                                    
-                                    //De Neve Icon
-                                    NavigationLink(
-                                        destination: Menu(hall: DeNeveData),
-                                        label: {
-                                            FoodIcon(hall: DeNeveData)
-                                        })
-                                    
-                                    //Bruin Plate icon
-                                    NavigationLink(
-                                        destination: Menu(hall: BruinPlateData),
-                                        label: {
-                                            FoodIcon(hall: BruinPlateData)
-                                        })
-                                    //Spacer()
+                                    let hallNames = ["Epicuria at Covel", "De Neve", "Bruin Plate"]
+
+                                    ForEach(hallNames, id: \.self) { name in
+                                        let hallData = Hall(name: name, dishes: APIoutput[name] ?? NoData, image: name)
+                                        NavigationLink(destination: Menu(hall: hallData)) {
+                                            FoodIcon(hall: hallData)
+                                        }
+                                    }
                                 }
                                 
                                 
@@ -228,21 +194,21 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static let APIpreview = [
-                             "Epicuria" :
+                             "Epicuria at Covel" :
                                 [
                                     "Breakfast" : ["eggs", "bacon", "cheese"],
                                     "Lunch" : ["sandwhich", "burgers", "fries"],
                                     "Dinner" : ["nachos", "pasta", "soda"]
                                  ],
                              
-                             "DeNeve" :
+                             "De Neve" :
                                 [
                                     "Breakfast" : ["cereal", "oatmeal", "eggs"],
                                     "Lunch" : ["Noodles", "Chicken", "Bistro"],
                                     "Dinner" : ["Tenders", "Salad", "Tomatoe Soup"]
                                 ],
                              
-                             "BruinPlate" :
+                             "Bruin Plate" :
                                 [
                                     "Breakfast" : ["Bread", "Coffee", "Fruits"],
                                     "Lunch" : ["Falafels", "Pizza", "French Fries"],

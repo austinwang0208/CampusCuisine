@@ -46,8 +46,12 @@ def lambda_handler(event, context):
                     arr.append(dish)
             # Add array to dictionary once we are done adding all user friendly menu items
             RestaurantMenu[mealtime] = arr
-
-        AllDiningHalls[restaurant] = RestaurantMenu
+        if restaurant == "Epicuria":
+            AllDiningHalls["Epicuria at Covel"] = RestaurantMenu
+        elif restaurant == "DeNeve":
+            AllDiningHalls["De Neve"] = RestaurantMenu
+        elif restaurant == "BruinPlate":
+            AllDiningHalls["Bruin Plate"] = RestaurantMenu
 
     # Return dictionary, keys = restaurant names, values = array of menu items
     #return AllDiningHalls
