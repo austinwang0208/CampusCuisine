@@ -93,10 +93,25 @@
 		2B4C5C3C2977202600C7A714 /* FirstTimeViews */ = {
 			isa = PBXGroup;
 			children = (
+				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
 				2B9C98452975368400565E75 /* FirstTimeView.swift */,
 				2B9C98432975191100565E75 /* FillInView.swift */,
 			);
 			path = FirstTimeViews;
+			sourceTree = "<group>";
+		};
+		2B4C5C3D297726E200C7A714 /* UCLA */ = {
+			isa = PBXGroup;
+			children = (
+				2B6A7C502964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf */,
+				2B6A7C4E296400A200D977EC /* De Neve fixed menu 1 pdf.pdf */,
+				2B6A7C4A2963FFA300D977EC /* Ackerman fixed menu 1 pdf.pdf */,
+				2B6A7C482963FF2900D977EC /* The Drey fixed menu 1 pdf.pdf */,
+				2B6A7C392963FBFA00D977EC /* Hedrick */,
+				2B6A7C2E2963F41D00D977EC /* Rendezvous */,
+				2B6A7C2C2963F29100D977EC /* Bruin Cafe */,
+			);
+			path = UCLA;
 			sourceTree = "<group>";
 		};
 		2B59AE0B29086FA50015ABAB = {
@@ -124,7 +139,6 @@
 				2B59AE1729086FA50015ABAB /* UCLAApp.swift */,
 				2B59AE2529086FEA0015ABAB /* LaunchAnimation.swift */,
 				2B59AE1929086FA50015ABAB /* ContentView.swift */,
-				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
 				2B4C5C3C2977202600C7A714 /* FirstTimeViews */,
 				2B6A7C522969252E00D977EC /* AdMob */,
 				2B6A7C2329639DF800D977EC /* fixed_menus_pdf */,
@@ -176,13 +190,7 @@
 		2B6A7C2329639DF800D977EC /* fixed_menus_pdf */ = {
 			isa = PBXGroup;
 			children = (
-				2B6A7C502964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf */,
-				2B6A7C4E296400A200D977EC /* De Neve fixed menu 1 pdf.pdf */,
-				2B6A7C4A2963FFA300D977EC /* Ackerman fixed menu 1 pdf.pdf */,
-				2B6A7C482963FF2900D977EC /* The Drey fixed menu 1 pdf.pdf */,
-				2B6A7C392963FBFA00D977EC /* Hedrick */,
-				2B6A7C2E2963F41D00D977EC /* Rendezvous */,
-				2B6A7C2C2963F29100D977EC /* Bruin Cafe */,
+				2B4C5C3D297726E200C7A714 /* UCLA */,
 			);
 			path = fixed_menus_pdf;
 			sourceTree = "<group>";
