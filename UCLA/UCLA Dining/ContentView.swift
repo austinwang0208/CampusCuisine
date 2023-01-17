@@ -14,6 +14,7 @@ struct ContentView: View {
     //passed API output and storing in var
     var APIoutput : [String: [String : [String] ]]
     var output : [Hall]
+    var selectedKey : String
     
     var body: some View {
 
@@ -27,7 +28,7 @@ struct ContentView: View {
                 VStack {
                     //UCLA Dining Hall text / NAVBAR
                     HStack {
-                        Image("UCLA designer text")
+                        Image(selectedKey + " designer text")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 40)
@@ -110,6 +111,8 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         // 5. Use the right SecondView initializator
-        ContentView(APIoutput: APIpreview, output: getFixedMenus(selectedKey: "diningmenus"))
+        ContentView(APIoutput: APIpreview,
+                    output: getFixedMenus(selectedKey: "diningmenus"),
+                    selectedKey: "diningmenus")
     }
 }
