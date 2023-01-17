@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct FirstTimeView: View {
     
     //for retrieving school name
@@ -18,14 +20,30 @@ struct FirstTimeView: View {
             LaunchAnimation(selectedKey: selectedKey ?? "something wrong")
         }
         else {
-            Button("Select Your University") {
-                self.isPresented = true
-            }
-            .sheet(isPresented: $isPresented) {
-                FillInView(selectedKey: self.$selectedKey)
+            GeometryReader { geometry in
+                Color.black
+                    .edgesIgnoringSafeArea(.all)
+                Image("University Dining")
+                        .resizable()
+                        .position(x: geometry.size.width / 2, y: geometry.size.height * 0.1)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.8)
+                Button("Select Your University") {
+                    self.isPresented = true
+                }
+                .frame(width: 200, height: 50)
+                .background(Color(red: 0.11372549019, green: 0.55294117647, blue: 0.93333333333 ))
+                .foregroundColor(.white)
+                .cornerRadius(25)
+
+                .position(x: geometry.size.width / 2, y: geometry.size.height * 12/20)
+                .font(.custom("ChalkboardSE-Light", size: 18))
+
+                .sheet(isPresented: $isPresented) {
+                    FillInView(selectedKey: self.$selectedKey)
+                }
             }
         }
-
     }
 }
 
