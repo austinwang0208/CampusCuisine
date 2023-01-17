@@ -25,7 +25,7 @@ struct LaunchAnimation: View {
     
     var body: some View {
         if result != nil && isActive {
-            ContentView(APIoutput : result!)
+            ContentView(APIoutput : result!, output: getFixedMenus(selectedKey: selectedKey))
         }
         else {
             ZStack {

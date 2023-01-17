@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4C5C3B29771EC300C7A714 /* getFixedMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */; };
 		2B59AE1829086FA50015ABAB /* UCLAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59AE1729086FA50015ABAB /* UCLAApp.swift */; };
 		2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59AE1929086FA50015ABAB /* ContentView.swift */; };
 		2B59AE1C29086FA90015ABAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B59AE1B29086FA90015ABAB /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		0B7CBA3D87460FD79359F31B /* Pods-UCLA Dining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCLA Dining.debug.xcconfig"; path = "Target Support Files/Pods-UCLA Dining/Pods-UCLA Dining.debug.xcconfig"; sourceTree = "<group>"; };
+		2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFixedMenus.swift; sourceTree = "<group>"; };
 		2B59AE1429086FA50015ABAB /* UCLA Dining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA Dining.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B59AE1729086FA50015ABAB /* UCLAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCLAApp.swift; sourceTree = "<group>"; };
 		2B59AE1929086FA50015ABAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B4C5C3C2977202600C7A714 /* FirstTimeViews */ = {
+			isa = PBXGroup;
+			children = (
+				2B9C98452975368400565E75 /* FirstTimeView.swift */,
+				2B9C98432975191100565E75 /* FillInView.swift */,
+			);
+			path = FirstTimeViews;
+			sourceTree = "<group>";
+		};
 		2B59AE0B29086FA50015ABAB = {
 			isa = PBXGroup;
 			children = (
@@ -111,10 +122,10 @@
 			children = (
 				2B663DB529563C8B0087AAE6 /* UCLA-Dining-Info.plist */,
 				2B59AE1729086FA50015ABAB /* UCLAApp.swift */,
-				2B9C98452975368400565E75 /* FirstTimeView.swift */,
 				2B59AE2529086FEA0015ABAB /* LaunchAnimation.swift */,
-				2B9C98432975191100565E75 /* FillInView.swift */,
 				2B59AE1929086FA50015ABAB /* ContentView.swift */,
+				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
+				2B4C5C3C2977202600C7A714 /* FirstTimeViews */,
 				2B6A7C522969252E00D977EC /* AdMob */,
 				2B6A7C2329639DF800D977EC /* fixed_menus_pdf */,
 				2B59AE272908702C0015ABAB /* Menu */,
@@ -371,6 +382,7 @@
 				2B6A7C56296A40E200D977EC /* BannerAd.swift in Sources */,
 				2B9C9822297240BF00565E75 /* Menu_Section.swift in Sources */,
 				2B59AE2A2908704C0015ABAB /* FoodIcon.swift in Sources */,
+				2B4C5C3B29771EC300C7A714 /* getFixedMenus.swift in Sources */,
 				2B59AE1829086FA50015ABAB /* UCLAApp.swift in Sources */,
 				2BCE927629598BF40039AD9E /* fixed_menu.swift in Sources */,
 			);
