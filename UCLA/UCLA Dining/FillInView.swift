@@ -16,7 +16,7 @@ struct FillInView: View {
         "University of California, Berkeley": "key1",
         "University of California, Los Angeles": "diningmenus",
         "University of California, San Diego": "key2",
-        "University of California, Santa Barbara": "key3",
+        "University of California, Santa Barbara": "ucsbdiningmenus",
         "University of California, Irvine" : "key4",
         "University of California, Davis": "key5",
         "University of California, Santa Cruz" : "key6",

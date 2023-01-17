@@ -47,8 +47,7 @@ struct ContentView: View {
                             VStack {
                                 //Dining Hall buttons
                                 VStack{
-                                    let hallNames = ["Epicuria at Covel", "De Neve", "Bruin Plate"]
-
+                                    let hallNames = Array(APIoutput.keys)
                                     ForEach(hallNames, id: \.self) { name in
                                         let hallData = Hall(name: name, dishes: APIoutput[name] ?? NoData, image: name)
                                         NavigationLink(destination: Menu(hall: hallData)) {
