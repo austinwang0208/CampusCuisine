@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B4C5C3B29771EC300C7A714 /* getFixedMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */; };
+		2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */; };
 		2B59AE1829086FA50015ABAB /* UCLAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59AE1729086FA50015ABAB /* UCLAApp.swift */; };
 		2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59AE1929086FA50015ABAB /* ContentView.swift */; };
 		2B59AE1C29086FA90015ABAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B59AE1B29086FA90015ABAB /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0B7CBA3D87460FD79359F31B /* Pods-UCLA Dining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCLA Dining.debug.xcconfig"; path = "Target Support Files/Pods-UCLA Dining/Pods-UCLA Dining.debug.xcconfig"; sourceTree = "<group>"; };
 		2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFixedMenus.swift; sourceTree = "<group>"; };
+		2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCLAfixed.swift; sourceTree = "<group>"; };
 		2B59AE1429086FA50015ABAB /* UCLA Dining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA Dining.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B59AE1729086FA50015ABAB /* UCLAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCLAApp.swift; sourceTree = "<group>"; };
 		2B59AE1929086FA50015ABAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,7 +95,6 @@
 		2B4C5C3C2977202600C7A714 /* FirstTimeViews */ = {
 			isa = PBXGroup;
 			children = (
-				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
 				2B9C98452975368400565E75 /* FirstTimeView.swift */,
 				2B9C98432975191100565E75 /* FillInView.swift */,
 			);
@@ -112,6 +113,15 @@
 				2B6A7C2C2963F29100D977EC /* Bruin Cafe */,
 			);
 			path = UCLA;
+			sourceTree = "<group>";
+		};
+		2B4C5C3E2977680200C7A714 /* getFixedMenus */ = {
+			isa = PBXGroup;
+			children = (
+				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
+				2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */,
+			);
+			path = getFixedMenus;
 			sourceTree = "<group>";
 		};
 		2B59AE0B29086FA50015ABAB = {
@@ -139,6 +149,7 @@
 				2B59AE1729086FA50015ABAB /* UCLAApp.swift */,
 				2B59AE2529086FEA0015ABAB /* LaunchAnimation.swift */,
 				2B59AE1929086FA50015ABAB /* ContentView.swift */,
+				2B4C5C3E2977680200C7A714 /* getFixedMenus */,
 				2B4C5C3C2977202600C7A714 /* FirstTimeViews */,
 				2B6A7C522969252E00D977EC /* AdMob */,
 				2B6A7C2329639DF800D977EC /* fixed_menus_pdf */,
@@ -386,6 +397,7 @@
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
 				2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */,
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
+				2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */,
 				2B59AE2629086FEA0015ABAB /* LaunchAnimation.swift in Sources */,
 				2B6A7C56296A40E200D977EC /* BannerAd.swift in Sources */,
 				2B9C9822297240BF00565E75 /* Menu_Section.swift in Sources */,
