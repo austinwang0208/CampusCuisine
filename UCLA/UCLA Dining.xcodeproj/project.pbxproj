@@ -38,6 +38,11 @@
 		2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C98452975368400565E75 /* FirstTimeView.swift */; };
 		2BCE927629598BF40039AD9E /* fixed_menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCE927529598BF40039AD9E /* fixed_menu.swift */; };
 		2BCE927C295AA1AF0039AD9E /* Fixed_Menu_Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCE927B295AA1AF0039AD9E /* Fixed_Menu_Section.swift */; };
+		9156C30129778854006E8BF9 /* Summit Cafe OnLine Menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9156C30029778854006E8BF9 /* Summit Cafe OnLine Menu.pdf */; };
+		9156C3032977886D006E8BF9 /* Root Burger Online Menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9156C3022977886D006E8BF9 /* Root Burger Online Menu.pdf */; };
+		9156C3052977887E006E8BF9 /* Romaine's Online Menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9156C3042977887E006E8BF9 /* Romaine's Online Menu.pdf */; };
+		9156C307297788B2006E8BF9 /* Courtyard Cafe OnLine Menu PDF v2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9156C306297788B2006E8BF9 /* Courtyard Cafe OnLine Menu PDF v2.pdf */; };
+		9156C309297788D3006E8BF9 /* Coral Tree Cafe Online Menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9156C308297788D3006E8BF9 /* Coral Tree Cafe Online Menu.pdf */; };
 		9D187C9F6AB25B1597D57A88 /* Pods_UCLA_Dining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +81,11 @@
 		2B9C98452975368400565E75 /* FirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeView.swift; sourceTree = "<group>"; };
 		2BCE927529598BF40039AD9E /* fixed_menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fixed_menu.swift; sourceTree = "<group>"; };
 		2BCE927B295AA1AF0039AD9E /* Fixed_Menu_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixed_Menu_Section.swift; sourceTree = "<group>"; };
+		9156C30029778854006E8BF9 /* Summit Cafe OnLine Menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Summit Cafe OnLine Menu.pdf"; path = "../../../../../../Downloads/ChromeDownloads/Summit Cafe OnLine Menu.pdf"; sourceTree = "<group>"; };
+		9156C3022977886D006E8BF9 /* Root Burger Online Menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Root Burger Online Menu.pdf"; path = "../../../../../../Downloads/ChromeDownloads/Root Burger Online Menu.pdf"; sourceTree = "<group>"; };
+		9156C3042977887E006E8BF9 /* Romaine's Online Menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Romaine's Online Menu.pdf"; path = "../../../../../../Downloads/ChromeDownloads/Romaine's Online Menu.pdf"; sourceTree = "<group>"; };
+		9156C306297788B2006E8BF9 /* Courtyard Cafe OnLine Menu PDF v2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Courtyard Cafe OnLine Menu PDF v2.pdf"; path = "../../../../../../Downloads/ChromeDownloads/Courtyard Cafe OnLine Menu PDF v2.pdf"; sourceTree = "<group>"; };
+		9156C308297788D3006E8BF9 /* Coral Tree Cafe Online Menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Coral Tree Cafe Online Menu.pdf"; path = "../../../../../../Downloads/ChromeDownloads/Coral Tree Cafe Online Menu.pdf"; sourceTree = "<group>"; };
 		9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCLA_Dining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05CF450628FF0AC32BF773C /* Pods-UCLA Dining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCLA Dining.release.xcconfig"; path = "Target Support Files/Pods-UCLA Dining/Pods-UCLA Dining.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +211,7 @@
 		2B6A7C2329639DF800D977EC /* fixed_menus_pdf */ = {
 			isa = PBXGroup;
 			children = (
+				9156C2FF29778833006E8BF9 /* UCSB */,
 				2B4C5C3D297726E200C7A714 /* UCLA */,
 			);
 			path = fixed_menus_pdf;
@@ -260,6 +271,18 @@
 				9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9156C2FF29778833006E8BF9 /* UCSB */ = {
+			isa = PBXGroup;
+			children = (
+				9156C308297788D3006E8BF9 /* Coral Tree Cafe Online Menu.pdf */,
+				9156C306297788B2006E8BF9 /* Courtyard Cafe OnLine Menu PDF v2.pdf */,
+				9156C3042977887E006E8BF9 /* Romaine's Online Menu.pdf */,
+				9156C3022977886D006E8BF9 /* Root Burger Online Menu.pdf */,
+				9156C30029778854006E8BF9 /* Summit Cafe OnLine Menu.pdf */,
+			);
+			path = UCSB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,17 +347,22 @@
 			files = (
 				2B663DB729563D2E0087AAE6 /* CKWistfulRegular.ttf in Resources */,
 				2B6A7C4B2963FFA300D977EC /* Ackerman fixed menu 1 pdf.pdf in Resources */,
+				9156C307297788B2006E8BF9 /* Courtyard Cafe OnLine Menu PDF v2.pdf in Resources */,
 				2B59AE1F29086FA90015ABAB /* Preview Assets.xcassets in Resources */,
 				2B6A7C2929639EB200D977EC /* Bruin Cafe fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C452963FC6C00D977EC /* Hedrick fixed menu 1 pdf.pdf in Resources */,
+				9156C30129778854006E8BF9 /* Summit Cafe OnLine Menu.pdf in Resources */,
 				2B6A7C422963FC0C00D977EC /* Hedrick fixed menu 2 pdf.pdf in Resources */,
 				2B59AE1C29086FA90015ABAB /* Assets.xcassets in Resources */,
+				9156C3052977887E006E8BF9 /* Romaine's Online Menu.pdf in Resources */,
+				9156C3032977886D006E8BF9 /* Root Burger Online Menu.pdf in Resources */,
 				2B6A7C512964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C3F2963FC0C00D977EC /* Hedrick fixed menu 3 pdf.pdf in Resources */,
 				2B6A7C382963F59F00D977EC /* Rendezvous fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C2B2963A04900D977EC /* Bruin Cafe fixed menu 2 pdf.pdf in Resources */,
 				2B6A7C342963F43F00D977EC /* Rendezvous fixed menu 3 pdf.pdf in Resources */,
 				2B6A7C4F296400A200D977EC /* De Neve fixed menu 1 pdf.pdf in Resources */,
+				9156C309297788D3006E8BF9 /* Coral Tree Cafe Online Menu.pdf in Resources */,
 				2B6A7C492963FF2900D977EC /* The Drey fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C332963F43F00D977EC /* Rendezvous fixed menu 2 pdf.pdf in Resources */,
 				2B6A7C402963FC0C00D977EC /* Hedrick fixed menu 4 pdf.pdf in Resources */,
