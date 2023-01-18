@@ -16,7 +16,7 @@ func getFixedMenus(selectedKey: String) -> [Hall] {
     }
     // return UCSB fixed restaurants
     else if (selectedKey == "ucsbdiningmenus") {
-        
+        //output = getUCSBfixed()
     }
     
     return output

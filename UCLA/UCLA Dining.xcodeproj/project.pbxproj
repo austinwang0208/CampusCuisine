@@ -33,6 +33,7 @@
 		2B6A7C4F296400A200D977EC /* De Neve fixed menu 1 pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B6A7C4E296400A200D977EC /* De Neve fixed menu 1 pdf.pdf */; };
 		2B6A7C512964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B6A7C502964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf */; };
 		2B6A7C56296A40E200D977EC /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A7C55296A40E200D977EC /* BannerAd.swift */; };
+		2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */; };
 		2B9C9822297240BF00565E75 /* Menu_Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C9821297240BF00565E75 /* Menu_Section.swift */; };
 		2B9C98442975191100565E75 /* FillInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C98432975191100565E75 /* FillInView.swift */; };
 		2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C98452975368400565E75 /* FirstTimeView.swift */; };
@@ -76,6 +77,7 @@
 		2B6A7C4E296400A200D977EC /* De Neve fixed menu 1 pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "De Neve fixed menu 1 pdf.pdf"; sourceTree = "<group>"; };
 		2B6A7C502964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Spice Kitchen fixed menu 1 pdf.pdf"; sourceTree = "<group>"; };
 		2B6A7C55296A40E200D977EC /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCSBfixed.swift; sourceTree = "<group>"; };
 		2B9C9821297240BF00565E75 /* Menu_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu_Section.swift; sourceTree = "<group>"; };
 		2B9C98432975191100565E75 /* FillInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillInView.swift; sourceTree = "<group>"; };
 		2B9C98452975368400565E75 /* FirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
 				2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */,
+				2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */,
 			);
 			path = getFixedMenus;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				2B9C98442975191100565E75 /* FillInView.swift in Sources */,
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
 				2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */,
+				2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */,
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
 				2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */,
 				2B59AE2629086FEA0015ABAB /* LaunchAnimation.swift in Sources */,
