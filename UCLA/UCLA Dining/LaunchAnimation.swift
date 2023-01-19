@@ -36,7 +36,7 @@ struct LaunchAnimation: View {
                     .ignoresSafeArea(.all)
                 VStack{
                     VStack{
-                        Image("LaunchScreenImage")
+                        Image(selectedKey + " designer text")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100, height: 100)

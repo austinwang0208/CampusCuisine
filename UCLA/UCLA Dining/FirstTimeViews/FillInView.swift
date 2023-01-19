@@ -13,16 +13,15 @@ struct FillInView: View {
     @Binding var selectedKey: String?
     @State private var searchText: String = ""
     let options = [
-        "University of California, Berkeley": "key1",
+        "University of California, Berkeley": "ucbdiningmenus",
         "University of California, Los Angeles": "diningmenus",
-        "University of California, San Diego": "key2",
+        "University of California, San Diego": "ucsddiningmenus",
         "University of California, Santa Barbara": "ucsbdiningmenus",
-        "University of California, Irvine" : "key4",
-        "University of California, Davis": "key5",
-        "University of California, Santa Cruz" : "key6",
-        "University of California, Riverside" : "key7",
-        "University of California, Merced" : "key8",
-        "Stanford" : "key9"
+        "University of California, Irvine" : "ucidiningmenus",
+        "University of California, Davis": "ucddiningmenus",
+        "University of California, Santa Cruz" : "ucscdiningmenus",
+        "University of California, Riverside" : "ucrdiningmenus",
+        "University of California, Merced" : "ucmdiningmenus",
     ]
     let defaults = UserDefaults.standard
 
@@ -85,7 +84,6 @@ struct FillInView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             FillInView(selectedKey: .constant(""))
-            FillInView(selectedKey: .constant("key2"))
         }
     }
 }
