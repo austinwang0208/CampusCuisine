@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     s3 = boto3.client('s3')
     
     menu_items = {}
-    places = ['Carrillo', 'De-la-guerra', 'Ortega', 'Portola']
+    places = ['Carrillo', 'De-La-Guerra', 'Ortega', 'Portola']
     meals = ['Breakfast', 'Brunch', 'Lunch', 'Dinner', 'Late-Night']
     current_date = date.today()
     for place in places:
