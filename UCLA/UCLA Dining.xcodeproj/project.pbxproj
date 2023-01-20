@@ -36,6 +36,8 @@
 		2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */; };
 		2B97A61A297A71DB00978D93 /* Epazote Mexican Grill fixed menu 1 pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B97A619297A71DB00978D93 /* Epazote Mexican Grill fixed menu 1 pdf.pdf */; };
 		2B97A61C297A71F600978D93 /* Burger Assembly fixed menu 1 pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B97A61B297A71F600978D93 /* Burger Assembly fixed menu 1 pdf.pdf */; };
+		2B97A61F297A79D000978D93 /* Tossed fixed menu 1 pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B97A61E297A79D000978D93 /* Tossed fixed menu 1 pdf.pdf */; };
+		2B97A621297A7CF400978D93 /* Fusion fixed menu 1 pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B97A620297A7CF400978D93 /* Fusion fixed menu 1 pdf.pdf */; };
 		2B9C9822297240BF00565E75 /* Menu_Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C9821297240BF00565E75 /* Menu_Section.swift */; };
 		2B9C98442975191100565E75 /* FillInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C98432975191100565E75 /* FillInView.swift */; };
 		2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C98452975368400565E75 /* FirstTimeView.swift */; };
@@ -82,6 +84,8 @@
 		2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCSBfixed.swift; sourceTree = "<group>"; };
 		2B97A619297A71DB00978D93 /* Epazote Mexican Grill fixed menu 1 pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Epazote Mexican Grill fixed menu 1 pdf.pdf"; sourceTree = "<group>"; };
 		2B97A61B297A71F600978D93 /* Burger Assembly fixed menu 1 pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Burger Assembly fixed menu 1 pdf.pdf"; sourceTree = "<group>"; };
+		2B97A61E297A79D000978D93 /* Tossed fixed menu 1 pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Tossed fixed menu 1 pdf.pdf"; sourceTree = "<group>"; };
+		2B97A620297A7CF400978D93 /* Fusion fixed menu 1 pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Fusion fixed menu 1 pdf.pdf"; sourceTree = "<group>"; };
 		2B9C9821297240BF00565E75 /* Menu_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu_Section.swift; sourceTree = "<group>"; };
 		2B9C98432975191100565E75 /* FillInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillInView.swift; sourceTree = "<group>"; };
 		2B9C98452975368400565E75 /* FirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeView.swift; sourceTree = "<group>"; };
@@ -124,8 +128,10 @@
 				2B6A7C4E296400A200D977EC /* De Neve fixed menu 1 pdf.pdf */,
 				2B6A7C4A2963FFA300D977EC /* Ackerman fixed menu 1 pdf.pdf */,
 				2B6A7C482963FF2900D977EC /* The Drey fixed menu 1 pdf.pdf */,
+				2B97A61E297A79D000978D93 /* Tossed fixed menu 1 pdf.pdf */,
 				2B97A619297A71DB00978D93 /* Epazote Mexican Grill fixed menu 1 pdf.pdf */,
 				2B97A61B297A71F600978D93 /* Burger Assembly fixed menu 1 pdf.pdf */,
+				2B97A620297A7CF400978D93 /* Fusion fixed menu 1 pdf.pdf */,
 				2B6A7C392963FBFA00D977EC /* Hedrick */,
 				2B6A7C2E2963F41D00D977EC /* Rendezvous */,
 				2B6A7C2C2963F29100D977EC /* Bruin Cafe */,
@@ -369,8 +375,10 @@
 				2B6A7C512964EC0200D977EC /* Spice Kitchen fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C3F2963FC0C00D977EC /* Hedrick fixed menu 3 pdf.pdf in Resources */,
 				2B6A7C382963F59F00D977EC /* Rendezvous fixed menu 1 pdf.pdf in Resources */,
+				2B97A621297A7CF400978D93 /* Fusion fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C2B2963A04900D977EC /* Bruin Cafe fixed menu 2 pdf.pdf in Resources */,
 				2B6A7C342963F43F00D977EC /* Rendezvous fixed menu 3 pdf.pdf in Resources */,
+				2B97A61F297A79D000978D93 /* Tossed fixed menu 1 pdf.pdf in Resources */,
 				2B6A7C4F296400A200D977EC /* De Neve fixed menu 1 pdf.pdf in Resources */,
 				91D8BE3C2977B13300B84400 /* Coral Tree Cafe Menu pdf.pdf in Resources */,
 				2B6A7C492963FF2900D977EC /* The Drey fixed menu 1 pdf.pdf in Resources */,
