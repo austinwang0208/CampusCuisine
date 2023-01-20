@@ -60,6 +60,20 @@ func getUCLAfixed() -> [Hall] {
         sections: 1
     )
     
-    let output = [BruinCafeData, EpicuriaAckermanData, DreyData, RendezvousData, DeNeveLateNightData, TheStudyatHedrickData, SpiceKitchen]
+    let BurgerAssembly = Hall(
+        name: "Burger Assembly",
+        image: "Burger Assembly",
+        fixed_menu: ["Burger Assembly fixed menu 1"],
+        sections: 1
+    )
+    
+    let EpazoteMexicanGrill = Hall(
+        name: "Epazote Mexican Grill",
+        image: "Epazote Mexican Grill",
+        fixed_menu: ["Epazote Mexican Grill fixed menu 1"],
+        sections: 1
+    )
+    
+    let output = [BruinCafeData, EpicuriaAckermanData, DreyData, RendezvousData, DeNeveLateNightData, TheStudyatHedrickData, SpiceKitchen, BurgerAssembly, EpazoteMexicanGrill]
     return output
 }
