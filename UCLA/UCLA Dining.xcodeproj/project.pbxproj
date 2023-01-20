@@ -39,6 +39,8 @@
 		2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C98452975368400565E75 /* FirstTimeView.swift */; };
 		2BCE927629598BF40039AD9E /* fixed_menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCE927529598BF40039AD9E /* fixed_menu.swift */; };
 		2BCE927C295AA1AF0039AD9E /* Fixed_Menu_Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCE927B295AA1AF0039AD9E /* Fixed_Menu_Section.swift */; };
+		91639D9D297A577100636AB6 /* Crepe Bistro Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91639D9C297A577100636AB6 /* Crepe Bistro Menu pdf.pdf */; };
+		91639D9F297A584F00636AB6 /* getUCDfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91639D9E297A584F00636AB6 /* getUCDfixed.swift */; };
 		91D8BE342977B10F00B84400 /* Summit Cafe Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91D8BE332977B10F00B84400 /* Summit Cafe Menu pdf.pdf */; };
 		91D8BE362977B11A00B84400 /* Root Burger Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91D8BE352977B11A00B84400 /* Root Burger Menu pdf.pdf */; };
 		91D8BE382977B12100B84400 /* Romaine's Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91D8BE372977B12100B84400 /* Romaine's Menu pdf.pdf */; };
@@ -83,6 +85,8 @@
 		2B9C98452975368400565E75 /* FirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeView.swift; sourceTree = "<group>"; };
 		2BCE927529598BF40039AD9E /* fixed_menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fixed_menu.swift; sourceTree = "<group>"; };
 		2BCE927B295AA1AF0039AD9E /* Fixed_Menu_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixed_Menu_Section.swift; sourceTree = "<group>"; };
+		91639D9C297A577100636AB6 /* Crepe Bistro Menu pdf.pdf */ = {isa = PBXFileReference; explicitFileType = image.pdf; path = "Crepe Bistro Menu pdf.pdf"; sourceTree = "<group>"; };
+		91639D9E297A584F00636AB6 /* getUCDfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCDfixed.swift; sourceTree = "<group>"; };
 		91D8BE332977B10F00B84400 /* Summit Cafe Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Summit Cafe Menu pdf.pdf"; sourceTree = "<group>"; };
 		91D8BE352977B11A00B84400 /* Root Burger Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Root Burger Menu pdf.pdf"; sourceTree = "<group>"; };
 		91D8BE372977B12100B84400 /* Romaine's Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Romaine's Menu pdf.pdf"; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
 				2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */,
 				2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */,
+				91639D9E297A584F00636AB6 /* getUCDfixed.swift */,
 			);
 			path = getFixedMenus;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 		2B6A7C2329639DF800D977EC /* fixed_menus_pdf */ = {
 			isa = PBXGroup;
 			children = (
+				91639D9B297A575D00636AB6 /* UCD */,
 				9156C2FF29778833006E8BF9 /* UCSB */,
 				2B4C5C3D297726E200C7A714 /* UCLA */,
 			);
@@ -288,6 +294,14 @@
 			path = UCSB;
 			sourceTree = "<group>";
 		};
+		91639D9B297A575D00636AB6 /* UCD */ = {
+			isa = PBXGroup;
+			children = (
+				91639D9C297A577100636AB6 /* Crepe Bistro Menu pdf.pdf */,
+			);
+			path = UCD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,6 +364,7 @@
 			files = (
 				2B663DB729563D2E0087AAE6 /* CKWistfulRegular.ttf in Resources */,
 				2B6A7C4B2963FFA300D977EC /* Ackerman fixed menu 1 pdf.pdf in Resources */,
+				91639D9D297A577100636AB6 /* Crepe Bistro Menu pdf.pdf in Resources */,
 				91D8BE3A2977B12C00B84400 /* Courtyard Cafe Menu pdf.pdf in Resources */,
 				2B59AE1F29086FA90015ABAB /* Preview Assets.xcassets in Resources */,
 				2B6A7C2929639EB200D977EC /* Bruin Cafe fixed menu 1 pdf.pdf in Resources */,
@@ -430,6 +445,7 @@
 				2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */,
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
 				2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */,
+				91639D9F297A584F00636AB6 /* getUCDfixed.swift in Sources */,
 				2B59AE2629086FEA0015ABAB /* LaunchAnimation.swift in Sources */,
 				2B6A7C56296A40E200D977EC /* BannerAd.swift in Sources */,
 				2B9C9822297240BF00565E75 /* Menu_Section.swift in Sources */,
