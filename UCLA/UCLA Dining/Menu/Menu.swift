@@ -21,7 +21,7 @@ struct Menu: View {
                             //Add ForEach that will iterate through the individual Hall's mealtimes and display as Text for .tabItem
                             TabView {
                                 //ForEach(0..<hall.dishes!.count, id: \.self) { index in
-                                let meals = ["All Day", "Breakfast", "Brunch", "Lunch", "Dinner", "Late Night"]
+                                let meals = ["Breakfast", "Brunch", "Lunch", "Dinner", "Late Night"]
                                 ForEach(0..<meals.count, id: \.self) {index in
                                     if hall.dishes!.keys.contains(meals[index]){
                                         Menu_Section(arr: hall.dishes![meals[index]] ?? error)
