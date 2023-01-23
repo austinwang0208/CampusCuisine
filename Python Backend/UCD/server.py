@@ -1,4 +1,4 @@
-import lambda_function
+from UCD import lambda_function
 
 from flask import Flask
 
