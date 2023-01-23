@@ -65,7 +65,8 @@ def lambda_handler(event, context):
 
     meals["Cafe 3"] = meals["Cafe_3"]
     del meals["Cafe_3"]
-
+    meals["Clark Kerr Campus"] = meals["Clark_Kerr_Campus"]
+    del meals["Clark_Kerr_Campus"]
 
     # return menu_items
     # Set the name of the S3 bucket and the key for the object
