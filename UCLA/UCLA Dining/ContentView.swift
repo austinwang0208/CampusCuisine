@@ -19,28 +19,40 @@ struct ContentView: View {
     var body: some View {
 
         let NoData = ["No Data displayed" : ["Nothing to show"]]
+        let titleView = HStack {
+            Image(selectedKey + " designer text")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 40)
+            Text("Dining")
+                .font(.system(size: 32))
+                .foregroundColor(.black)
+                .fontWeight(.semibold)
+        }
+            .frame(maxWidth: .infinity)
+        .background(Color("NavBar color"))
+        .edgesIgnoringSafeArea(.horizontal)
         
-        NavigationStack {
+        NavigationView {
             ZStack {
                 Color.white
                     .ignoresSafeArea(.all)
                 //v stack with your ucla dining hall text
                 VStack {
                     //UCLA Dining Hall text / NAVBAR
-                    HStack {
-                        Image(selectedKey + " designer text")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 40)
-                        Text("Dining")
-                            .font(.system(size: 32))
-                            .foregroundColor(.black)
-                            .fontWeight(.semibold)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(Color("NavBar color"))
-                    .edgesIgnoringSafeArea(.horizontal)
-                    
+                    //HStack {
+                    //    Image(selectedKey + " designer text")
+                    //        .resizable()
+                    //        .aspectRatio(contentMode: .fit)
+                    //        .frame(height: 40)
+                    //    Text("Dining")
+                    //        .font(.system(size: 32))
+                    //        .foregroundColor(.black)
+                    //        .fontWeight(.semibold)
+                    //}
+                    //.frame(maxWidth: .infinity)
+                    //.background(Color("NavBar color"))
+                    //.edgesIgnoringSafeArea(.horizontal)
                     
                     ScrollView {
                         
@@ -79,9 +91,22 @@ struct ContentView: View {
                         }
                     }.edgesIgnoringSafeArea(.all)
                 }
-            }
-        }.preferredColorScheme(.light)
-
+            }.navigationBarTitle("", displayMode: .inline)
+                .toolbarBackground(
+                    Color("NavBar color"),
+                    for: .navigationBar)
+                .toolbarBackground(.visible, for: .navigationBar)
+                .navigationBarItems(
+                    leading:
+                        titleView,
+                    trailing:
+                        NavigationLink(destination: SettingsView()) {
+                            Image(systemName: "gear")
+                                .foregroundColor(.black)
+                        }
+                )
+        }
+        .preferredColorScheme(.light)
     }
 }
 

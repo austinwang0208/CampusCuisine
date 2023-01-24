@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isPresented: Bool = false
     @State private var selectedKey: String? = UserDefaults.standard.string(forKey: "selectedKey")
+    @State private var isPresented: Bool = false
     var body: some View {
         VStack {
             if selectedKey != nil {
                 Text("Selected Key: \(selectedKey!)")
+                NavigationLink(destination: SelectedView(selectedKey: self.$selectedKey)) {
+                    EmptyView()
+                }
             } else {
                 Button("Select Key") {
                     self.isPresented = true
@@ -22,6 +25,7 @@ struct ContentView: View {
                     FillInView(selectedKey: self.$selectedKey)
                 }
             }
+            Spacer()
         }
     }
 }

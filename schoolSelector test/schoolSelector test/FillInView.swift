@@ -8,6 +8,34 @@
 import SwiftUI
 import UIKit
 
+struct SettingsView: View {
+    var body: some View {
+        VStack {
+            Text("Settings View")
+        }.navigationBarTitle("Settings")
+    }
+}
+
+struct SelectedView: View {
+    @Binding var selectedKey: String?
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Selected Key: \(selectedKey!)")
+                Spacer()
+            }
+            .navigationBarTitle("Selected Key")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    // navigate to settings view
+                }) {
+                    Image(systemName: "gear")
+                }
+            )
+        }
+    }
+}
+
 struct FillInView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedKey: String?
@@ -29,7 +57,6 @@ struct FillInView: View {
                             }
                     }
                 }
-                .transition(.move(edge: .top))
             }
         }
     }
