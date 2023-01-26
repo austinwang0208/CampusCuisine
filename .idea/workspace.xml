@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88547569-3c3c-4f9c-ac9b-5ab92e47fe77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/DH.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Python Backend/UCB/Pipfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Python Backend/UCB/lambda_function.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Python Backend/UCB/ucbscraper.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Python Backend/UCD/lambda_function.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Burger Assembly.imageset/Burger-Assembly_350x200 1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Burger Assembly.imageset/Burger-Assembly_350x200 2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Burger Assembly.imageset/Burger-Assembly_350x200.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Burger Assembly.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Epazote Mexican Grill.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Epazote Mexican Grill.imageset/c22_350x200 1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Epazote Mexican Grill.imageset/c22_350x200 2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Epazote Mexican Grill.imageset/c22_350x200.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Fusion.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Fusion.imageset/fusion_350x200 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Fusion.imageset/fusion_350x200 2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Fusion.imageset/fusion_350x200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Tossed.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Tossed.imageset/Tossed_350x200 1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Tossed.imageset/Tossed_350x200 2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/Assets.xcassets/Restaurant Logos/UCLA/Tossed.imageset/Tossed_350x200.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/fixed_menus_pdf/UCLA/Burger Assembly fixed menu 1 pdf.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/fixed_menus_pdf/UCLA/Epazote Mexican Grill fixed menu 1 pdf.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/fixed_menus_pdf/UCLA/Fusion fixed menu 1 pdf.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UCLA/UCLA Dining/fixed_menus_pdf/UCLA/Tossed fixed menu 1 pdf.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Backend/UCD/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python Backend/UCD/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UCLA/Pods/Pods.xcodeproj/xcuserdata/austinwang.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/UCLA/Pods/Pods.xcodeproj/xcuserdata/austinwang.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UCLA/UCLA Dining.xcworkspace/xcuserdata/austinwang.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/UCLA/UCLA Dining.xcworkspace/xcuserdata/austinwang.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +21,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/austinwang/Desktop/DH"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/austinwang/Desktop/DH&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
