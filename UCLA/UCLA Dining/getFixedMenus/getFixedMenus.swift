@@ -18,6 +18,12 @@ func getFixedMenus(selectedKey: String) -> [Hall] {
     else if (selectedKey == "ucsbdiningmenus") {
         output = getUCSBfixed()
     }
+    else if (selectedKey == "ucddiningmenus") {
+        output = getUCDfixed()
+    }
+    else if (selectedKey == "ucrdiningmenus") {
+        output = getUCRfixed()
+    }
     
     return output
 }

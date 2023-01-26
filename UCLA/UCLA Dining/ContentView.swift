@@ -69,7 +69,6 @@ struct ContentView: View {
                                         }
                                     }
                                 }
-                                .padding(.top, 80)
                                 
                                 
                                 //Restaurant text
