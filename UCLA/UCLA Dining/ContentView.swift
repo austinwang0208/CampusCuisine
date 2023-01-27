@@ -33,7 +33,7 @@ struct ContentView: View {
         .background(Color("NavBar color"))
         .edgesIgnoringSafeArea(.horizontal)
         
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.white
                     .ignoresSafeArea(.all)
@@ -105,7 +105,7 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         }
                 )
-        }
+        }.tint(.black)
         .preferredColorScheme(.light)
     }
 }
