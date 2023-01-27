@@ -11,6 +11,9 @@ import GoogleMobileAds
 struct ContentView: View {
     @State private var bannerView: GADBannerView?
     
+    //for storing state of search bar
+    @State private var searchText = ""
+    
     //passed API output and storing in var
     var APIoutput : [String: [String : [String] ]]
     var output : [Hall]
@@ -39,21 +42,6 @@ struct ContentView: View {
                     .ignoresSafeArea(.all)
                 //v stack with your ucla dining hall text
                 VStack {
-                    //UCLA Dining Hall text / NAVBAR
-                    //HStack {
-                    //    Image(selectedKey + " designer text")
-                    //        .resizable()
-                    //        .aspectRatio(contentMode: .fit)
-                    //        .frame(height: 40)
-                    //    Text("Dining")
-                    //        .font(.system(size: 32))
-                    //        .foregroundColor(.black)
-                    //        .fontWeight(.semibold)
-                    //}
-                    //.frame(maxWidth: .infinity)
-                    //.background(Color("NavBar color"))
-                    //.edgesIgnoringSafeArea(.horizontal)
-                    
                     ScrollView {
                         
                         ZStack {
@@ -61,7 +49,7 @@ struct ContentView: View {
                             VStack {
                                 //Dining Hall buttons
                                 VStack{
-                                    let hallNames = Array(APIoutput.keys)
+                                    let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
                                     ForEach(hallNames, id: \.self) { name in
                                         let hallData = Hall(name: name, dishes: APIoutput[name] ?? NoData, image: name)
                                         NavigationLink(destination: Menu(hall: hallData)) {
@@ -80,7 +68,8 @@ struct ContentView: View {
                                 
                                 //Restaurant Buttons
                                 VStack{
-                                    ForEach(output, id: \.self) { hall in
+                                    let sortedOutput = output.sorted { $0.name < $1.name }
+                                    ForEach(sortedOutput, id: \.self) { hall in
                                         NavigationLink(destination: fixed_menu(hall: hall), label: {
                                             FoodIcon(hall: hall)
                                         })
@@ -98,11 +87,16 @@ struct ContentView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
                 .navigationBarItems(
                     leading:
-                        titleView,
+                        VStack {
+                            titleView
+                        },
                     trailing:
-                        NavigationLink(destination: SettingsView()) {
-                            Image(systemName: "gear")
-                                .foregroundColor(.black)
+                        VStack {
+                            NavigationLink(destination: SettingsView()) {
+                                Image(systemName: "gear")
+                                    .foregroundColor(.black)
+                                }
+                        //SearchBar(text: $searchText)
                         }
                 )
         }.tint(.black)
@@ -141,3 +135,21 @@ struct ContentView_Previews: PreviewProvider {
                     selectedKey: "diningmenus")
     }
 }
+
+//SearchBar struct
+
+struct SearchBarForContentView: View {
+    @Binding private var searchText : String
+    var body: some View {
+        HStack {
+            TextField("Search", text: $searchText)
+                .padding(10)
+                .background(Color("searchBarBackground"))
+                .cornerRadius(5)
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+                .padding(10)
+        }
+    }
+}
+

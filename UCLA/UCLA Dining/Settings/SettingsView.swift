@@ -10,7 +10,9 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         VStack {
-            Text("we didn't have time for a button to change schools, so just delete and reinstall the app and choose the school lol")
+            Text("COMING SOON")
+                .font(.system(size: 45, weight: .bold, design: .default))
+                .foregroundColor(.black)
         }.navigationBarTitle("Settings")
             .toolbarBackground(
                 Color("NavBar color"),
