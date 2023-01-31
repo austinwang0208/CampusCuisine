@@ -42,6 +42,35 @@ def lambda_handler(event, context):
         except KeyError:
             menu[hall] = {}
 
+    try:
+        z = menu["College Nine/John R Lewis"]
+        menu["College Nine and John R Lewis"] = z
+        del menu["College Nine/John R Lewis"]
+    except:
+        pass
+
+    try:
+        z = menu["Porter/Kresge"]
+        menu["Porter and Kresge"] = z
+        del menu["Porter/Kresge"]
+    except:
+        pass
+
+    try:
+        z = menu["Cowell/Stevenson"]
+        menu["Cowell and Stevenson"] = z
+        del menu["Cowell/Stevenson"]
+    except:
+        pass
+
+    try:
+        z = menu["Crown/Merrill"]
+        menu["Crown and Merrill"] = z
+        del menu["Crown/Merrill"]
+    except:
+        pass
+
+
     #return menu_items
     # Set the name of the S3 bucket and the key for the object
     bucket_name = "ucscdiningmenus"
@@ -54,5 +83,6 @@ def lambda_handler(event, context):
     s3.put_object(Bucket=bucket_name, Key=key_name, Body=json_data)
 
     # Empty return statement
-    print("Now go check your S3 bucket")
-    return datetime.today().strftime('%Y%m%d')
+    print(datetime.today().strftime('%Y%m%d'))
+
+    return "Now go check your S3 bucket"

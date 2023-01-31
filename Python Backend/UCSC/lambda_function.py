@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         try:
             z = menu[y]
         except KeyError:
-            menu[y] = {}
+            menu[y] = {}p
 
         for li2 in li.findAll("li", class_="r-meal"):  # every meal
             x = li2.find("label", {"data-orig": ["Breakfast", "Lunch", "Dinner", "Late Night"]}).text
@@ -41,6 +41,35 @@ def lambda_handler(event, context):
             z = menu[hall]
         except KeyError:
             menu[hall] = {}
+
+    try:
+        z = menu["College Nine/John R Lewis"]
+        menu["College Nine and John R Lewis"] = z
+        del menu["College Nine/John R Lewis"]
+    except:
+        pass
+
+    try:
+        z = menu["Porter/Kresge"]
+        menu["Porter and Kresge"] = z
+        del menu["Porter/Kresge"]
+    except:
+        pass
+
+    try:
+        z = menu["Cowell/Stevenson"]
+        menu["Cowell and Stevenson"] = z
+        del menu["Cowell/Stevenson"]
+    except:
+        pass
+
+    try:
+        z = menu["Crown/Merrill"]
+        menu["Crown and Merrill"] = z
+        del menu["Crown/Merrill"]
+    except:
+        pass
+
 
     #return menu_items
     # Set the name of the S3 bucket and the key for the object
