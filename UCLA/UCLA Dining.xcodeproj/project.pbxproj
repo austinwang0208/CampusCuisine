@@ -50,6 +50,7 @@
 		9175FA3F2982628F0089FAB3 /* getUCRfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175FA3E2982628F0089FAB3 /* getUCRfixed.swift */; };
 		9175FA41298266130089FAB3 /* getUCDfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175FA40298266130089FAB3 /* getUCDfixed.swift */; };
 		91B9F34B2982685D0098B74D /* Crepe Bistro Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91B9F34A2982685D0098B74D /* Crepe Bistro Menu pdf.pdf */; };
+		91CDFE45298DDEF300504AB3 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFE44298DDEF300504AB3 /* FooterView.swift */; };
 		91D8BE342977B10F00B84400 /* Summit Cafe Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91D8BE332977B10F00B84400 /* Summit Cafe Menu pdf.pdf */; };
 		91D8BE362977B11A00B84400 /* Root Burger Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91D8BE352977B11A00B84400 /* Root Burger Menu pdf.pdf */; };
 		91D8BE382977B12100B84400 /* Romaine's Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91D8BE372977B12100B84400 /* Romaine's Menu pdf.pdf */; };
@@ -105,6 +106,7 @@
 		9175FA3E2982628F0089FAB3 /* getUCRfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCRfixed.swift; sourceTree = "<group>"; };
 		9175FA40298266130089FAB3 /* getUCDfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCDfixed.swift; sourceTree = "<group>"; };
 		91B9F34A2982685D0098B74D /* Crepe Bistro Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Crepe Bistro Menu pdf.pdf"; sourceTree = "<group>"; };
+		91CDFE44298DDEF300504AB3 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		91D8BE332977B10F00B84400 /* Summit Cafe Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Summit Cafe Menu pdf.pdf"; sourceTree = "<group>"; };
 		91D8BE352977B11A00B84400 /* Root Burger Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Root Burger Menu pdf.pdf"; sourceTree = "<group>"; };
 		91D8BE372977B12100B84400 /* Romaine's Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Romaine's Menu pdf.pdf"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				2B59AE1729086FA50015ABAB /* UCLAApp.swift */,
 				2B59AE2529086FEA0015ABAB /* LaunchAnimation.swift */,
 				2B59AE1929086FA50015ABAB /* ContentView.swift */,
+				91CDFE44298DDEF300504AB3 /* FooterView.swift */,
 				2BD4730F297F8DC20058F5F8 /* Settings */,
 				2B4C5C3E2977680200C7A714 /* getFixedMenus */,
 				2B4C5C3C2977202600C7A714 /* FirstTimeViews */,
@@ -489,6 +492,7 @@
 			files = (
 				9175FA41298266130089FAB3 /* getUCDfixed.swift in Sources */,
 				2B59AE2E290870720015ABAB /* Menu.swift in Sources */,
+				91CDFE45298DDEF300504AB3 /* FooterView.swift in Sources */,
 				2BCE927C295AA1AF0039AD9E /* Fixed_Menu_Section.swift in Sources */,
 				2B9C98442975191100565E75 /* FillInView.swift in Sources */,
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
