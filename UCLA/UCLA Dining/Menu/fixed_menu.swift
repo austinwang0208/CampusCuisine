@@ -33,6 +33,7 @@ struct fixed_menu: View {
             .toolbarBackground(
                 Color("NavBar color"),
                 for: .navigationBar)
+
             .toolbarBackground(.visible, for: .navigationBar)
     }
 }

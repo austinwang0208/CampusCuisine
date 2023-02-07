@@ -21,24 +21,45 @@ struct FirstTimeView: View {
         }
         else {
             GeometryReader { geometry in
-                Color.black
+//                RadialGradient(gradient: Gradient(colors: [.gray, .black]), center: .center, startRadius: 0.2, endRadius: 650)
+                LinearGradient(gradient: Gradient(colors: [Color(red:80/255, green: 80/255, blue: 80/255), Color(red:20/255, green: 20/255, blue: 20/255), Color(red:10/255, green: 10/255, blue: 10/255)]), startPoint: .topTrailing, endPoint: .bottomLeading)
                     .edgesIgnoringSafeArea(.all)
-                Image("University Dining")
+                Image("Campus Dining")
                         .resizable()
                         .position(x: geometry.size.width / 2, y: geometry.size.height * 0.1)
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.8)
-                Button("Select Your University") {
+                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
+
+
+                
+//                Button("Select Your University") {
+//                    self.isPresented = true
+//                }
+//                .frame(width: 200, height: 50)
+////                .background(Color(red: 0.11372549019, green: 0.55294117647, blue: 0.93333333333 ))
+//                .underline()
+//                .background(.black)
+//                .foregroundColor(.white)
+//                .cornerRadius(25)
+//                .buttonStyle(BorderlessButtonStyle())
+//                .foregroundColor(.blue)
+//
+//                .position(x: geometry.size.width / 2, y: geometry.size.height * 12/20)
+//                .font(.custom("AppleSDGothicNeo-Bold", size: 18))
+                Button(action: {
                     self.isPresented = true
+                }) {
+        
+                    Text("Select Your University")
+                        .underline()
+                        .foregroundColor(.white)
+                        .font(.system(size: 18, weight: .heavy, design: .default))
+                    
                 }
-                .frame(width: 200, height: 50)
-                .background(Color(red: 0.11372549019, green: 0.55294117647, blue: 0.93333333333 ))
                 .foregroundColor(.white)
-                .cornerRadius(25)
-
+                .buttonStyle(BorderlessButtonStyle())
                 .position(x: geometry.size.width / 2, y: geometry.size.height * 12/20)
-                .font(.custom("ChalkboardSE-Light", size: 18))
-
+//                .font(.custom("Calibri-Bold", size: 20, weight: .heavy))
                 .sheet(isPresented: $isPresented) {
                     FillInView(selectedKey: self.$selectedKey)
                 }
