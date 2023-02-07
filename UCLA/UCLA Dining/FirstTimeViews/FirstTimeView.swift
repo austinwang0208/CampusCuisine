@@ -50,9 +50,9 @@ struct FirstTimeView: View {
                     self.isPresented = true
                 }) {
         
-                    Text("Select Your University")
+                    Text("SELECT YOUR UNIVERSITY")
                         .underline()
-                        .foregroundColor(.white)
+                        .foregroundColor(.blue)
                         .font(.system(size: 18, weight: .heavy, design: .default))
                     
                 }
