@@ -19,6 +19,9 @@ struct ContentView: View {
     var selectedKey : String
     @State private var searchText = ""
     
+    // to keep track of navigation path
+    //@State private var path: [String]
+    
     var body: some View {
         let NoData = ["No Data displayed" : ["Nothing to show"]]
 //        let titleView = HStack {
@@ -34,7 +37,7 @@ struct ContentView: View {
 //                    .frame(maxWidth: .infinity)
 //                .background(Color("NavBar color"))
 //                .edgesIgnoringSafeArea(.horizontal)
-        NavigationStack{
+        NavigationStack {
             
             VStack {
                 Section(footer: FooterView()){

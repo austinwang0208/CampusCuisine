@@ -14,11 +14,16 @@ struct FirstTimeView: View {
     //for retrieving school name
     @State private var isPresented: Bool = false
     @State private var selectedKey: String? = UserDefaults.standard.string(forKey: "selectedKey")
+//    @State private var firstTime: Bool = false
+    @State private var refresh: Bool = false
+    
     
     var body: some View {
         if selectedKey != nil {
             LaunchAnimation(selectedKey: selectedKey ?? "something wrong")
         }
+//        if firstTime == true{
+//            LaunchAnimation(selectedKey: selectedKey ?? "something wrong")}
         else {
             GeometryReader { geometry in
 //                RadialGradient(gradient: Gradient(colors: [.gray, .black]), center: .center, startRadius: 0.2, endRadius: 650)
@@ -61,7 +66,7 @@ struct FirstTimeView: View {
                 .position(x: geometry.size.width / 2, y: geometry.size.height * 12/20)
 //                .font(.custom("Calibri-Bold", size: 20, weight: .heavy))
                 .sheet(isPresented: $isPresented) {
-                    FillInView(selectedKey: self.$selectedKey)
+                    FillInView(selectedKey: self.$selectedKey,  refresh: self.$refresh)
                 }
             }
         }

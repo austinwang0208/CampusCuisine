@@ -13,7 +13,7 @@ struct Menu: View {
     var hall: Hall
     
     var body: some View {
-        ScrollViewReader( { proxy in
+        ScrollViewReader { proxy in
             ZStack{
                 Color.white
                     .ignoresSafeArea(.all)

@@ -8,9 +8,11 @@
 import SwiftUI
 import UIKit
 
+
 struct FillInView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedKey: String?
+    @Binding var refresh: Bool
     @State private var searchText: String = ""
     let options = [
         "University of California, Berkeley": "ucbdiningmenus",
@@ -35,7 +37,9 @@ struct FillInView: View {
                             .onTapGesture {
                                 self.selectedKey = option.value
                                 self.defaults.set(option.value, forKey: "selectedKey")
+                                self.refresh.toggle()
                                 self.presentationMode.wrappedValue.dismiss()
+//                                LaunchAnimation(selectedKey: selectedKey ?? "something wrong")
                             }
                     }
                 }
@@ -83,7 +87,7 @@ struct SearchBar: UIViewRepresentable {
 struct FillInView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FillInView(selectedKey: .constant(""))
+            FillInView(selectedKey: .constant(""), refresh: .constant(false))
         }
     }
 }
