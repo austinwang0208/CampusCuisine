@@ -135,10 +135,9 @@ struct Menu: View {
 struct Menu_Previews: PreviewProvider {
     static let HallPreview = Hall(
         name: "sample dining hall",
-        dishes: ["Breakfast" : ["eggs", "ham", "cereal"], "Lunch" : ["Sandwhich", "Pasta", "Burrito"], "Dinner" : ["Nachos", "Soup", "Chicken"], "Late Night": []],
-        image: "Epicuria at Covel"
-    )
-
+        dishes: ["Breakfast" : ["eggs", "ham", "cereal"], "Lunch" : ["Sandwhich", "Pasta", "Burrito"], "Dinner" : ["Nachos", "Soup", "Chicken"], "Late Night": []]
+        //image: "Epicuria at Covel"
+        )
     static var previews: some View {
         // 5. Use the right SecondView initializator
         Menu(hall: HallPreview)

@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 struct Hall: Hashable {
     var name: String
     var dishes: [String : [String]]?
-    var image: String
+//    var image = String
+    var image: UIImage? {
+        return getImageFromFileManager()
+    }
     var fixed_menu: [String]?
     var sections: Int?
     var section_names: [String]?
@@ -22,4 +26,20 @@ struct Hall: Hashable {
     static func == (lhs: Hall, rhs: Hall) -> Bool {
         return lhs.name == rhs.name
     }
+    
+    func getImageFromFileManager() -> UIImage?{
+        
+        let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let newkey = name.replacingOccurrences(of: " ", with: "_")
+        //let test_path = directory?.appendingPathComponent("\(newkey).jpg")
+        //print(test_path)
+        guard
+            let path = directory?.appendingPathComponent("\(newkey).jpg"),
+            FileManager.default.fileExists(atPath: path.path) else{
+            return nil
+        }
+        
+        return UIImage(contentsOfFile: path.path)
+    }
+    
 }

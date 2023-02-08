@@ -68,8 +68,6 @@ struct Fixed_Menu_Section: View {
 struct Fixed_Menu_Section_Previews: PreviewProvider {
     static let HallPreview = Hall(
         name: "Bruin Cafe",
-        //dishes: ["default", "preview", "menu"],
-        image: "Bruin Cafe",
         fixed_menu: ["Bruin Cafe fixed menu 1", "Bruin Cafe fixed menu 2"],
         sections: 2,
         section_names: ["Lunch & Dinner", "Smoothies and Coffee"]

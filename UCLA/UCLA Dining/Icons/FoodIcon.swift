@@ -12,13 +12,17 @@ struct FoodIcon: View {
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             //background image
-            Image(hall.image)
-                .resizable()
-                .scaledToFit()
-                //.aspectRatio(contentMode: .fit)
-                .frame(width: 350, height: 200)
-                .cornerRadius(20)
-                .shadow(color: Color.black, radius: 10, x: 0, y: 0)
+            
+            if let image = hall.image{
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    //.aspectRatio(contentMode: .fit)
+                    .frame(width: 350, height: 200)
+                    .cornerRadius(20)
+                    .shadow(color: Color.black, radius: 10, x: 0, y: 0)
+            }
+            
             
             RoundedCorners(tl: 0, tr: 0, bl: 20, br: 20)
                 .frame(width: 350, height: 40)
@@ -75,9 +79,9 @@ struct RoundedCorners: Shape {
 
 struct FoodIcon_Previews: PreviewProvider {
         static let HallPreview = Hall(
-            name: "sample dining hall",
+            name: "Bruin Plate"
             //dishes: ["default preview menu"],
-            image: "Epicuria at Covel"
+            //image: "Epicuria at Covel"
         )
         
         static var previews: some View {

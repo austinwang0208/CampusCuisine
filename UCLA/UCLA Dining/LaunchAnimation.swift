@@ -19,12 +19,14 @@ struct LaunchAnimation: View {
     
     //for storing API call output
     @State private var result: [String: [String : [String]]]?
+    @State private var images_loaded: Bool = false
     
     //for knowing which school we need to call api for
     var selectedKey : String
     
     var body: some View {
-        if result != nil && isActive {
+        if result != nil && isActive && images_loaded {
+            
             ContentView(APIoutput : result!,
                         output: getFixedMenus(selectedKey: selectedKey),
                         selectedKey: selectedKey
@@ -61,13 +63,124 @@ struct LaunchAnimation: View {
                         switch result {
                         case .success(let dictionary):
                             self.result = dictionary
+                            Task{
+                                await getImageFromAPI(selectedKey: selectedKey, result: self.result, output: getFixedMenus(selectedKey: selectedKey))
+
+                            }
                         case .failure(let error):
                             print(error)
                         }
                     }
+                    
                 }
             }
         }
+    }
+    
+    func getImageFromAPI(selectedKey: String, result: [String:[String: [String]]]?, output: [Hall]) async {
+//        for key in output {
+//            print(key.name)
+//        }
+        let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        if let unwrapped = result {
+            for key in unwrapped.keys {
+                let newkey = key.replacingOccurrences(of: " ", with: "_")
+                let path = directory?.appendingPathComponent("\(newkey).jpg")
+                // + "/" + "\(newkey).jpg"
+                if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
+                    print("getting images from API")
+                    let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
+                    
+                    let url = URL(string: complete_api)!
+                    
+                    //request.httpMethod = "GET"
+                    //request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+                    
+                    let image = try? await downloadWithAsync(url: url)
+                    
+                    guard
+                        let data = image?.jpegData(compressionQuality: 1.0) else {
+                        print("error")
+                        return
+                    }
+                    
+                    do {
+                        try data.write(to: path!)
+                        print("successful")
+                    } catch let error{
+                        print("error saving \(error)")
+                    }
+                }
+            }
+            
+            for key in output {
+                let newkey = key.name.replacingOccurrences(of: " ", with: "_")
+                let path = directory?.appendingPathComponent("\(newkey).jpg")
+                // + "/" + "\(newkey).jpg"
+                if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
+                    print("getting images from API")
+                    let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
+                    print(complete_api)
+                    let url = URL(string: complete_api)!
+                    
+                    //request.httpMethod = "GET"
+                    //request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+                    
+                    let image = try? await downloadWithAsync(url: url)
+                    
+                    guard
+                        let data = image?.jpegData(compressionQuality: 1.0) else {
+                        print("error")
+                        return
+                    }
+                    
+                    do {
+                        try data.write(to: path!)
+                        //print("successful")
+                    } catch let error{
+                        print("error saving \(error)")
+                    }
+                }
+            }
+            
+            //all images are loaded into cache
+            images_loaded = true
+            print("settings images_loaded \(images_loaded)")
+        }
+    }
+    
+    func handleResponse(data: Data?, response: URLResponse?) -> UIImage? {
+        guard let data = data,
+              let image = UIImage(data: data),
+              let response = response as? HTTPURLResponse,
+              response.statusCode >= 200 && response.statusCode < 300 else {
+                return nil
+        }
+        return image
+                
+    }
+
+    func downloadWithAsync(url: URL) async throws -> UIImage? {
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url, delegate: nil)
+            return handleResponse(data: data, response: response)
+        } catch {
+            throw error
+        }
+    }
+    
+    func checkIfFileExists(selectedKey: String, key: String, path:URL?) -> Bool {
+        if let path = path {
+            print(path)
+            if FileManager.default.fileExists(atPath: path.path){
+                //print("image already exists")
+                return true
+            }else {
+                //print("image does not exist")
+                return false
+            }
+        }
+        return false
     }
     
     func makePostRequest(completion: @escaping (Result<[String: [String : [String]]], Error>) -> Void) {

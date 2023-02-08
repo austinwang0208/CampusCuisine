@@ -35,24 +35,30 @@ struct FooterView: View {
 
 
     
+//struct FooterView_Previews: PreviewProvider {
+//    static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
+//                                [
+//                                    "Breakfast" : ["cereal", "oatmeal", "eggs"],
+//                                    "Lunch" : ["Noodles", "Chicken", "Bistro"],
+//                                    "Dinner" : ["Tenders", "Salad", "Tomatoe Soup"]
+//                                ],
+//
+//                             "Bruin Plate" :
+//                                [
+//                                    "Breakfast" : ["Bread", "Coffee", "Fruits"],
+//                                    "Lunch" : ["Falafels", "Pizza", "French Fries"],
+//                                    "Dinner" : ["Tacos", "Quesadillas", "Chicken Tikka"]
+//                                ]
+//    ]
+//    static var previews: some View {
+//        ContentView(APIoutput: APIpreview,
+//                     output: getFixedMenus(selectedKey: "diningmenus"),
+//                     selectedKey: "diningmenus")
+//    }
+//}
+
 struct FooterView_Previews: PreviewProvider {
-    static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
-                                [
-                                    "Breakfast" : ["cereal", "oatmeal", "eggs"],
-                                    "Lunch" : ["Noodles", "Chicken", "Bistro"],
-                                    "Dinner" : ["Tenders", "Salad", "Tomatoe Soup"]
-                                ],
-                             
-                             "Bruin Plate" :
-                                [
-                                    "Breakfast" : ["Bread", "Coffee", "Fruits"],
-                                    "Lunch" : ["Falafels", "Pizza", "French Fries"],
-                                    "Dinner" : ["Tacos", "Quesadillas", "Chicken Tikka"]
-                                ]
-    ]
     static var previews: some View {
-        ContentView(APIoutput: APIpreview,
-                     output: getFixedMenus(selectedKey: "diningmenus"),
-                     selectedKey: "diningmenus")
+        FooterView()
     }
 }
