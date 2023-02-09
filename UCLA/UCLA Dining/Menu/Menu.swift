@@ -56,18 +56,21 @@ struct Menu: View {
                 HStack(spacing:20){
                     ForEach(Array(common), id: \.self) { key in
                         Button{
-                            proxy.scrollTo(key, anchor: .top)
+                            withAnimation(.easeInOut(duration: 100)) {
+                                proxy.scrollTo(key, anchor: .top)
+                                                }
                             
                         }label:{
                             Text(key)
                         }
                     }
                 }
-                
-                .frame(width:350)
+                .frame(maxWidth: .infinity)
                 .padding(.vertical)
-                .background(.white)
-                .cornerRadius(10)
+                .padding(.horizontal)
+                .background(.blue)
+//                .cornerRadius(10)
+//                .frame(width: 350px)
                 .padding(.bottom)
             }
             

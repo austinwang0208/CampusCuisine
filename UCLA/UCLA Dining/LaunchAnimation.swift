@@ -75,8 +75,8 @@ struct LaunchAnimation: View {
                 }
             }
         }
+
     }
-    
     func getImageFromAPI(selectedKey: String, result: [String:[String: [String]]]?, output: [Hall]) async {
 //        for key in output {
 //            print(key.name)

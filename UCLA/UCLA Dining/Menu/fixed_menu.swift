@@ -30,8 +30,9 @@ struct fixed_menu: View {
                     }
                 }
         }.navigationBarTitle(hall.name)
+            .font(.system(size: 10))
             .toolbarBackground(
-                Color("NavBar color"),
+                Color(.white),
                 for: .navigationBar)
 
             .toolbarBackground(.visible, for: .navigationBar)
