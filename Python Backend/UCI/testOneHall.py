@@ -14,7 +14,7 @@ driver.get('https://uci.campusdish.com/LocationsAndMenus/Brandywine')
 
 # Close Pop Up Promotional
 print("going to close pop up")
-button = driver.find_element(by = By.CLASS_NAME, value = "sc-ciZhAO.bKsLXl")
+button = driver.find_element(by = By.CLASS_NAME, value = "sc-jdAMXn cQLxeT")
 #button = driver.find_element_by_xpath("//button[@aria-label='Close']")
 button.click()
 driver.implicitly_wait(10)
