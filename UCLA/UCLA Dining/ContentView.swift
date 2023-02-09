@@ -87,6 +87,7 @@ struct ContentView: View {
 //                            )
       .searchable(text: $searchText, prompt: "Search Dining Halls")
         }
+        .preferredColorScheme(.light)
         .tint(.black)
     }
     
