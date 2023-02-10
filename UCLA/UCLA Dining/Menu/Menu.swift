@@ -41,6 +41,7 @@ struct Menu: View {
                                 x.filter { y.contains($0) }
                             }()
                             //                        let common = Array(x.intersection(Set(y)))
+                            //if (Array(common).count > 0) {
                             ForEach(Array(common), id: \.self) { key in
                                 Section(header: Text(key)) {
                                     ForEach(hall.dishes![key]!, id: \.self) { value in
@@ -48,8 +49,11 @@ struct Menu: View {
                                     }
                                 }.id(key)
                             }
+                            //}
+                            //else {
+                                
+                            //}
                         }
-                        
                     }
                     
                     VStack {
@@ -62,7 +66,8 @@ struct Menu: View {
                 let common: [String] = {
                     x.filter { y.contains($0) }
                 }()
-                HStack(spacing:20){
+                
+                HStack(spacing:0){
                     ForEach(Array(common), id: \.self) { key in
                         Button{
                             withAnimation(.easeInOut(duration: 100)) {
@@ -75,7 +80,7 @@ struct Menu: View {
                                                 .foregroundColor(.white)
                                                 .font(.largeTitle)
                                                 .scaledToFit()
-                                                .minimumScaleFactor(0.1)
+                                                .minimumScaleFactor(0.66)
                                                 .lineLimit(1)
                                                 .background(GeometryReader {
                                                     Color.clear
