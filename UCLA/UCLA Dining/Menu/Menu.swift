@@ -75,13 +75,13 @@ struct Menu: View {
                                                 .foregroundColor(.white)
                                                 .font(.largeTitle)
                                                 .scaledToFit()
-                                                .minimumScaleFactor(0.01)
+                                                .minimumScaleFactor(0.1)
                                                 .lineLimit(1)
                                                 .background(GeometryReader {
                                                     Color.clear
                                                         .preference(key: SizePreferenceKey.self, value: $0.size.height)
                                                 })
-                                                .frame(maxHeight: wordHeight)
+                                                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: wordHeight)
                         }.onPreferenceChange(SizePreferenceKey.self, perform: { wordHeight = $0 })
                     }
                 }
