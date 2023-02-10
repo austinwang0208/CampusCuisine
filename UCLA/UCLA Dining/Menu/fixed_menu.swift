@@ -14,16 +14,16 @@ struct fixed_menu: View {
     var body: some View {
         ZStack {
                 if hall.sections! <= 1 {
-                    Fixed_Menu_Section(hall: hall, section_number: 0)
+                    Fixed_Menu_Section(hall: hall, section_number: 1)
                 }
                 else {
                     if hall.fixed_menu != nil {
                         TabView {
-                            ForEach(0..<hall.sections!, id: \.self) { index in
+                            ForEach(1...hall.sections!, id: \.self) { index in
                                 Fixed_Menu_Section(hall: hall, section_number: index)
                                     .tabItem {
                                         Image(systemName: "circle")
-                                        Text(hall.section_names![index])
+                                        Text(hall.section_names![index-1])
                                     }
                             }
                         }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import UIKit
 
 enum APIError: Error {
     case invalidStatusCode
@@ -120,7 +122,6 @@ struct LaunchAnimation: View {
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
                     print("getting images from API")
                     let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
-                    print(complete_api)
                     let url = URL(string: complete_api)!
                     
                     //request.httpMethod = "GET"
@@ -141,6 +142,58 @@ struct LaunchAnimation: View {
                         print("error saving \(error)")
                     }
                 }
+                
+                
+                print("getting pdfs from API")
+                
+                for i in 1...key.sections!{
+                    let pdfpath = directory?.appendingPathComponent("\(newkey)_Menu_\(i).pdf")
+                    if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: pdfpath) != true{
+                        let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey)_Menu_\(i).pdf"
+                        print("complete_api ", complete_api)
+                        let pdfFile = try? Data.init(contentsOf: URL(string: complete_api)!)
+
+                        do {
+                            try pdfFile?.write(to: pdfpath!, options: .atomic)
+                            //print(pdfpath)
+                            print("saved")
+                        } catch {
+                            print("error saving pdf")
+                        }
+                        
+//                        let url = URL(string: complete_api)!
+//                        var request = URLRequest(url: url)
+//                        request.httpMethod = "GET"
+//                        request.addValue("application/pdf", forHTTPHeaderField: "Content-Type")
+//                        request.addValue("application/pdf", forHTTPHeaderField: "Accept")
+//                        print(request)
+//
+//
+//                        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//                            if let error = error {
+//                                return
+//                            }
+//
+//                            if let data = data, let response = response as? HTTPURLResponse {
+//                                print("check")
+//                                if response.statusCode == 200 {
+//                                    do {
+//                                        print(pdfpath)
+//                                        try data.write(to: pdfpath!)
+//                                    } catch {
+//                                        print("\(error) error writing")
+//                                        return
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        print("end")
+                        
+                        
+                    }
+                    
+                }
+                
             }
             
             //all images are loaded into cache
@@ -171,12 +224,11 @@ struct LaunchAnimation: View {
     
     func checkIfFileExists(selectedKey: String, key: String, path:URL?) -> Bool {
         if let path = path {
-            print(path)
             if FileManager.default.fileExists(atPath: path.path){
-                //print("image already exists")
+                print("image already exists")
                 return true
             }else {
-                //print("image does not exist")
+                print("image does not exist")
                 return false
             }
         }

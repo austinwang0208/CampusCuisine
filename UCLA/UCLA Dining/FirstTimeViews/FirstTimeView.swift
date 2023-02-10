@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-
 struct FirstTimeView: View {
     
     //for retrieving school name
