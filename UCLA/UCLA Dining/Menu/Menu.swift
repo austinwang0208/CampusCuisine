@@ -9,8 +9,17 @@
 
 import SwiftUI
 
+private struct SizePreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = .zero
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = min(value, nextValue())
+    }
+}
+
 struct Menu: View {
     var hall: Hall
+    // for ensuring each tab view element is the same size
+    @State private var wordHeight: CGFloat = 100
     
     var body: some View {
         ScrollViewReader { proxy in
@@ -58,24 +67,40 @@ struct Menu: View {
                         Button{
                             withAnimation(.easeInOut(duration: 100)) {
                                 proxy.scrollTo(key, anchor: .top)
-                                                }
+                            }
                             
                         }label:{
                             Text(key)
-                        }
+                                .font(.system(size: 19, weight: .bold, design: .default))
+                                                .foregroundColor(.white)
+                                                .font(.largeTitle)
+                                                .scaledToFit()
+                                                .minimumScaleFactor(0.01)
+                                                .lineLimit(1)
+                                                .background(GeometryReader {
+                                                    Color.clear
+                                                        .preference(key: SizePreferenceKey.self, value: $0.size.height)
+                                                })
+                                                .frame(maxHeight: wordHeight)
+                        }.onPreferenceChange(SizePreferenceKey.self, perform: { wordHeight = $0 })
                     }
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical)
                 .padding(.horizontal)
-                .background(.blue)
-//                .cornerRadius(10)
-//                .frame(width: 350px)
+                .background(Color("NavBar color"))
+                //                .cornerRadius(10)
+                //                .frame(width: 350px)
                 .padding(.bottom)
             }
             
             
         }
+        .navigationBarTitle("", displayMode: .inline)
+                                    .toolbarBackground(
+                                        Color("NavBar color"),
+                                        for: .navigationBar)
+                    .toolbarBackground(.visible, for: .navigationBar)
     }
     
 }
