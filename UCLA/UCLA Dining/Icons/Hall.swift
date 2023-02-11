@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct Hall: Hashable {
+    var selectedKey: String
     var name: String
     var dishes: [String : [String]]?
 //    var image = String
@@ -28,13 +29,13 @@ struct Hall: Hashable {
     }
     
     func getImageFromFileManager() -> UIImage?{
-        
         let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let directory2 = directory?.appendingPathComponent("\(selectedKey)/")
         let newkey = name.replacingOccurrences(of: " ", with: "_")
         //let test_path = directory?.appendingPathComponent("\(newkey).jpg")
         //print(test_path)
         guard
-            let path = directory?.appendingPathComponent("\(newkey).jpg"),
+            let path = directory2?.appendingPathComponent("\(newkey).jpg"),
             FileManager.default.fileExists(atPath: path.path) else{
             return nil
         }

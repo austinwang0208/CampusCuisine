@@ -167,6 +167,7 @@ struct Menu: View {
 //
 struct Menu_Previews: PreviewProvider {
     static let HallPreview = Hall(
+        selectedKey: "diningmenus",
         name: "sample dining hall",
         dishes: ["Breakfast" : ["eggs", "ham", "cereal"], "Lunch" : ["Sandwhich", "Pasta", "Burrito"], "Dinner" : ["Nachos", "Soup", "Chicken"], "Late Night": []]
         //image: "Epicuria at Covel"

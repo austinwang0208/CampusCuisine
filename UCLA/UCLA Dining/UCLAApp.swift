@@ -10,6 +10,7 @@ import GoogleMobileAds
 
 @main
 struct UCLAApp: App {
+    //error right here
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
     }

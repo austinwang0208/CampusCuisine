@@ -48,7 +48,7 @@ struct ContentView: View {
                                 VStack{
                                     let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
                                     ForEach(hallNames, id: \.self) { name in
-                                        let hallData = Hall(name: name, dishes: APIoutput[name] ?? NoData)
+                                        let hallData = Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData)
                                         NavigationLink(destination: Menu(hall: hallData)) {
                                             FoodIcon(hall: hallData)
                                         }

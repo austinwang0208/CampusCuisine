@@ -35,6 +35,19 @@ struct FillInView: View {
                     ForEach(options.filter({searchText.isEmpty ? true : $0.key.localizedCaseInsensitiveContains(searchText)}), id: \.key) { option in
                         Text(option.key)
                             .onTapGesture {
+                                if(selectedKey != nil){
+                                    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+                                    let directory2 = directory?.appendingPathComponent("\(self.selectedKey!)/")
+                                    do{
+                                        try FileManager.default.removeItem(at: directory2!)
+                                    } catch let error{
+                                        print(error)
+                                    }
+                                    
+                                    print("directory2 ", directory2)
+                                } else {
+                                    print("Selected Key is nil")
+                                }
                                 self.selectedKey = option.value
                                 self.defaults.set(option.value, forKey: "selectedKey")
                                 self.refresh.toggle()

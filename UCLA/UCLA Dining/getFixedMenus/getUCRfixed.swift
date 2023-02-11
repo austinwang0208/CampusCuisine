@@ -9,6 +9,7 @@ import Foundation
 
 func getUCRfixed() -> [Hall] {
     let IvansCoffeeShopData = Hall(
+        selectedKey: "ucrdiningmenus",
         name: "Ivan's Coffee Shop",
         //image: "Ivan's Coffee Shop",
         fixed_menu: ["Ivan's Coffee Shop"],
@@ -16,12 +17,14 @@ func getUCRfixed() -> [Hall] {
     )
     
     let BytesCafeData = Hall(
+        selectedKey: "ucrdiningmenus",
         name: "Bytes Cafe",
         //image: "Bytes Cafe",
         fixed_menu: ["Bytes Cafe"],
         sections: 1
     )
     let LollicupFreshBobaData = Hall(
+        selectedKey: "ucrdiningmenus",
         name: "Lollicup Fresh Boba",
         //image: "Lollicup Fresh Boba",
         fixed_menu: ["Lollicup Fresh Boba"],

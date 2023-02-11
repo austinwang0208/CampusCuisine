@@ -79,6 +79,7 @@ struct RoundedCorners: Shape {
 
 struct FoodIcon_Previews: PreviewProvider {
         static let HallPreview = Hall(
+            selectedKey: "diningmenus",
             name: "Bruin Plate"
             //dishes: ["default preview menu"],
             //image: "Epicuria at Covel"

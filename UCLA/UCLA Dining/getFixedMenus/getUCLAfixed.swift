@@ -9,6 +9,7 @@ import Foundation
 
 func getUCLAfixed() -> [Hall] {
     let BruinCafeData = Hall(
+        selectedKey: "diningmenus",
         name: "Bruin Cafe",
         //image: "Bruin Cafe",
         fixed_menu: ["Bruin Cafe fixed menu 1", "Bruin Cafe fixed menu 2"],
@@ -17,6 +18,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let EpicuriaAckermanData = Hall(
+        selectedKey: "diningmenus",
         name: "Epicuria at Ackerman",
         //image: "Epicuria at Ackerman",
         fixed_menu: ["Ackerman fixed menu 1"],
@@ -24,6 +26,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let DreyData = Hall(
+        selectedKey: "diningmenus",
         name: "The Drey",
         //image: "the drey",
         fixed_menu: ["The Drey fixed menu 1"],
@@ -31,6 +34,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let RendezvousData = Hall(
+        selectedKey: "diningmenus",
         name: "Rendezvous",
         //image: "Rendezvous",
         fixed_menu: ["Rendezvous fixed menu 1", "Rendezvous fixed menu 2", "Rendezvous fixed menu 3"],
@@ -39,6 +43,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let DeNeveLateNightData = Hall(
+        selectedKey: "diningmenus",
         name: "De Neve Late Night",
         //image: "De Neve Late Night",
         fixed_menu: ["De Neve fixed menu 1"],
@@ -46,6 +51,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let TheStudyatHedrickData = Hall(
+        selectedKey: "diningmenus",
         name: "The Study at Hedrick",
         //image: "The Study at Hedrick",
         fixed_menu: ["Hedrick fixed menu 1", "Hedrick fixed menu 2", "Hedrick fixed menu 3", "Hedrick fixed menu 4", "Hedrick fixed menu 5"],
@@ -54,6 +60,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let SpiceKitchen = Hall(
+        selectedKey: "diningmenus",
         name: "The Spice Kitchen",
         //image: "The Spice Kitchen",
         fixed_menu: ["Spice Kitchen fixed menu 1"],
@@ -61,6 +68,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let BurgerAssembly = Hall(
+        selectedKey: "diningmenus",
         name: "Burger Assembly",
         //image: "Burger Assembly",
         fixed_menu: ["Burger Assembly fixed menu 1"],
@@ -68,6 +76,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let EpazoteMexicanGrill = Hall(
+        selectedKey: "diningmenus",
         name: "Epazote Mexican Grill",
         //image: "Epazote Mexican Grill",
         fixed_menu: ["Epazote Mexican Grill fixed menu 1"],
@@ -75,6 +84,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let Tossed = Hall(
+        selectedKey: "diningmenus",
         name: "Tossed",
         //image: "Tossed",
         fixed_menu: ["Tossed fixed menu 1"],
@@ -82,6 +92,7 @@ func getUCLAfixed() -> [Hall] {
     )
     
     let Fusion = Hall(
+        selectedKey: "diningmenus",
         name : "Fusion",
         //image: "Fusion",
         fixed_menu: ["Fusion fixed menu 1"],

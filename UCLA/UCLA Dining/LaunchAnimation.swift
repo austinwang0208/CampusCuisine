@@ -84,25 +84,34 @@ struct LaunchAnimation: View {
 //            print(key.name)
 //        }
         let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let directory2 = directory?.appendingPathComponent("\(selectedKey)/")
+        print(directory2)
+        do{
+            try FileManager.default.createDirectory(at: directory2!, withIntermediateDirectories: false)
+        } catch let error {
+            print("could not create directory", error)
+        }
         if let unwrapped = result {
             for key in unwrapped.keys {
                 let newkey = key.replacingOccurrences(of: " ", with: "_")
-                let path = directory?.appendingPathComponent("\(newkey).jpg")
+                let path = directory2?.appendingPathComponent("\(newkey).jpg")
                 // + "/" + "\(newkey).jpg"
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
                     print("getting images from API")
                     let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
                     
                     let url = URL(string: complete_api)!
+                    print(path)
                     
                     //request.httpMethod = "GET"
                     //request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
                     
                     let image = try? await downloadWithAsync(url: url)
                     
+                    
                     guard
                         let data = image?.jpegData(compressionQuality: 1.0) else {
-                        print("error")
+                        print("error for some other reason")
                         return
                     }
                     
@@ -117,7 +126,7 @@ struct LaunchAnimation: View {
             
             for key in output {
                 let newkey = key.name.replacingOccurrences(of: " ", with: "_")
-                let path = directory?.appendingPathComponent("\(newkey).jpg")
+                let path = directory2?.appendingPathComponent("\(newkey).jpg")
                 // + "/" + "\(newkey).jpg"
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
                     print("getting images from API")
@@ -131,7 +140,7 @@ struct LaunchAnimation: View {
                     
                     guard
                         let data = image?.jpegData(compressionQuality: 1.0) else {
-                        print("error")
+                        print("error for some reason")
                         return
                     }
                     
@@ -147,7 +156,7 @@ struct LaunchAnimation: View {
                 print("getting pdfs from API")
                 
                 for i in 1...key.sections!{
-                    let pdfpath = directory?.appendingPathComponent("\(newkey)_Menu_\(i).pdf")
+                    let pdfpath = directory2?.appendingPathComponent("\(newkey)_Menu_\(i).pdf")
                     if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: pdfpath) != true{
                         let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey)_Menu_\(i).pdf"
                         print("complete_api ", complete_api)

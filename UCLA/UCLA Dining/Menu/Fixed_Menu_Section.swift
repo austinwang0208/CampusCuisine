@@ -56,7 +56,7 @@ struct Fixed_Menu_Section: View {
 //                    let PDFurl = Bundle.main.url(forResource: temp, withExtension: "pdf")!//might need to add ! to unwrap unsure
                     let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
                     let newkey = hall.name.replacingOccurrences(of: " ", with: "_")
-                    let pdfpath = directory!.appendingPathComponent("\(newkey)_Menu_\(section_number).pdf")
+                    let pdfpath = directory!.appendingPathComponent("\(hall.selectedKey)/\(newkey)_Menu_\(section_number).pdf")
                     CustomPDFView(displayedPDFURL: pdfpath)
                     
                 }.onAppear(perform: {printstuff(hall_name: hall.name, section_number: section_number)})
@@ -77,6 +77,7 @@ func printstuff(hall_name: String, section_number: Int){
 
 struct Fixed_Menu_Section_Previews: PreviewProvider {
     static let HallPreview = Hall(
+        selectedKey: "diningmenus",
         name: "Bruin Cafe",
         fixed_menu: ["Bruin Cafe fixed menu 1", "Bruin Cafe fixed menu 2"],
         sections: 2,

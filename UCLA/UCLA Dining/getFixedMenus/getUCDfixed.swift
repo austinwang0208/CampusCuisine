@@ -9,6 +9,7 @@ import Foundation
 
 func getUCDfixed() -> [Hall] {
     let CrepeBistroData = Hall(
+        selectedKey: "ucddiningmenus",
         name: "Crepe Bistro",
         //image: "Crepe Bistro",
         fixed_menu: ["Crepe Bistro Menu"],

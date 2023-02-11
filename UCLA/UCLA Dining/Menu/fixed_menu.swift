@@ -41,6 +41,7 @@ struct fixed_menu: View {
 
 struct fixed_menu_Previews: PreviewProvider {
     static let HallPreview = Hall(
+        selectedKey: "diningmenus",
         name: "Bruin Cafe",
         //dishes: ["default", "preview", "menu"],
         //image: "Bruin Cafe",
