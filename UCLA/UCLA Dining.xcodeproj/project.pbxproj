@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0B81412995DE7E00EA6B74 /* ChangeSchools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B81402995DE7E00EA6B74 /* ChangeSchools.swift */; };
+		2B0B81432995E10400EA6B74 /* LeaveUsAReviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B81422995E10400EA6B74 /* LeaveUsAReviewButton.swift */; };
+		2B0B814529978BC900EA6B74 /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B814429978BC900EA6B74 /* DeveloperSection.swift */; };
+		2B0B81472997928500EA6B74 /* SuggestionsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B81462997928500EA6B74 /* SuggestionsForm.swift */; };
+		2B0B814A2997959900EA6B74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0B81492997959900EA6B74 /* Alamofire */; };
 		2B4C5C3B29771EC300C7A714 /* getFixedMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */; };
 		2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */; };
 		2B59AE1829086FA50015ABAB /* UCLAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59AE1729086FA50015ABAB /* UCLAApp.swift */; };
@@ -38,6 +43,10 @@
 
 /* Begin PBXFileReference section */
 		0B7CBA3D87460FD79359F31B /* Pods-UCLA Dining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCLA Dining.debug.xcconfig"; path = "Target Support Files/Pods-UCLA Dining/Pods-UCLA Dining.debug.xcconfig"; sourceTree = "<group>"; };
+		2B0B81402995DE7E00EA6B74 /* ChangeSchools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSchools.swift; sourceTree = "<group>"; };
+		2B0B81422995E10400EA6B74 /* LeaveUsAReviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveUsAReviewButton.swift; sourceTree = "<group>"; };
+		2B0B814429978BC900EA6B74 /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
+		2B0B81462997928500EA6B74 /* SuggestionsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsForm.swift; sourceTree = "<group>"; };
 		2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFixedMenus.swift; sourceTree = "<group>"; };
 		2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCLAfixed.swift; sourceTree = "<group>"; };
 		2B59AE1429086FA50015ABAB /* UCLA Dining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA Dining.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D187C9F6AB25B1597D57A88 /* Pods_UCLA_Dining.framework in Frameworks */,
+				2B0B814A2997959900EA6B74 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +219,10 @@
 			isa = PBXGroup;
 			children = (
 				2BD47312297F8DF40058F5F8 /* SettingsView.swift */,
+				2B0B81402995DE7E00EA6B74 /* ChangeSchools.swift */,
+				2B0B814429978BC900EA6B74 /* DeveloperSection.swift */,
+				2B0B81462997928500EA6B74 /* SuggestionsForm.swift */,
+				2B0B81422995E10400EA6B74 /* LeaveUsAReviewButton.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -273,6 +287,9 @@
 			dependencies = (
 			);
 			name = "UCLA Dining";
+			packageProductDependencies = (
+				2B0B81492997959900EA6B74 /* Alamofire */,
+			);
 			productName = UCLA;
 			productReference = 2B59AE1429086FA50015ABAB /* UCLA Dining.app */;
 			productType = "com.apple.product-type.application";
@@ -301,6 +318,9 @@
 				Base,
 			);
 			mainGroup = 2B59AE0B29086FA50015ABAB;
+			packageReferences = (
+				2B0B81482997959900EA6B74 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 2B59AE1529086FA50015ABAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -378,6 +398,7 @@
 				2B59AE2E290870720015ABAB /* Menu.swift in Sources */,
 				91CDFE45298DDEF300504AB3 /* FooterView.swift in Sources */,
 				2BCE927C295AA1AF0039AD9E /* Fixed_Menu_Section.swift in Sources */,
+				2B0B814529978BC900EA6B74 /* DeveloperSection.swift in Sources */,
 				2B9C98442975191100565E75 /* FillInView.swift in Sources */,
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
 				2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */,
@@ -385,11 +406,14 @@
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
 				9175FA3F2982628F0089FAB3 /* getUCRfixed.swift in Sources */,
 				2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */,
+				2B0B81412995DE7E00EA6B74 /* ChangeSchools.swift in Sources */,
 				2B59AE2629086FEA0015ABAB /* LaunchAnimation.swift in Sources */,
+				2B0B81432995E10400EA6B74 /* LeaveUsAReviewButton.swift in Sources */,
 				2BD47313297F8DF40058F5F8 /* SettingsView.swift in Sources */,
 				2B6A7C56296A40E200D977EC /* BannerAd.swift in Sources */,
 				2B9C9822297240BF00565E75 /* Menu_Section.swift in Sources */,
 				2B59AE2A2908704C0015ABAB /* FoodIcon.swift in Sources */,
+				2B0B81472997928500EA6B74 /* SuggestionsForm.swift in Sources */,
 				2B4C5C3B29771EC300C7A714 /* getFixedMenus.swift in Sources */,
 				2B59AE1829086FA50015ABAB /* UCLAApp.swift in Sources */,
 				2BCE927629598BF40039AD9E /* fixed_menu.swift in Sources */,
@@ -597,6 +621,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B0B81482997959900EA6B74 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B0B81492997959900EA6B74 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B0B81482997959900EA6B74 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2B59AE0C29086FA50015ABAB /* Project object */;
 }

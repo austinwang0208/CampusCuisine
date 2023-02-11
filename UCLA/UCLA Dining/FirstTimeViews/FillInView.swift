@@ -32,9 +32,28 @@ struct FillInView: View {
             SearchBar(text: $searchText)
             //if !searchText.isEmpty {
                 List {
-                    ForEach(options.filter({searchText.isEmpty ? true : $0.key.localizedCaseInsensitiveContains(searchText)}), id: \.key) { option in
-                        Text(option.key)
-                            .onTapGesture {
+//<<<<<<< Updated upstream
+//                    ForEach(options.filter({searchText.isEmpty ? true : $0.key.localizedCaseInsensitiveContains(searchText)}), id: \.key) { option in
+//                        Text(option.key)
+//                            .onTapGesture {
+//                                if(selectedKey != nil){
+//                                    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+//                                    let directory2 = directory?.appendingPathComponent("\(self.selectedKey!)/")
+//                                    do{
+//                                        try FileManager.default.removeItem(at: directory2!)
+//                                    } catch let error{
+//                                        print(error)
+//                                    }
+//
+//                                    print("directory2 ", directory2)
+//                                } else {
+//                                    print("Selected Key is nil")
+//                                }
+//=======
+                    ForEach(options.sorted(by: { $0.key < $1.key }).filter({searchText.isEmpty ? true : $0.key.localizedCaseInsensitiveContains(searchText)}), id: \.key) { option in
+                        Button(action: {
+                            withAnimation {
+//>>>>>>> Stashed changes
                                 if(selectedKey != nil){
                                     let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
                                     let directory2 = directory?.appendingPathComponent("\(self.selectedKey!)/")
@@ -43,22 +62,30 @@ struct FillInView: View {
                                     } catch let error{
                                         print(error)
                                     }
-                                    
+
                                     print("directory2 ", directory2)
                                 } else {
                                     print("Selected Key is nil")
                                 }
+                                
                                 self.selectedKey = option.value
                                 self.defaults.set(option.value, forKey: "selectedKey")
                                 self.refresh.toggle()
                                 self.presentationMode.wrappedValue.dismiss()
-//                                LaunchAnimation(selectedKey: selectedKey ?? "something wrong")
                             }
+                        }) {
+                            HStack {
+                                Text(option.key)
+                                    .foregroundColor(.black)
+                            }
+                            .padding([.top,.bottom], 10)
+                            //.background(self.selectedKey == option.value ? Color.gray : Color.clear)
+                        }
                     }
                 }
                 .transition(.move(edge: .top))
             //}
-        }
+        }.preferredColorScheme(.light)
     }
 }
 

@@ -12,8 +12,11 @@ import GoogleMobileAds
 struct UCLAApp: App {
     //error right here
     init() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        DispatchQueue.global().async {
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+        }
     }
+
     var body: some Scene {
         WindowGroup {
             FirstTimeView()

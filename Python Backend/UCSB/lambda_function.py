@@ -25,7 +25,9 @@ def lambda_handler(event, context):
                     items.append(item.text)
                 if len(items) > 0:
                     menu_items[place][meal] = items
-
+        # Edit: To remove - in De-La-Guerra
+        if "-" in place:
+            menu_items[place.replace("-", " ")] = menu_items.pop(place)
     #return menu_items
     # Set the name of the S3 bucket and the key for the object
     bucket_name = "ucsbdiningmenus"
