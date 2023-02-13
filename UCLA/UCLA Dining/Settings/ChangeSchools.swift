@@ -15,13 +15,13 @@ struct ChangeSchools: View {
     var body: some View {
         VStack {
             if refresh != false {
-                //delete cache folder right here
-                LaunchAnimation(selectedKey: selectedKey ?? "something wrong")
+                LaunchAnimation(selectedKey: selectedKey ?? "something wrong").onAppear {
+                    self.changeSchools = self.refresh
+                }
             }
             else{
                 Button(action: {
                     self.isPresented = true
-                    changeSchools = true
                 }) {
                     
                     Text("SELECT YOUR UNIVERSITY")
@@ -32,16 +32,10 @@ struct ChangeSchools: View {
                 }
                 .foregroundColor(.white)
                 .buttonStyle(BorderlessButtonStyle())
-                //            .position(x: geometry.size.width / 2, y: geometry.size.height * 12/20)
-                //                .font(.custom("Calibri-Bold", size: 20, weight: .heavy))
                 .sheet(isPresented: $isPresented) {
                     FillInView(selectedKey: $selectedKey, refresh: $refresh)
-                }.navigationBarTitle("Settings")
-                    //.toolbarBackground(
-                    //    Color("NavBar color"),
-                    //    for: .navigationBar)
-                    //.toolbarBackground(.visible, for: .navigationBar)
-                
+                }
+                .navigationBarTitle("Settings")
             }
         }
     }

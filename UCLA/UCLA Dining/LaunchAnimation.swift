@@ -85,7 +85,7 @@ struct LaunchAnimation: View {
 //        }
         let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
         let directory2 = directory?.appendingPathComponent("\(selectedKey)/")
-        print(directory2)
+        //print(directory2)
         do{
             try FileManager.default.createDirectory(at: directory2!, withIntermediateDirectories: false)
         } catch let error {
@@ -97,11 +97,11 @@ struct LaunchAnimation: View {
                 let path = directory2?.appendingPathComponent("\(newkey).jpg")
                 // + "/" + "\(newkey).jpg"
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
-                    print("getting images from API")
+                    //print("getting images from API")
                     let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
                     
                     let url = URL(string: complete_api)!
-                    print(path)
+                    //print(path)
                     
                     //request.httpMethod = "GET"
                     //request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
@@ -129,7 +129,7 @@ struct LaunchAnimation: View {
                 let path = directory2?.appendingPathComponent("\(newkey).jpg")
                 // + "/" + "\(newkey).jpg"
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
-                    print("getting images from API")
+                    //print("getting images from API")
                     let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
                     let url = URL(string: complete_api)!
                     
@@ -234,10 +234,10 @@ struct LaunchAnimation: View {
     func checkIfFileExists(selectedKey: String, key: String, path:URL?) -> Bool {
         if let path = path {
             if FileManager.default.fileExists(atPath: path.path){
-                print("image already exists")
+                //print("image already exists")
                 return true
             }else {
-                print("image does not exist")
+                //print("image does not exist")
                 return false
             }
         }

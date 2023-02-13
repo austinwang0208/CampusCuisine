@@ -17,13 +17,13 @@ struct FillInView: View {
     let options = [
         "University of California, Berkeley": "ucbdiningmenus",
         "University of California, Los Angeles": "diningmenus",
-        "University of California, San Diego": "ucsddiningmenus",
+        //"University of California, San Diego": "ucsddiningmenus",
         "University of California, Santa Barbara": "ucsbdiningmenus",
-        "University of California, Irvine" : "ucidiningmenus",
+        //"University of California, Irvine" : "ucidiningmenus",
         "University of California, Davis": "ucddiningmenus",
         "University of California, Santa Cruz" : "ucscdiningmenus",
         "University of California, Riverside" : "ucrdiningmenus",
-        "University of California, Merced" : "ucmdiningmenus",
+        //"University of California, Merced" : "ucmdiningmenus",
     ]
     let defaults = UserDefaults.standard
 
@@ -32,28 +32,9 @@ struct FillInView: View {
             SearchBar(text: $searchText)
             //if !searchText.isEmpty {
                 List {
-//<<<<<<< Updated upstream
-//                    ForEach(options.filter({searchText.isEmpty ? true : $0.key.localizedCaseInsensitiveContains(searchText)}), id: \.key) { option in
-//                        Text(option.key)
-//                            .onTapGesture {
-//                                if(selectedKey != nil){
-//                                    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
-//                                    let directory2 = directory?.appendingPathComponent("\(self.selectedKey!)/")
-//                                    do{
-//                                        try FileManager.default.removeItem(at: directory2!)
-//                                    } catch let error{
-//                                        print(error)
-//                                    }
-//
-//                                    print("directory2 ", directory2)
-//                                } else {
-//                                    print("Selected Key is nil")
-//                                }
-//=======
                     ForEach(options.sorted(by: { $0.key < $1.key }).filter({searchText.isEmpty ? true : $0.key.localizedCaseInsensitiveContains(searchText)}), id: \.key) { option in
                         Button(action: {
                             withAnimation {
-//>>>>>>> Stashed changes
                                 if(selectedKey != nil){
                                     let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
                                     let directory2 = directory?.appendingPathComponent("\(self.selectedKey!)/")
@@ -63,7 +44,7 @@ struct FillInView: View {
                                         print(error)
                                     }
 
-                                    print("directory2 ", directory2)
+                                    //print("directory2 ", directory2)
                                 } else {
                                     print("Selected Key is nil")
                                 }

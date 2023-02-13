@@ -7,27 +7,40 @@
 
 import SwiftUI
 
-
-
 struct SettingsView: View {
     @State private var changeSchools = false
+    
     var body: some View {
-        //ZStack {
-            VStack {
-                //ScrollView {
-                    ChangeSchools(changeSchools: $changeSchools)
-                    if (changeSchools == false) {
-                        //LeaveUsAReviewView()
+        ZStack {
+            Color.white
+            VStack(spacing: 20) {
+                ChangeSchools(changeSchools: $changeSchools)
+                
+                if (changeSchools == false) {
+                    VStack(spacing: 20) {
+                        NavigationLink(destination: LeaveUsAReviewView()) {
+                            Text("Rate our App:")
+                                .font(.headline)
+                        }.onTapGesture {
+                            print("changeSchools: \(changeSchools)")
+                        }
                         
-                        //DevelopersView()
-                        
-                        SuggestionsForm()
+                        NavigationLink(destination: SuggestionsForm()) {
+                            Text("Have something to report?")
+                                .font(.headline)
+                        }.onTapGesture {
+                            print("changeSchools: \(changeSchools)")
+                        }
                     }
-                //}
+                    .padding()
+                }
             }
-        //}
+        }
     }
 }
+
+
+
 
 func deleteDir(){
     print("HI")

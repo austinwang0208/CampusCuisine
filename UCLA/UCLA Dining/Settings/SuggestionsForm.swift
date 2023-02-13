@@ -34,7 +34,7 @@ struct SuggestionsForm: View {
                     Text(message)
                         .foregroundColor(.green)
                 }
-            }
+            }.frame(height:300)
             //.navigationBarTitle("Suggestions")
         }
     }
