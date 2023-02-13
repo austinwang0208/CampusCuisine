@@ -30,8 +30,16 @@ func getUCRfixed() -> [Hall] {
         fixed_menu: ["Lollicup Fresh Boba Menu 1"],
         sections: 1
     )
+    let TheBarnData = Hall(
+        selectedKey: "ucrdiningmenus",
+        name: "The Barn",
+        //image: "The Barn Grill",
+        fixed_menu: ["The Barn Menu 1", "The Barn Menu 2"],
+        sections: 2 ,
+        section_names: ["The Grill", "Patio Bar"]
+    )
 
     
-    let output = [IvansatHinderaker, BytesData,LollicupFreshBobaData]
+    let output = [IvansatHinderaker, BytesData,LollicupFreshBobaData,TheBarnData]
     return output
 }
