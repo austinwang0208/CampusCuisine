@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import GoogleMobileAds
 
 struct ContentView: View {
@@ -18,29 +19,37 @@ struct ContentView: View {
     var output : [Hall]
     var selectedKey : String
     @State private var searchText = ""
+    @State private var showResults = false
+//    @StateObject var oo = SearchObservableObject()
     
     // to keep track of navigation path
     //@State private var path: [String]
     
     var body: some View {
         let NoData = ["No Data displayed" : ["Nothing to show"]]
-//        let titleView = HStack {
-//                    Image(selectedKey + " designer text")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(height: 40)
-//                    Text("Dining")
-//                        .font(.system(size: 32))
-//                        .foregroundColor(.black)
-//                        .fontWeight(.semibold)
-//                }
-//                    .frame(maxWidth: .infinity)
-//                .background(Color("NavBar color"))
-//                .edgesIgnoringSafeArea(.horizontal)
-        NavigationStack {
-            
+        NavigationView {
             VStack {
-                Section(footer: FooterView()){
+                HStack {
+                    TextField("Search", text: $searchText) { isEditing in
+                        self.showResults = true
+                    }
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal)
+                    .onTapGesture {
+                        self.showResults = true
+                    }
+                    if showResults {
+                        Button("Cancel") {
+                            self.searchText = ""
+                            self.showResults = false
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        }
+                        .padding(.trailing, 8)
+                    }
+                }
+                if showResults {
+                    SearchResultView(APIoutput: APIoutput, searchText: searchText, selectedKey: selectedKey)
+                } else {
                     ScrollView {
                         ZStack {
                             VStack {
@@ -65,35 +74,92 @@ struct ContentView: View {
                                     ForEach(sortedOutput, id: \.self) { hall in
                                         NavigationLink(destination: fixed_menu(hall: hall), label: {
                                             FoodIcon(hall: hall)
-                                        })
-                                    }
-                                }
+                                        }
+                                        )}}
                             }
                         }
                     }
+                    
                 }
             }
             .navigationTitle(x[selectedKey]!)
-//            .navigationBarTitle("", displayMode: .inline)
-//                            .toolbarBackground(
-//                                Color("NavBar color"),
-//                                for: .navigationBar)
-//            .toolbarBackground(.visible, for: .navigationBar)
-//            .navigationBarItems(
-//                    leading:
-//                        HStack {
-//                            titleView
-//                        }
-//                            )
-      .searchable(text: $searchText, prompt: "Search Dining Halls")
+            .preferredColorScheme(.light)
+            .tint(.black)
         }
-        .preferredColorScheme(.light)
-        .tint(.black)
+    }
+}
+
+struct SearchResultView: View {
+    var APIoutput : [String: [String : [String] ]]
+    let searchText: String
+    var selectedKey : String
+    let NoData = ["No Data displayed" : ["Nothing to show"]]
+    
+    func getData() -> [ItemDataObject] {
+        var items = [ItemDataObject]()
+        for (hall, meals) in APIoutput {
+            for (meal, itemList) in meals {
+                for item in itemList {
+                    let itemDataObject = ItemDataObject(food: item, mealtime: meal, hallname: hall)
+                    items.append(itemDataObject)
+                }
+            }
+        }
+        return items
     }
     
+    var body: some View {
+        let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
+        let res = Dictionary(uniqueKeysWithValues:
+                                hallNames.map { name in
+            (name, Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData))
+        }
+        )
+        
+        let searchData = getData().filter { $0.food.contains(searchText) }
+        ScrollView{
+            ForEach(searchData, id: \.id) { itemData in
+                NavigationLink(destination: Menu(hall: res[itemData.hallname]!)){
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(itemData.food)
+                            .font(.system(size:17, weight: .medium, design: .default))
+                        Group {
+                            Text(itemData.mealtime)
+                            Text(itemData.hallname)
+                        }
+                        .foregroundColor(.gray)
+                        .font(.system(size:15, weight: .medium, design: .default))
+                    }
+                    .padding(.leading, 16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .padding(.vertical,4)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
     
-    
-    
+}
+//        ScrollView{
+//
+//            ForEach(searchData, id: \.id) { itemData in
+//                HStack {
+//                    VStack(alignment: .leading, spacing: 4) {
+//                        Text (itemData.food)
+//                            .font(.title2.weight(.semibold))
+//                        Group{
+//                            Text (itemData.mealtime)
+//                            Text (itemData.hallname)
+//                        }
+//                        .foregroundColor(.gray)
+//                    }
+//                }.padding(.vertical,4)
+//            }
+//        }
+//            }
+//        }
+
     struct ContentView_Previews: PreviewProvider {
         static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
                                     [
@@ -120,4 +186,4 @@ struct ContentView: View {
     
     
     
-}
+

@@ -38,6 +38,8 @@
 		9175FA41298266130089FAB3 /* getUCDfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175FA40298266130089FAB3 /* getUCDfixed.swift */; };
 		91B9F34B2982685D0098B74D /* Crepe Bistro Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91B9F34A2982685D0098B74D /* Crepe Bistro Menu pdf.pdf */; };
 		91CDFE45298DDEF300504AB3 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFE44298DDEF300504AB3 /* FooterView.swift */; };
+		91E137ED29A0A77B00C26AE7 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 91E137EC29A0A77B00C26AE7 /* SwiftUIX */; };
+		91E137EF29A0A88400C26AE7 /* ItemDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */; };
 		9D187C9F6AB25B1597D57A88 /* Pods_UCLA_Dining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,7 @@
 		9175FA40298266130089FAB3 /* getUCDfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCDfixed.swift; sourceTree = "<group>"; };
 		91B9F34A2982685D0098B74D /* Crepe Bistro Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Crepe Bistro Menu pdf.pdf"; sourceTree = "<group>"; };
 		91CDFE44298DDEF300504AB3 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataObject.swift; sourceTree = "<group>"; };
 		9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCLA_Dining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05CF450628FF0AC32BF773C /* Pods-UCLA Dining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCLA Dining.release.xcconfig"; path = "Target Support Files/Pods-UCLA Dining/Pods-UCLA Dining.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E137ED29A0A77B00C26AE7 /* SwiftUIX in Frameworks */,
 				9D187C9F6AB25B1597D57A88 /* Pods_UCLA_Dining.framework in Frameworks */,
 				2B0B814A2997959900EA6B74 /* Alamofire in Frameworks */,
 			);
@@ -156,6 +160,7 @@
 				2B663DB229563B5B0087AAE6 /* fonts */,
 				2B59AE1B29086FA90015ABAB /* Assets.xcassets */,
 				2B59AE1D29086FA90015ABAB /* Preview Content */,
+				91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */,
 			);
 			path = "UCLA Dining";
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 			name = "UCLA Dining";
 			packageProductDependencies = (
 				2B0B81492997959900EA6B74 /* Alamofire */,
+				91E137EC29A0A77B00C26AE7 /* SwiftUIX */,
 			);
 			productName = UCLA;
 			productReference = 2B59AE1429086FA50015ABAB /* UCLA Dining.app */;
@@ -320,6 +326,7 @@
 			mainGroup = 2B59AE0B29086FA50015ABAB;
 			packageReferences = (
 				2B0B81482997959900EA6B74 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				91E137EB29A0A77B00C26AE7 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 2B59AE1529086FA50015ABAB /* Products */;
 			projectDirPath = "";
@@ -401,6 +408,7 @@
 				2B0B814529978BC900EA6B74 /* DeveloperSection.swift in Sources */,
 				2B9C98442975191100565E75 /* FillInView.swift in Sources */,
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
+				91E137EF29A0A88400C26AE7 /* ItemDataObject.swift in Sources */,
 				2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */,
 				2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */,
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
@@ -546,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UCLA Dining/Preview Content\"";
-				DEVELOPMENT_TEAM = 8HM33Q7CQ6;
+				DEVELOPMENT_TEAM = H3J4YJ2PSN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UCLA-Dining-Info.plist";
@@ -577,7 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UCLA Dining/Preview Content\"";
-				DEVELOPMENT_TEAM = 8HM33Q7CQ6;
+				DEVELOPMENT_TEAM = H3J4YJ2PSN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UCLA-Dining-Info.plist";
@@ -631,6 +639,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		91E137EB29A0A77B00C26AE7 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -638,6 +654,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B0B81482997959900EA6B74 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		91E137EC29A0A77B00C26AE7 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91E137EB29A0A77B00C26AE7 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
