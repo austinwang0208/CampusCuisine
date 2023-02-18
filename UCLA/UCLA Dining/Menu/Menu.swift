@@ -44,9 +44,13 @@ struct Menu: View {
                             //if (Array(common).count > 0) {
                             ForEach(Array(common), id: \.self) { key in
                                 Section(header: Text(key)) {
-                                    ForEach(hall.dishes![key]!, id: \.self) { value in
-                                        Text(value)
+                                    if hall.dishes![key]!.count == 0{
+                                        Text("No Menu")
                                     }
+                                    else{
+                                        ForEach(hall.dishes![key]!, id: \.self) { value in
+                                            Text(value)
+                                        }}
                                 }.id(key)
                             }
                             //}
