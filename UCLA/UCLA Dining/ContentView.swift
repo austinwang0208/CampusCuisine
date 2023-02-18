@@ -53,6 +53,11 @@ struct ContentView: View {
                     ScrollView {
                         ZStack {
                             VStack {
+                                NavigationLink(destination: SettingsView()) {
+                                    Image(systemName: "gear")
+                                        .font(.title2)
+                                        .foregroundColor(.black)
+                                }.frame(maxWidth: .infinity)
                                 //Dining Hall buttons
                                 VStack{
                                     let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
