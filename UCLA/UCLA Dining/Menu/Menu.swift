@@ -101,7 +101,7 @@ struct Menu: View {
             
             
         }
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarTitle(hall.name, displayMode: .inline)
                                     .toolbarBackground(
                                         Color("NavBar color"),
                                         for: .navigationBar)
