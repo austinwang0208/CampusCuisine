@@ -10,6 +10,7 @@ import SwiftUIX
 import GoogleMobileAds
 
 struct ContentView: View {
+    
     //dictionary for converting selectedKey into university acronyms
     let x = ["diningmenus": "UCLA Dining", "ucbdiningmenus": "UCB Dining", "ucddiningmenus": "UCD Dining", "ucidiningmenus": "UCI Dining", "ucmdiningmenus": "UCM Dining", "ucrdiningmenus": "UCR Dining", "ucsbdiningmenus": "UCSB Dining", "ucscdiningmenus":"UCSC Dining", "ucsddiningmenus":"UCSD Dining"]
 
@@ -22,21 +23,40 @@ struct ContentView: View {
     @State private var showResults = false
 //    @StateObject var oo = SearchObservableObject()
     
+    
+//    let attrs = [
+//        NSAttributedString.Key.foregroundColor: UIColor.white,
+//    ]
+
+    
     // to keep track of navigation path
     //@State private var path: [String]
-    
     var body: some View {
         NavigationView {
+            
             SearchingView(searchText: $searchText, APIoutput: APIoutput, selectedKey: selectedKey, output: output)
-                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search")
-                .navigationTitle(x[selectedKey]!)
+                .searchable(text: $searchText, prompt: "Search for an food")
+            //add , placement: .navigationBarDrawer(displayMode: .always) to make search bar always stay
+                .autocorrectionDisabled(true)
+                .navigationBarTitle(x[selectedKey]!)
+//                .foregroundColor(Color(.white))
                 .preferredColorScheme(.light)
                 .tint(.black)
             
-        }
+
+            
+        }.accentColor(.black)
+//            .foregroundColor(Color("NavBar color"))
+//        .onAppear {
+//            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+//            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+//            UINavigationBar.appearance().titleTextAttributes = attrs
+            
+            
+//
+//        }
     }
 }
-
 
 
 struct SearchingView: View {
@@ -72,26 +92,30 @@ struct SearchingView: View {
             let searchData = getData().filter { $0.food.contains(searchText) }
             ScrollView{
                 ForEach(searchData, id: \.id) { itemData in
-                    NavigationLink(destination: Menu(hall: res[itemData.hallname]!)){
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(itemData.food)
-                                .font(.system(size:17, weight: .medium, design: .default))
-                            Group {
-                                Text(itemData.mealtime)
-                                Text(itemData.hallname)
+                    Divider()
+                    Button(action: {
+                        // Do something here if you need to
+                    }) {
+                        NavigationLink(destination: Menu(hall: res[itemData.hallname]!)) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(itemData.food)
+                                    .font(.system(size:17, weight: .medium, design: .default))
+                                Group {
+                                    Text(itemData.mealtime)
+                                    Text(itemData.hallname)
+                                }
+                                .foregroundColor(.gray)
+                                .font(.system(size:15, weight: .medium, design: .default))
                             }
-                            .foregroundColor(.gray)
-                            .font(.system(size:15, weight: .medium, design: .default))
+                            .padding(.leading, 16)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .padding(.leading, 16)
-                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.vertical,4)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-        
-    }
+            }
                 } else {
                     ScrollView {
                         ZStack {
