@@ -26,38 +26,76 @@ struct ContentView: View {
     //@State private var path: [String]
     
     var body: some View {
-        let NoData = ["No Data displayed" : ["Nothing to show"]]
         NavigationView {
-            VStack {
-                HStack {
-                    TextField("Search", text: $searchText) { isEditing in
-                        self.showResults = true
-                    }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                    .onTapGesture {
-                        self.showResults = true
-                    }
-                    if showResults {
-                        Button("Cancel") {
-                            self.searchText = ""
-                            self.showResults = false
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        }
-                        .padding(.trailing, 8)
-                    }
+            SearchingView(searchText: $searchText, APIoutput: APIoutput, selectedKey: selectedKey, output: output)
+                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search")
+                .navigationTitle(x[selectedKey]!)
+                .preferredColorScheme(.light)
+                .tint(.black)
+            
+        }
+    }
+}
+
+
+
+struct SearchingView: View {
+    @Environment(\.isSearching) private var isSearching
+    @Binding var searchText: String
+    var APIoutput : [String: [String : [String] ]]
+    var selectedKey : String
+    var output : [Hall]
+    let NoData = ["No Data displayed" : ["Nothing to show"]]
+    
+    func getData() -> [ItemDataObject] {
+        var items = [ItemDataObject]()
+        for (hall, meals) in APIoutput {
+            for (meal, itemList) in meals {
+                for item in itemList {
+                    let itemDataObject = ItemDataObject(food: item, mealtime: meal, hallname: hall)
+                    items.append(itemDataObject)
                 }
-                if showResults {
-                    SearchResultView(APIoutput: APIoutput, searchText: searchText, selectedKey: selectedKey)
+            }
+        }
+        return items
+    }
+    
+    var body: some View {
+        if isSearching {
+            let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
+            let res = Dictionary(uniqueKeysWithValues:
+                                    hallNames.map { name in
+                (name, Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData))
+            }
+            )
+            
+            let searchData = getData().filter { $0.food.contains(searchText) }
+            ScrollView{
+                ForEach(searchData, id: \.id) { itemData in
+                    NavigationLink(destination: Menu(hall: res[itemData.hallname]!)){
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(itemData.food)
+                                .font(.system(size:17, weight: .medium, design: .default))
+                            Group {
+                                Text(itemData.mealtime)
+                                Text(itemData.hallname)
+                            }
+                            .foregroundColor(.gray)
+                            .font(.system(size:15, weight: .medium, design: .default))
+                        }
+                        .padding(.leading, 16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.vertical,4)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+        
+    }
                 } else {
                     ScrollView {
                         ZStack {
                             VStack {
-                                NavigationLink(destination: SettingsView()) {
-                                    Image(systemName: "gear")
-                                        .font(.title2)
-                                        .foregroundColor(.black)
-                                }.frame(maxWidth: .infinity)
                                 //Dining Hall buttons
                                 VStack{
                                     let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
@@ -84,86 +122,11 @@ struct ContentView: View {
                             }
                         }
                     }
-                    
-                }
-            }
-            .navigationTitle(x[selectedKey]!)
-            .preferredColorScheme(.light)
-            .tint(.black)
-        }
-    }
-}
 
-struct SearchResultView: View {
-    var APIoutput : [String: [String : [String] ]]
-    let searchText: String
-    var selectedKey : String
-    let NoData = ["No Data displayed" : ["Nothing to show"]]
-    
-    func getData() -> [ItemDataObject] {
-        var items = [ItemDataObject]()
-        for (hall, meals) in APIoutput {
-            for (meal, itemList) in meals {
-                for item in itemList {
-                    let itemDataObject = ItemDataObject(food: item, mealtime: meal, hallname: hall)
-                    items.append(itemDataObject)
                 }
             }
         }
-        return items
-    }
-    
-    var body: some View {
-        let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
-        let res = Dictionary(uniqueKeysWithValues:
-                                hallNames.map { name in
-            (name, Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData))
-        }
-        )
-        
-        let searchData = getData().filter { $0.food.contains(searchText) }
-        ScrollView{
-            ForEach(searchData, id: \.id) { itemData in
-                NavigationLink(destination: Menu(hall: res[itemData.hallname]!)){
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(itemData.food)
-                            .font(.system(size:17, weight: .medium, design: .default))
-                        Group {
-                            Text(itemData.mealtime)
-                            Text(itemData.hallname)
-                        }
-                        .foregroundColor(.gray)
-                        .font(.system(size:15, weight: .medium, design: .default))
-                    }
-                    .padding(.leading, 16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .buttonStyle(PlainButtonStyle())
-                .padding(.vertical,4)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-    }
-    
-}
-//        ScrollView{
-//
-//            ForEach(searchData, id: \.id) { itemData in
-//                HStack {
-//                    VStack(alignment: .leading, spacing: 4) {
-//                        Text (itemData.food)
-//                            .font(.title2.weight(.semibold))
-//                        Group{
-//                            Text (itemData.mealtime)
-//                            Text (itemData.hallname)
-//                        }
-//                        .foregroundColor(.gray)
-//                    }
-//                }.padding(.vertical,4)
-//            }
-//        }
-//            }
-//        }
+
 
     struct ContentView_Previews: PreviewProvider {
         static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
