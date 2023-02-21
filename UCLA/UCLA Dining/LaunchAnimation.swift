@@ -14,6 +14,17 @@ enum APIError: Error {
     case invalidResponse
 }
 
+//class SessionManager: ObservableObject {
+//    var isLoggedIn: Bool = false {
+//        didSet {
+//            rootId = UUID()
+//        }
+//    }
+//
+//    @Published
+//    var rootId: UUID = UUID()
+//}
+
 struct LaunchAnimation: View {
     @State var isActive = false
     @State private var size = 0.8
@@ -26,9 +37,12 @@ struct LaunchAnimation: View {
     //for knowing which school we need to call api for
     var selectedKey : String
     
+//    //for fixing back button issue after new uni is selected
+//    @ObservedObject
+//    private var sessionManager = SessionManager()
+    
     var body: some View {
         if result != nil && isActive && images_loaded {
-            
             ContentView(APIoutput : result!,
                         output: getFixedMenus(selectedKey: selectedKey),
                         selectedKey: selectedKey

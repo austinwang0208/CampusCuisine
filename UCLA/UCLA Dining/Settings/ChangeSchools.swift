@@ -25,7 +25,7 @@ struct ChangeSchools: View {
                 }) {
                     
                     Text("SELECT YOUR UNIVERSITY")
-                        .underline()
+                        //.underline()
                         .foregroundColor(.black)
                         .font(.system(size: 18, weight: .heavy, design: .default))
                     
@@ -35,7 +35,6 @@ struct ChangeSchools: View {
                 .sheet(isPresented: $isPresented) {
                     FillInView(selectedKey: $selectedKey, refresh: $refresh)
                 }
-                .navigationBarTitle("Settings")
             }
         }
     }

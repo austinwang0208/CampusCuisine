@@ -39,6 +39,25 @@ struct ContentView: View {
             //add , placement: .navigationBarDrawer(displayMode: .always) to make search bar always stay
                 .autocorrectionDisabled(true)
                 .navigationBarTitle(x[selectedKey]!)
+                .navigationBarItems(
+                    //leading:
+                        //VStack{
+                            //Text(x[selectedKey]!)
+                            //    .font(.custom("SF Pro Display", size: 20))
+                            //},
+                        trailing:
+                            VStack {
+                                //Text(" ")
+                                //Text(" ")
+                                //Text(" ")
+                                NavigationLink(destination: SettingsView()) {
+                                    Image(systemName: "gear")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.black)
+                                }
+                            }
+                )
+            
 //                .foregroundColor(Color(.white))
                 .preferredColorScheme(.light)
                 .tint(.black)
