@@ -35,7 +35,7 @@ struct Menu: View {
                     }
                     else{
                         List {
-                            let x = ["Breakfast", "Brunch", "Lunch", "Dinner", "Late Night"]
+                            let x = ["Breakfast", "Brunch", "Lunch","Lunch/Dinner", "Dinner", "Late Night"]
                             let y = hall.dishes!.keys.sorted()
                             let common: [String] = {
                                 x.filter { y.contains($0) }
@@ -65,7 +65,7 @@ struct Menu: View {
                     }.frame(height: 45)
                 }
             }.safeAreaInset(edge: .top){
-                let x = ["Breakfast", "Brunch", "Lunch", "Dinner", "Late Night"]
+                let x = ["Breakfast", "Brunch", "Lunch","Lunch/Dinner", "Dinner", "Late Night"]
                 let y = hall.dishes!.keys.sorted()
                 let common: [String] = {
                     x.filter { y.contains($0) }
