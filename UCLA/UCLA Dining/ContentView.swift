@@ -39,6 +39,11 @@ struct ContentView: View {
             //add , placement: .navigationBarDrawer(displayMode: .always) to make search bar always stay
                 .autocorrectionDisabled(true)
                 .navigationBarTitle(x[selectedKey]!)
+//                .toolbarBackground(
+//                    Color("NavBar color"),
+//                    for: .tabBar)
+//
+//                .toolbarBackground(.visible, for: .navigationBar)
                 .navigationBarItems(
                     //leading:
                         //VStack{
