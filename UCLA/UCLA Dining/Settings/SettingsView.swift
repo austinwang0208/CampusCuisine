@@ -31,11 +31,12 @@ struct SettingsView: View {
                                 self.isPresented = true
                                 self.showNavigationBar = false
                             }) {
-                                VStack {
-                                    Text("Change University")
+                                VStack(alignment: .leading) {
+                                    Text("Change University:")
                                         .font(.headline)
                                         .foregroundColor(.black)
-                                        .padding(.vertical, 20)
+                                        .padding([.vertical, .horizontal] , 20)
+                                        
                                     Image("\(selectedKey!) designer text")
                                         .padding(.vertical, 20)
                                     //.font(.system(size: 18, design: .default))
@@ -54,17 +55,30 @@ struct SettingsView: View {
                         //    .foregroundColor(.black)
                         
                     List {
-                        
-                        NavigationLink(destination: LeaveUsAReviewView()) {
-                            Text("Rate our App:")
+                        Button(action: {
+                            //let appId = "1449187448"
+                            //let urlString = "itms-apps://itunes.apple.com/app/id\(appId)?action=write-review"
+                            let urlString = "https:///www.google.com"
+                            
+                            if let url = URL(string: urlString) {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Leave A Review: ")
                                 .font(.headline)
-                                .padding(.vertical, 20)
+                                .foregroundColor(.black)
+                                .padding([.vertical, .horizontal] , 20)
                         }
+//                        NavigationLink(destination: LeaveUsAReviewView()) {
+//                            Text("Rate our App:")
+//                                .font(.headline)
+//                                .padding(.vertical, 20)
+//                        }
                             
                         NavigationLink(destination: SuggestionsForm()) {
-                            Text("Have something to report?")
+                            Text("Have Something to Report?")
                                 .font(.headline)
-                                .padding(.vertical, 20)
+                                .padding([.vertical, .horizontal] , 20)
                         }
                     }//.listStyle(PlainListStyle())
                 }

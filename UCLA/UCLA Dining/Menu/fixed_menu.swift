@@ -29,10 +29,10 @@ struct fixed_menu: View {
                         }
                     }
                 }
-        }.navigationBarTitle(hall.name)
+        }.navigationBarTitle("Settings", displayMode: .inline)
             .font(.system(size: 10))
             .toolbarBackground(
-                Color(.white),
+                Color("NavBar color"),
                 for: .navigationBar)
 
             .toolbarBackground(.visible, for: .navigationBar)
