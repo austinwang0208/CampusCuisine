@@ -9,7 +9,9 @@ import SwiftUI
 import SwiftUIX
 import GoogleMobileAds
 
+
 struct ContentView: View {
+    
     
     //dictionary for converting selectedKey into university acronyms
     let x = ["diningmenus": "UCLA Dining", "ucbdiningmenus": "UCB Dining", "ucddiningmenus": "UCD Dining", "ucidiningmenus": "UCI Dining", "ucmdiningmenus": "UCM Dining", "ucrdiningmenus": "UCR Dining", "ucsbdiningmenus": "UCSB Dining", "ucscdiningmenus":"UCSC Dining", "utaustindiningmenus":"UTAustin Dining"]
@@ -24,13 +26,14 @@ struct ContentView: View {
 //    @StateObject var oo = SearchObservableObject()
     
     
-//    let attrs = [
-//        NSAttributedString.Key.foregroundColor: UIColor.white,
-//    ]
+    let attrs = [
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+    ]
 
+    let navbarcolor = UIColor(red: 0.3608, green: 0.5843, blue: 0.8705, alpha: 1)
+    let searchbarcolor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     
-    // to keep track of navigation path
-    //@State private var path: [String]
+    
     var body: some View {
         NavigationView {
             
@@ -39,11 +42,8 @@ struct ContentView: View {
             //add , placement: .navigationBarDrawer(displayMode: .always) to make search bar always stay
                 .autocorrectionDisabled(true)
                 .navigationBarTitle(x[selectedKey]!)
-//                .toolbarBackground(
-//                    Color("NavBar color"),
-//                    for: .tabBar)
-//
-//                .toolbarBackground(.visible, for: .navigationBar)
+                .navigationBarColor(Color("NavBar color"))
+
                 .navigationBarItems(
                     //leading:
                         //VStack{
@@ -70,6 +70,29 @@ struct ContentView: View {
 
             
         }.accentColor(.black)
+            .onAppear {
+                let newNavBarAppearance = UINavigationBarAppearance()
+                
+                let appearance = UINavigationBar.appearance()
+                newNavBarAppearance.configureWithOpaqueBackground()
+                newNavBarAppearance.backgroundColor = navbarcolor
+                newNavBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+                newNavBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+                UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = searchbarcolor
+                UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                UINavigationBar.appearance().titleTextAttributes = attrs
+                
+                
+                appearance.scrollEdgeAppearance = newNavBarAppearance
+                appearance.compactAppearance = newNavBarAppearance
+                appearance.standardAppearance = newNavBarAppearance
+//                UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+
+            }
+            
+
+        
 //            .foregroundColor(Color("NavBar color"))
 //        .onAppear {
 //            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
