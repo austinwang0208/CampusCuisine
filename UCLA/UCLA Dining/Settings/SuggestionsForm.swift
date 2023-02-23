@@ -34,15 +34,16 @@ struct SuggestionsForm: View {
                     Text(message)
                         .foregroundColor(.green)
                 }
-            }.frame(height:300)
+            }.frame(height:750)
             //.navigationBarTitle("Suggestions")
         }
     }
     
     func submitSuggestion(issue: String, contact: String) {
         let parameters: [String: Any] = ["issue": issue, "contact": contact]
-        
-        AF.request("https://your-api.com/submit_suggestion", method: .post, parameters: parameters)
+        let issue = issue.replacingOccurrences(of: " ", with: "_")
+        let contact = contact.replacingOccurrences(of: " ", with: "_")
+        AF.request("https://u5lrxx1mr4.execute-api.us-west-1.amazonaws.com/v1/usersuggestions?file=suggestions.txt&contact_info=\(contact)&issue=\(issue)", method: .get, parameters: parameters)
             .validate(statusCode: 200..<300)
             .response { response in
                 switch response.result {

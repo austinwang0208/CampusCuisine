@@ -35,7 +35,7 @@ struct ContentView: View {
         NavigationView {
             
             SearchingView(searchText: $searchText, APIoutput: APIoutput, selectedKey: selectedKey, output: output)
-                .searchable(text: $searchText, prompt: "Search for an food")
+                .searchable(text: $searchText, prompt: "Search food")
             //add , placement: .navigationBarDrawer(displayMode: .always) to make search bar always stay
                 .autocorrectionDisabled(true)
                 .navigationBarTitle(x[selectedKey]!)
@@ -52,7 +52,7 @@ struct ContentView: View {
                                 //Text(" ")
                                 NavigationLink(destination: SettingsView()) {
                                     Image(systemName: "gear")
-                                        .font(.system(size: 20))
+                                        .font(.system(size: 16))
                                         .foregroundColor(.black)
                                 }
                             }

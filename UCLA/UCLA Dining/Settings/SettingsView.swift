@@ -19,7 +19,7 @@ struct SettingsView: View {
         //NavigationStack {
             ZStack {
                 //Color.white
-                VStack(spacing: 20) {
+                VStack(spacing: 0) {
                     if refresh != false {
                         LaunchAnimation(selectedKey: selectedKey ?? "something wrong")
                             .navigationBarBackButtonHidden(true)
@@ -31,33 +31,46 @@ struct SettingsView: View {
                                 self.isPresented = true
                                 self.showNavigationBar = false
                             }) {
-                                
-                                Text("SELECT YOUR UNIVERSITY")
-                                //.underline()
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 18, weight: .heavy, design: .default))
-                                
+                                VStack {
+                                    Text("Change University")
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                        .padding(.vertical, 20)
+                                    Image("\(selectedKey!) designer text")
+                                        .padding(.vertical, 20)
+                                    //.font(.system(size: 18, design: .default))
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .foregroundColor(.white)
                             .buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isPresented) {
                                 FillInView(selectedKey: $selectedKey, refresh: $refresh)
                             }
-                            
-                            NavigationLink(destination: LeaveUsAReviewView()) {
-                                Text("Rate our App:")
-                                    .font(.headline)
-                            }
-                            
-                            NavigationLink(destination: SuggestionsForm()) {
-                                Text("Have something to report?")
-                                    .font(.headline)
-                            }
+                        }.frame(height: 450)
+                        //.listStyle(PlainListStyle())
+                        //Text("Help us Out!")
+                        //    .font(.system(size:28, weight: .medium, design: .default))
+                        //    .foregroundColor(.black)
+                        
+                    List {
+                        
+                        NavigationLink(destination: LeaveUsAReviewView()) {
+                            Text("Rate our App:")
+                                .font(.headline)
+                                .padding(.vertical, 20)
                         }
-                    }
+                            
+                        NavigationLink(destination: SuggestionsForm()) {
+                            Text("Have something to report?")
+                                .font(.headline)
+                                .padding(.vertical, 20)
+                        }
+                    }//.listStyle(PlainListStyle())
+                }
                 }
             }.navigationBarTitle("Settings", displayMode: .inline)
-            .navigationBarHidden(!showNavigationBar)
+            //.navigationBarHidden(!showNavigationBar)
     }
 }
 
