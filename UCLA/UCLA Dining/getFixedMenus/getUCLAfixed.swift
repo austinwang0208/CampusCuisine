@@ -98,7 +98,50 @@ func getUCLAfixed() -> [Hall] {
         fixed_menu: ["Fusion fixed menu 1"],
         sections: 1
     )
+    let JimmyData = Hall(
+        selectedKey: "diningmenus",
+        name : "Jimmy's",
+        //image: "Fusion",
+        fixed_menu: ["Jimmy's menu 1"],
+        sections: 1
+    )
+    let AndersonData = Hall(
+        selectedKey: "diningmenus",
+        name : "Anderson Cafe",
+        //image: "Fusion",
+        fixed_menu: ["Anderson Cafe Menu 1"],
+        sections: 1
+    )
+    let NorthernData = Hall(
+        selectedKey: "diningmenus",
+        name : "Northern Lights",
+        //image: "Fusion",
+        fixed_menu: ["Northern Lights Menu 1"],
+        sections: 1
+    )
+    let PizzaFrescaData = Hall(
+        selectedKey: "diningmenus",
+        name : "Pizza Fresca",
+        //image: "Fusion",
+        fixed_menu: ["Pizza Fresca Menu 1"],
+        sections: 1
+    )
+    let SouthernLightsData = Hall(
+        selectedKey: "diningmenus",
+        name : "Southern Lights",
+        //image: "Fusion",
+        fixed_menu: ["Southern Lights Menu 1"],
+        sections: 1
+    )
     
-    let output = [BruinCafeData, EpicuriaAckermanData, DreyData, RendezvousData, DeNeveLateNightData, TheStudyatHedrickData, SpiceKitchen, BurgerAssembly, EpazoteMexicanGrill, Tossed, Fusion]
+    let YoshinoyaData = Hall(
+        selectedKey: "diningmenus",
+        name: "Yoshinoya",
+        //image: "The Coffee Bean",
+        fixed_menu: ["Yoshinoya Menu 1"],
+        sections: 1
+    )
+    
+    let output = [BruinCafeData, EpicuriaAckermanData, DreyData, RendezvousData, DeNeveLateNightData, TheStudyatHedrickData, SpiceKitchen, BurgerAssembly, EpazoteMexicanGrill, Tossed, Fusion, JimmyData, AndersonData, NorthernData, PizzaFrescaData, SouthernLightsData, YoshinoyaData]
     return output
 }
