@@ -22,7 +22,14 @@ func getUCDfixed() -> [Hall] {
         fixed_menu: ["The Gunrock Menu 1"],
         sections: 1
     )
+    let TheCrepeBistroData = Hall(
+        selectedKey: "ucddiningmenus",
+        name: "Spokes Grill",
+        //image: "Spokes Grill",
+        fixed_menu: ["Spokes Grill Menu 1"],
+        sections: 1
+    )
     
-    let output = [CrepeBistroData,TheGunrockData]
+    let output = [CrepeBistroData,TheGunrockData, TheCrepeBistroData]
     return output
 }
