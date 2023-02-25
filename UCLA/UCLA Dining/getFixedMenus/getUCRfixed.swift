@@ -75,7 +75,29 @@ func getUCRfixed() -> [Hall] {
         sections: 4 ,
         section_names: ["Tea", "Espresso", "Ice Blended Drinks", "Coffee"]
     )
+    let StarbucksData = Hall(
+        selectedKey: "ucrdiningmenus",
+        name: "Starbucks",
+        //image: "The Coffee Bean",
+        fixed_menu: ["Starbucks Menu"],
+        sections: 1
+    )
+    let PandaExpressData = Hall(
+        selectedKey: "ucrdiningmenus",
+        name: "Panda Express",
+        //image: "The Coffee Bean",
+        fixed_menu: ["Panda Express Menu 1", "Panda Express Menu 2", "Panda Express Menu 3", "Panda Express Menu 4", "Panda Express Menu 5"],
+        sections: 5 ,
+        section_names: ["Main Menu", "Entree", "Sides", "Appetizers", "Drinks"]
+    )
+    let SubwayData = Hall(
+        selectedKey: "ucrdiningmenus",
+        name: "Subway",
+        //image: "The Coffee Bean",
+        fixed_menu: ["Subway Menu 1"],
+        sections: 1
+    )
     
-    let output = [IvansatHinderakerData, BytesData,LollicupFreshBobaData,TheBarnData, HibachiSanJapaneseGrillData, ChronicTacosData, HabitData, HalalShackData, CoffeeBeanData]
+    let output = [IvansatHinderakerData, BytesData,LollicupFreshBobaData,TheBarnData, HibachiSanJapaneseGrillData, ChronicTacosData, HabitData, HalalShackData, CoffeeBeanData,StarbucksData,PandaExpressData, SubwayData]
     return output
 }
