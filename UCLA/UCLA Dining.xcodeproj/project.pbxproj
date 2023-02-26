@@ -41,6 +41,8 @@
 		91E137ED29A0A77B00C26AE7 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 91E137EC29A0A77B00C26AE7 /* SwiftUIX */; };
 		91E137EF29A0A88400C26AE7 /* ItemDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */; };
 		9D187C9F6AB25B1597D57A88 /* Pods_UCLA_Dining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */; };
+		F5009F4629AC064600A2ED20 /* getUCBfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5009F4529AC064600A2ED20 /* getUCBfixed.swift */; };
+		F58ECE4D29A9DDA600CC8F73 /* getUCSCfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58ECE4C29A9DDA500CC8F73 /* getUCSCfixed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataObject.swift; sourceTree = "<group>"; };
 		9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCLA_Dining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05CF450628FF0AC32BF773C /* Pods-UCLA Dining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCLA Dining.release.xcconfig"; path = "Target Support Files/Pods-UCLA Dining/Pods-UCLA Dining.release.xcconfig"; sourceTree = "<group>"; };
+		F5009F4529AC064600A2ED20 /* getUCBfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCBfixed.swift; sourceTree = "<group>"; };
+		F58ECE4C29A9DDA500CC8F73 /* getUCSCfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCSCfixed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +121,11 @@
 			children = (
 				2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */,
 				2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */,
+				F5009F4529AC064600A2ED20 /* getUCBfixed.swift */,
 				2B97A60D2977CD5D00978D93 /* getUCSBfixed.swift */,
 				9175FA3E2982628F0089FAB3 /* getUCRfixed.swift */,
 				9175FA40298266130089FAB3 /* getUCDfixed.swift */,
+				F58ECE4C29A9DDA500CC8F73 /* getUCSCfixed.swift */,
 			);
 			path = getFixedMenus;
 			sourceTree = "<group>";
@@ -408,8 +414,10 @@
 				2B0B814529978BC900EA6B74 /* DeveloperSection.swift in Sources */,
 				2B9C98442975191100565E75 /* FillInView.swift in Sources */,
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
+				F58ECE4D29A9DDA600CC8F73 /* getUCSCfixed.swift in Sources */,
 				91E137EF29A0A88400C26AE7 /* ItemDataObject.swift in Sources */,
 				2B9C98462975368400565E75 /* FirstTimeView.swift in Sources */,
+				F5009F4629AC064600A2ED20 /* getUCBfixed.swift in Sources */,
 				2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */,
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
 				9175FA3F2982628F0089FAB3 /* getUCRfixed.swift in Sources */,
