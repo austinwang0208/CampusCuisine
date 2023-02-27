@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>CKWistfulRegular.ttf</string>
-	</array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-7275807859221897~3127446976</string>
 	<key>SKAdNetworkItems</key>
@@ -211,8 +207,9 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
-    
-    <key>CFBundleDisplayName</key>
-    <string>Campus Dining</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CKWistfulRegular.ttf</string>
+	</array>
 </dict>
 </plist>

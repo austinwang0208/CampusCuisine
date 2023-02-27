@@ -56,7 +56,7 @@ struct FirstTimeView: View {
         
                     Text("SELECT YOUR UNIVERSITY")
                         .underline()
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(red: 197/255, green: 170/255, blue:100/255))
                         .font(.system(size: 18, weight: .heavy, design: .default))
                     
                 }
