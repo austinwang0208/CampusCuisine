@@ -141,7 +141,14 @@ func getUCLAfixed() -> [Hall] {
         fixed_menu: ["Yoshinoya Menu 1"],
         sections: 1
     )
+    let SynapseData = Hall(
+        selectedKey: "diningmenus",
+        name: "Cafe Synapse",
+        //image: "The Coffee Bean",
+        fixed_menu: ["Cafe Synapse Menu 1"],
+        sections: 1
+    )
     
-    let output = [BruinCafeData, EpicuriaAckermanData, DreyData, RendezvousData, DeNeveLateNightData, TheStudyatHedrickData, SpiceKitchen, BurgerAssembly, EpazoteMexicanGrill, Tossed, Fusion, JimmyData, AndersonData, NorthernData, PizzaFrescaData, SouthernLightsData, YoshinoyaData]
+    let output = [BruinCafeData, EpicuriaAckermanData, DreyData, RendezvousData, DeNeveLateNightData, TheStudyatHedrickData, SpiceKitchen, BurgerAssembly, EpazoteMexicanGrill, Tossed, Fusion, JimmyData, AndersonData, NorthernData, PizzaFrescaData, SouthernLightsData, YoshinoyaData,SynapseData]
     return output
 }
