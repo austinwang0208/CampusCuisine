@@ -145,7 +145,7 @@ struct SearchingView: View {
                     }) {
                         NavigationLink(destination: Menu(hall: res[itemData.hallname]!)) {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text(itemData.food)
+                                Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
                                     .font(.system(size:17, weight: .medium, design: .default))
                                 Group {
                                     Text(itemData.mealtime)
