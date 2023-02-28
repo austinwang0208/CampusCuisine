@@ -28,9 +28,9 @@ struct FirstTimeView: View {
 //                RadialGradient(gradient: Gradient(colors: [.gray, .black]), center: .center, startRadius: 0.2, endRadius: 650)
                 LinearGradient(gradient: Gradient(colors: [Color(red:80/255, green: 80/255, blue: 80/255), Color(red:20/255, green: 20/255, blue: 20/255), Color(red:10/255, green: 10/255, blue: 10/255)]), startPoint: .topTrailing, endPoint: .bottomLeading)
                     .edgesIgnoringSafeArea(.all)
-                Image("Campus Dining")
+                Image("Campus Cuisine")
                         .resizable()
-                        .position(x: geometry.size.width / 2, y: geometry.size.height * 0.1)
+                        .position(x: geometry.size.width / 2.08, y: geometry.size.height * 0.1)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
 
@@ -58,7 +58,6 @@ struct FirstTimeView: View {
                         .underline()
                         .foregroundColor(Color(red: 197/255, green: 170/255, blue:100/255))
                         .font(.system(size: 18, weight: .heavy, design: .default))
-                    
                 }
                 .foregroundColor(.white)
                 .buttonStyle(BorderlessButtonStyle())
