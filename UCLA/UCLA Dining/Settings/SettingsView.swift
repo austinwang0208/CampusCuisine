@@ -55,20 +55,20 @@ struct SettingsView: View {
                         //    .foregroundColor(.black)
                         
                     List {
-                        Button(action: {
-                            //let appId = "1449187448"
-                            //let urlString = "itms-apps://itunes.apple.com/app/id\(appId)?action=write-review"
-                            let urlString = "https:///www.google.com"
-                            
-                            if let url = URL(string: urlString) {
-                                UIApplication.shared.open(url)
-                            }
-                        }) {
-                            Text("Leave A Review: ")
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding([.vertical, .horizontal] , 20)
-                        }
+//                        Button(action: {
+//                            //let appId = "1449187448"
+//                            //let urlString = "itms-apps://itunes.apple.com/app/id\(appId)?action=write-review"
+//                            let urlString = "https:///www.google.com"
+//                            
+//                            if let url = URL(string: urlString) {
+//                                UIApplication.shared.open(url)
+//                            }
+//                        }) {
+//                            Text("Leave A Review: ")
+//                                .font(.headline)
+//                                .foregroundColor(.black)
+//                                .padding([.vertical, .horizontal] , 20)
+//                        }
 //                        NavigationLink(destination: LeaveUsAReviewView()) {
 //                            Text("Rate our App:")
 //                                .font(.headline)
