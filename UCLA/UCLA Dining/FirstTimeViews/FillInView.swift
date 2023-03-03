@@ -24,6 +24,8 @@ struct FillInView: View {
         "University of California, Santa Cruz" : "ucscdiningmenus",
         "University of California, Riverside" : "ucrdiningmenus",
         //"University of California, Merced" : "ucmdiningmenus",
+        "University of Texas, Austin": "utaustindiningmenus",
+
     ]
     let defaults = UserDefaults.standard
 
