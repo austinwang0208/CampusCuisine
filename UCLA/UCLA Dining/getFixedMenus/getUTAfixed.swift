@@ -45,9 +45,22 @@ func getUTAfixed() -> [Hall] {
         fixed_menu: ["Union Coffee House Menu 1"],
         sections: 1
     )
-  
+    let Sushidata = Hall(
+        selectedKey: "utaustindiningmenus",
+        name: "One Two Three Sushi",
+        //image: "Crepe Bistro",
+        fixed_menu: ["One Two Three Sushi Menu 1"],
+        sections: 1
+    )
+    let TacosData = Hall(
+        selectedKey: "utaustindiningmenus",
+        name: "Sabor Tacos y Más",
+        //image: "Crepe Bistro",
+        fixed_menu: ["Sabor Tacos y Más Menu 1"],
+        sections: 1
+    )
 
-    let output = [ChicFilAData, PandaExpressData, ShakeSmartData, TowerData, UnionCoffeeData]
+    let output = [ChicFilAData, PandaExpressData, ShakeSmartData, TowerData, UnionCoffeeData,Sushidata, TacosData   ]
     return output
 }
 
