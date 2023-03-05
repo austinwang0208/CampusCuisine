@@ -54,9 +54,9 @@ func getUTAfixed() -> [Hall] {
     )
     let TacosData = Hall(
         selectedKey: "utaustindiningmenus",
-        name: "Sabor Tacos y Más",
+        name: "Sabor Tacos y Mas",
         //image: "Crepe Bistro",
-        fixed_menu: ["Sabor Tacos y Más Menu 1"],
+        fixed_menu: ["Sabor Tacos y Mas Menu 1"],
         sections: 1
     )
 
