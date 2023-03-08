@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "UTAustin Dining App Logo.png",
+      "filename" : "UT Austin.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "UTAustin Dining App Logo 1.png",
+      "filename" : "UT Austin 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "UTAustin Dining App Logo 2.png",
+      "filename" : "UT Austin 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

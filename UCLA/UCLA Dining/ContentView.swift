@@ -169,6 +169,8 @@ struct SearchingView: View {
                             VStack {
                                 //Dining Hall buttons
                                 VStack{
+                                    //for each for 
+                                    
                                     let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
                                     ForEach(hallNames, id: \.self) { name in
                                         let hallData = Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData)
