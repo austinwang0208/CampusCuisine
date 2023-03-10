@@ -38,9 +38,9 @@ struct ProgressBar: View {
         .onReceive(timer) { _ in
             switch progress {
             case ...0.3, 0.4...0.6:
-                progress += 1 / 50
-            case 0.3...0.4:
                 progress += 1 / 10
+            case 0.3...0.4:
+                progress += 1 / 30
             case 0.6...0.85:
                 progress += 1/20
             case 0.85...0.99:
