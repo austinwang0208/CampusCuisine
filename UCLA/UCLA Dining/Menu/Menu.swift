@@ -17,9 +17,40 @@ private struct SizePreferenceKey: PreferenceKey {
 }
 
 struct Menu: View {
+
+    
     var hall: Hall
+        
     // for ensuring each tab view element is the same size
     @State private var wordHeight: CGFloat = 100
+    
+    
+    @State var selectedItems = Set<String>() // set to store selected items
+    
+    @AppStorage("selectedItems") var selectedItemsData: Data = Data()
+    
+    // Convert selectedItems set to data and save to UserDefaults
+    func saveSelectedItems() {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(Array(selectedItems))
+            selectedItemsData = data
+            print(selectedItems)
+        } catch {
+            print("Error saving selected items: \(error)")
+        }
+    }
+    
+    // Retrieve selectedItems data from UserDefaults and convert to set
+    func loadSelectedItems() {
+        do {
+            let decoder = JSONDecoder()
+            let data = try decoder.decode([String].self, from: selectedItemsData)
+            selectedItems = Set(data)
+        } catch {
+            print("Error loading selected items: \(error)")
+        }
+    }
     
     var body: some View {
         ScrollViewReader { proxy in
@@ -49,14 +80,35 @@ struct Menu: View {
                                     }
                                     else{
                                         ForEach(hall.dishes![key]!, id: \.self) { value in
-                                            Text(value)
-                                        }}
-                                }.id(key)
-                            }
-                            //}
-                            //else {
-                                
-                            //}
+                                            HStack {
+                                                Text(value)
+                                                Spacer()
+                                                if selectedItems.contains(value) {
+                                                    Button(action: {
+                                                        selectedItems.remove(value)
+                                                        saveSelectedItems()// unselect item
+                                                                                                            }) {
+                                                        Image(systemName: "heart.fill")
+                                                            .foregroundColor(.red)
+                                                    }
+                                                } else {
+                                                    Button(action: {
+                                                        selectedItems.insert(value)
+                                                        saveSelectedItems()// select item
+                                                    }) {
+                                                        Image(systemName: "heart")
+                                                            .foregroundColor(.gray)
+                                                    }
+                                                }
+                                                
+                                            }.id(key)
+                                                .onAppear {
+                                                    loadSelectedItems()
+                                                }
+                                        }
+                                    }}
+                                }
+
                         }
                     }
                     
@@ -173,7 +225,7 @@ struct Menu_Previews: PreviewProvider {
     static let HallPreview = Hall(
         selectedKey: "diningmenus",
         name: "sample dining hall",
-        dishes: ["Breakfast" : ["eggs", "ham", "cereal"], "Lunch" : ["Sandwhich", "Pasta", "Burrito"], "Dinner" : ["Nachos", "Soup", "Chicken"], "Late Night": []]
+        dishes: ["Breakfast" : ["Nachos", "ham", "cereal"], "Lunch" : ["Sandwhich", "Pasta", "Burrito"], "Dinner" : ["Nachos", "Soup", "Chicken"], "Late Night": []]
         //image: "Epicuria at Covel"
         )
     static var previews: some View {
