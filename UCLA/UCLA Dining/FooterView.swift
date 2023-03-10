@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct FooterView: View {
+    var APIoutput : [String: [String : [String] ]]
+    var selectedKey : String
+    var output : [Hall]
+    let NoData = ["No Data displayed" : ["Nothing to show"]]
+    
     var body: some View {
         HStack{
             Button(action: {}, label: {
@@ -16,17 +21,18 @@ struct FooterView: View {
                     .foregroundColor(.primary)
             }).frame(maxWidth: .infinity)
             
-            Button(action: {}, label: {
-                Image(systemName: "square.and.arrow.up")
+            NavigationLink(destination: FavoritesView(APIoutput: APIoutput, selectedKey: selectedKey, output: output)) {
+
+                Image(systemName: "heart.fill")
                     .font(.title2)
                     .foregroundColor(.primary)
-            }).frame(maxWidth: .infinity)
-            
-            NavigationLink(destination: SettingsView()) {
-                Image(systemName: "gear")
-                    .font(.title2)
-                    .foregroundColor(.black)
             }.frame(maxWidth: .infinity)
+            
+//            NavigationLink(destination: SettingsView()) {
+//                Image(systemName: "gear")
+//                    .font(.title2)
+//                    .foregroundColor(.black)
+//            }.frame(maxWidth: .infinity)
         }.background(Color.white)
     }
 
@@ -57,8 +63,8 @@ struct FooterView: View {
 //    }
 //}
 
-struct FooterView_Previews: PreviewProvider {
-    static var previews: some View {
-        FooterView()
-    }
-}
+//struct FooterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output)
+//    }
+//}

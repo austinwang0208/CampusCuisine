@@ -38,6 +38,7 @@
 		9175FA3F2982628F0089FAB3 /* getUCRfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175FA3E2982628F0089FAB3 /* getUCRfixed.swift */; };
 		9175FA41298266130089FAB3 /* getUCDfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175FA40298266130089FAB3 /* getUCDfixed.swift */; };
 		91B9F34B2982685D0098B74D /* Crepe Bistro Menu pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 91B9F34A2982685D0098B74D /* Crepe Bistro Menu pdf.pdf */; };
+		91CD616A29BB0D4700E25031 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CD616929BB0D4700E25031 /* FavoritesView.swift */; };
 		91CDFE45298DDEF300504AB3 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFE44298DDEF300504AB3 /* FooterView.swift */; };
 		91E137ED29A0A77B00C26AE7 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 91E137EC29A0A77B00C26AE7 /* SwiftUIX */; };
 		91E137EF29A0A88400C26AE7 /* ItemDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */; };
@@ -81,6 +82,7 @@
 		9175FA3E2982628F0089FAB3 /* getUCRfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCRfixed.swift; sourceTree = "<group>"; };
 		9175FA40298266130089FAB3 /* getUCDfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCDfixed.swift; sourceTree = "<group>"; };
 		91B9F34A2982685D0098B74D /* Crepe Bistro Menu pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Crepe Bistro Menu pdf.pdf"; sourceTree = "<group>"; };
+		91CD616929BB0D4700E25031 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		91CDFE44298DDEF300504AB3 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		91E137EE29A0A88400C26AE7 /* ItemDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataObject.swift; sourceTree = "<group>"; };
 		9FAA17914E9EC07124D314FC /* Pods_UCLA_Dining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCLA_Dining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 				2B59AE1729086FA50015ABAB /* UCLAApp.swift */,
 				2B59AE2529086FEA0015ABAB /* LaunchAnimation.swift */,
 				2B59AE1929086FA50015ABAB /* ContentView.swift */,
+				91CD616929BB0D4700E25031 /* FavoritesView.swift */,
 				91CDFE44298DDEF300504AB3 /* FooterView.swift */,
 				2B18169A29BA949600BF0029 /* ProgressBar.swift */,
 				2BD4730F297F8DC20058F5F8 /* Settings */,
@@ -428,6 +431,7 @@
 				2B97A60E2977CD5D00978D93 /* getUCSBfixed.swift in Sources */,
 				F557933429B19C4A00310AC4 /* getUTAfixed.swift in Sources */,
 				2B59AE2C290870590015ABAB /* Hall.swift in Sources */,
+				91CD616A29BB0D4700E25031 /* FavoritesView.swift in Sources */,
 				9175FA3F2982628F0089FAB3 /* getUCRfixed.swift in Sources */,
 				2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */,
 				2B0B81412995DE7E00EA6B74 /* ChangeSchools.swift in Sources */,

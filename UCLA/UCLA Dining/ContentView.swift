@@ -164,34 +164,36 @@ struct SearchingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
                 } else {
-                    ScrollView {
-                        ZStack {
-                            VStack {
-                                //Dining Hall buttons
-                                VStack{
-                                    //for each for 
-                                    
-                                    let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
-                                    ForEach(hallNames, id: \.self) { name in
-                                        let hallData = Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData)
-                                        NavigationLink(destination: Menu(hall: hallData)) {
-                                            FoodIcon(hall: hallData)
+                    Section(footer:FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output)){
+                        ScrollView {
+                            ZStack {
+                                VStack {
+                                    //Dining Hall buttons
+                                    VStack{
+                                        //for each for
+                                        
+                                        let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
+                                        ForEach(hallNames, id: \.self) { name in
+                                            let hallData = Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData)
+                                            NavigationLink(destination: Menu(hall: hallData)) {
+                                                FoodIcon(hall: hallData)
+                                            }
                                         }
                                     }
+                                    .padding()
+                                    HStack {
+                                        Text("Quick Service Restaurants")
+                                            .font(.system(size:28, weight: .medium, design: .default))
+                                            .foregroundColor(.black)
+                                    }
+                                    VStack{
+                                        let sortedOutput = output.sorted { $0.name < $1.name }
+                                        ForEach(sortedOutput, id: \.self) { hall in
+                                            NavigationLink(destination: fixed_menu(hall: hall), label: {
+                                                FoodIcon(hall: hall)
+                                            }
+                                            )}}
                                 }
-                                .padding()
-                                HStack {
-                                    Text("Quick Service Restaurants")
-                                        .font(.system(size:28, weight: .medium, design: .default))
-                                        .foregroundColor(.black)
-                                }
-                                VStack{
-                                    let sortedOutput = output.sorted { $0.name < $1.name }
-                                    ForEach(sortedOutput, id: \.self) { hall in
-                                        NavigationLink(destination: fixed_menu(hall: hall), label: {
-                                            FoodIcon(hall: hall)
-                                        }
-                                        )}}
                             }
                         }
                     }
@@ -199,6 +201,10 @@ struct SearchingView: View {
                 }
             }
         }
+
+
+    
+
 
 
     struct ContentView_Previews: PreviewProvider {
