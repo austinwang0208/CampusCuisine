@@ -12,30 +12,29 @@ struct FooterView: View {
     var selectedKey : String
     var output : [Hall]
     let NoData = ["No Data displayed" : ["Nothing to show"]]
+    @Binding var selectedView: Int
     
     var body: some View {
-        HStack{
-            Button(action: {}, label: {
+        HStack {
+            Button(action: {
+                // set selected view to 0 when the left button is clicked
+                selectedView = 0
+            }, label: {
                 Image(systemName: "fork.knife")
                     .font(.title2)
-                    .foregroundColor(.primary)
+                    .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
             }).frame(maxWidth: .infinity)
             
-            NavigationLink(destination: FavoritesView(APIoutput: APIoutput, selectedKey: selectedKey, output: output)) {
-
+            Button(action: {
+                // set selected view to 1 when the right button is clicked
+                selectedView = 1
+            }, label: {
                 Image(systemName: "heart.fill")
                     .font(.title2)
-                    .foregroundColor(.primary)
-            }.frame(maxWidth: .infinity)
-            
-//            NavigationLink(destination: SettingsView()) {
-//                Image(systemName: "gear")
-//                    .font(.title2)
-//                    .foregroundColor(.black)
-//            }.frame(maxWidth: .infinity)
-        }.background(Color.white)
+                    .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
+            }).frame(maxWidth: .infinity)
+        }
     }
-
 }
 
 

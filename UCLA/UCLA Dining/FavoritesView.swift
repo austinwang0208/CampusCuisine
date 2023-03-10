@@ -13,6 +13,7 @@ struct FavoritesView: View {
     var selectedKey : String
     var output : [Hall]
     let NoData = ["No Data displayed" : ["Nothing to show"]]
+
     
     @State var selectedItems = Set<String>() // set to store selected items
     
