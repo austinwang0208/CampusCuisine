@@ -23,7 +23,6 @@ struct FoodIcon: View {
                     .shadow(color: Color.black, radius: 10, x: 0, y: 0)
             }
             
-            
             RoundedCorners(tl: 0, tr: 0, bl: 20, br: 20)
                 .frame(width: 350, height: 40)
                 .foregroundColor(.white)

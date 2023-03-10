@@ -12,6 +12,7 @@
 		2B0B814529978BC900EA6B74 /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B814429978BC900EA6B74 /* DeveloperSection.swift */; };
 		2B0B81472997928500EA6B74 /* SuggestionsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B81462997928500EA6B74 /* SuggestionsForm.swift */; };
 		2B0B814A2997959900EA6B74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0B81492997959900EA6B74 /* Alamofire */; };
+		2B18169B29BA949600BF0029 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B18169A29BA949600BF0029 /* ProgressBar.swift */; };
 		2B4C5C3B29771EC300C7A714 /* getFixedMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */; };
 		2B4C5C402977682E00C7A714 /* getUCLAfixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */; };
 		2B59AE1829086FA50015ABAB /* UCLAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59AE1729086FA50015ABAB /* UCLAApp.swift */; };
@@ -52,6 +53,7 @@
 		2B0B81422995E10400EA6B74 /* LeaveUsAReviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveUsAReviewButton.swift; sourceTree = "<group>"; };
 		2B0B814429978BC900EA6B74 /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		2B0B81462997928500EA6B74 /* SuggestionsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsForm.swift; sourceTree = "<group>"; };
+		2B18169A29BA949600BF0029 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2B4C5C3A29771EC300C7A714 /* getFixedMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFixedMenus.swift; sourceTree = "<group>"; };
 		2B4C5C3F2977682E00C7A714 /* getUCLAfixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUCLAfixed.swift; sourceTree = "<group>"; };
 		2B59AE1429086FA50015ABAB /* UCLA Dining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA Dining.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 				2B59AE2529086FEA0015ABAB /* LaunchAnimation.swift */,
 				2B59AE1929086FA50015ABAB /* ContentView.swift */,
 				91CDFE44298DDEF300504AB3 /* FooterView.swift */,
+				2B18169A29BA949600BF0029 /* ProgressBar.swift */,
 				2BD4730F297F8DC20058F5F8 /* Settings */,
 				2B4C5C3E2977680200C7A714 /* getFixedMenus */,
 				2B4C5C3C2977202600C7A714 /* FirstTimeViews */,
@@ -416,6 +419,7 @@
 				2BCE927C295AA1AF0039AD9E /* Fixed_Menu_Section.swift in Sources */,
 				2B0B814529978BC900EA6B74 /* DeveloperSection.swift in Sources */,
 				2B9C98442975191100565E75 /* FillInView.swift in Sources */,
+				2B18169B29BA949600BF0029 /* ProgressBar.swift in Sources */,
 				2B59AE1A29086FA50015ABAB /* ContentView.swift in Sources */,
 				F58ECE4D29A9DDA600CC8F73 /* getUCSCfixed.swift in Sources */,
 				91E137EF29A0A88400C26AE7 /* ItemDataObject.swift in Sources */,

@@ -45,10 +45,12 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
+  - ProgressIndicatorView (0.0.2)
   - PromisesObjC (2.1.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
+  - ProgressIndicatorView
 
 SPEC REPOS:
   trunk:
@@ -57,6 +59,7 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
     - GoogleUtilities
     - nanopb
+    - ProgressIndicatorView
     - PromisesObjC
 
 SPEC CHECKSUMS:
@@ -65,8 +68,9 @@ SPEC CHECKSUMS:
   GoogleUserMessagingPlatform: 5f8b30daf181805317b6b985bb51c1ff3beca054
   GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  ProgressIndicatorView: ccb8e2b188c0bd33a6fb792172d70b13982cd7b8
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
-PODFILE CHECKSUM: dfb752263823746868358b7ed89c5f87760b8466
+PODFILE CHECKSUM: c09c1be6531988f3f7d39faa730c035c2845a320
 
 COCOAPODS: 1.11.3

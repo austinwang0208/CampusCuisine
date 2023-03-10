@@ -67,6 +67,9 @@ struct LaunchAnimation: View {
                             self.opacity = 1.0
                         }
                     }
+                    
+                    ProgressBar()
+                        .frame(height: 10)
                 }
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
