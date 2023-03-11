@@ -31,7 +31,8 @@ def lambda_handler(event, context):
                 items = []
                 for li_tag in meal.find_all('li'):
                     for span_tag in li_tag.find_all('span'):
-                        items.append(span_tag.text)
+                        if span_tag.text not in items:
+                            items.append(span_tag.text)
                 x = meal.findNext("h4").text.capitalize()
                 if menu_items[place].get(x) is not None:
                     menu_items[place][x] = menu_items[place][x] + items

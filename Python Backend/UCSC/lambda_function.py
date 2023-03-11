@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         try:
             z = menu[y]
         except KeyError:
-            menu[y] = {}p
+            menu[y] = {}
 
         for li2 in li.findAll("li", class_="r-meal"):  # every meal
             x = li2.find("label", {"data-orig": ["Breakfast", "Lunch", "Dinner", "Late Night"]}).text

@@ -26,6 +26,7 @@ def lambda_handler(event, context):
             items = []
             for food in item.find_all("div", class_ = "shortmenurecipes"): #actual food items
                 items.append(food.text.replace('w/', 'with'))
+                items = list(set(items))
             menu[hall][meals[count]] = items
             count += 1
 

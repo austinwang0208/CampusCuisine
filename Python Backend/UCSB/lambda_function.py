@@ -23,6 +23,7 @@ def lambda_handler(event, context):
                 items = []
                 for item in panel.select('dd'):
                     items.append(item.text)
+                    items = list(set(items))
                 if len(items) > 0:
                     menu_items[place][meal] = items
         # Edit: To remove - in De-La-Guerra

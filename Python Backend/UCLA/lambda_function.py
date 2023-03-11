@@ -42,7 +42,7 @@ def lambda_handler(event, context):
                 dish = dish[dish.index('>')+1:]
                 dish = dish[:dish.index('<')]
                     
-                if not (dish == "Small (12 oz)" or dish == "Medium (16 oz)" or dish == "Large (20 oz)" or dish == "Iced (16 oz)"):
+                if dish not in arr and not (dish == "Small (12 oz)" or dish == "Medium (16 oz)" or dish == "Large (20 oz)" or dish == "Iced (16 oz)"):
                     arr.append(dish)
             # Add array to dictionary once we are done adding all user friendly menu items
             RestaurantMenu[mealtime] = arr
