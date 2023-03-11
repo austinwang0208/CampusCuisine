@@ -33,7 +33,13 @@ struct FooterView: View {
                     .font(.title2)
                     .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
             }).frame(maxWidth: .infinity)
-        }
+        }.overlay(
+            Rectangle()
+                .frame(height: 0.5)
+                .foregroundColor(Color.black)
+                .offset(y: -18)
+                .padding(.horizontal, -100)
+        )
     }
 }
 
@@ -62,8 +68,27 @@ struct FooterView: View {
 //    }
 //}
 
-//struct FooterView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output)
-//    }
-//}
+struct FooterView_Previews: PreviewProvider {
+    static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
+                                [
+                                    "Breakfast" : ["cereal", "oatmeal", "eggs"],
+                                    "Lunch" : ["Noodles", "Chicken", "Bistro"],
+                                    "Dinner" : ["Tenders", "Salad", "Tomatoe Soup"]
+                                ],
+
+                             "Bruin Plate" :
+                                [
+                                    "Breakfast" : ["Bread", "Coffee", "Fruits"],
+                                    "Lunch" : ["Falafels", "Pizza", "French Fries"],
+                                    "Dinner" : ["Tacos", "Quesadillas", "Chicken Tikka"]
+                                ]
+    ]
+    
+    static var previews: some View {
+         FooterView(APIoutput: APIpreview,
+                    selectedKey: "diningmenus",
+                    output: getFixedMenus(selectedKey: "diningmenus"),
+                    selectedView: .constant(0)
+        )
+    }
+}
