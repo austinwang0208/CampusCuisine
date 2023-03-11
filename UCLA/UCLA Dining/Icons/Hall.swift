@@ -29,7 +29,7 @@ struct Hall: Hashable {
     }
     
     func getImageFromFileManager() -> UIImage?{
-        let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let directory2 = directory?.appendingPathComponent("\(selectedKey)/")
         let newkey = name.replacingOccurrences(of: " ", with: "_")
         //let test_path = directory?.appendingPathComponent("\(newkey).jpg")

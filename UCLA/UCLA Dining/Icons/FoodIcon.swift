@@ -9,9 +9,12 @@ import SwiftUI
 
 struct FoodIcon: View {
     var hall: Hall
+    var hours : [String: [String : [[Float]]]]
+    var open : String
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             //background image
+            
             
             if let image = hall.image{
                 Image(uiImage: image)
@@ -22,16 +25,37 @@ struct FoodIcon: View {
                     .cornerRadius(20)
                     .shadow(color: Color.black, radius: 10, x: 0, y: 0)
             }
-            
+            let color = changeColor(open: open)
             RoundedCorners(tl: 0, tr: 0, bl: 20, br: 20)
                 .frame(width: 350, height: 40)
                 .foregroundColor(.white)
-            Text(hall.name)
-                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 10))
-                .foregroundColor(.black)
-                .font(.system(size: 17, weight: .medium, design: .default))
+            HStack {
+                Text(hall.name)
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 10))
+                    .foregroundColor(.black)
+                    .font(.system(size: 17, weight: .medium, design: .default))
+                Spacer()
+                //opendict[hall.name]!
+                Text(open)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
+                    .foregroundColor(color)
+                    .font(.system(size: 15, weight: .light, design: .default))
+                    
+            }.frame(width: 350, height: 40)
         }
         .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+    }
+    
+    func testresult(hours: [String: [String : [[Float]]]]){
+        print(hours)
+    }
+    
+    func changeColor(open: String) -> Color{
+        if open == "open"{
+            return Color(.green)
+        } else {
+            return Color(.red)
+        }
     }
 }
 
@@ -76,16 +100,16 @@ struct RoundedCorners: Shape {
     }
 }
 
-struct FoodIcon_Previews: PreviewProvider {
-        static let HallPreview = Hall(
-            selectedKey: "diningmenus",
-            name: "Bruin Plate"
-            //dishes: ["default preview menu"],
-            //image: "Epicuria at Covel"
-        )
-        
-        static var previews: some View {
-            // 5. Use the right SecondView initializator
-            FoodIcon(hall: HallPreview)
-        }
-}
+//struct FoodIcon_Previews: PreviewProvider {
+//        static let HallPreview = Hall(
+//            selectedKey: "diningmenus",
+//            name: "Bruin Plate"
+//            //dishes: ["default preview menu"],
+//            //image: "Epicuria at Covel"
+//        )
+//
+//        static var previews: some View {
+//            // 5. Use the right SecondView initializator
+//            FoodIcon(hall: HallPreview,)
+//        }
+//}

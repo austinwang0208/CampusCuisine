@@ -19,6 +19,7 @@ struct ContentView: View {
     
     //    passed API output and storing in var
     var APIoutput : [String: [String : [String] ]]
+    var hours : [String: [String : [[Float]]]]
     var output : [Hall]
     var selectedKey : String
     @State private var searchText = ""
@@ -37,7 +38,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             
-            SearchingView(searchText: $searchText, APIoutput: APIoutput, selectedKey: selectedKey, output: output)
+            SearchingView(searchText: $searchText, APIoutput: APIoutput, hours: hours, selectedKey: selectedKey, output: output)
                 .searchable(text: $searchText, prompt: "Search food")
             //add , placement: .navigationBarDrawer(displayMode: .always) to make search bar always stay
                 .autocorrectionDisabled(true)
@@ -110,8 +111,11 @@ struct SearchingView: View {
     @Environment(\.isSearching) private var isSearching
     @Binding var searchText: String
     @State private var selectedView = 0
-
+    @State private var ifdininghalls: Bool = false
+    @State private var ifrestaurants: Bool = false
+    @State var opendict: [String: String] = [:]
     var APIoutput : [String: [String : [String] ]]
+    var hours : [String: [String : [[Float]] ]]
     var selectedKey : String
     var output : [Hall]
     let NoData = ["No Data displayed" : ["Nothing to show"]]
@@ -144,6 +148,7 @@ struct SearchingView: View {
     }
     
     func getData() -> [ItemDataObject] {
+        
         var items = [ItemDataObject]()
         for (hall, meals) in APIoutput {
             for (meal, itemList) in meals {
@@ -207,24 +212,78 @@ struct SearchingView: View {
                                             ForEach(hallNames, id: \.self) { name in
                                                 let hallData = Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData)
                                                 NavigationLink(destination: Menu(hall: hallData)) {
-                                                    FoodIcon(hall: hallData)
+                                                    if ifdininghalls{
+                                                        FoodIcon(hall: hallData, hours: hours, open: opendict[hallData.name]!)
+                                                    }
+                                                }.onAppear(){
+                                                    let dateFormatter = DateFormatter()
+                                                    dateFormatter.timeZone = TimeZone.current
+                                                    dateFormatter.dateFormat = "HH:mm:ss"
+                                                    let localTime = dateFormatter.string(from: Date())
+                                                    let timeComponents = localTime.split(separator: ":").compactMap { Int($0) }
+                                                    let decimalTime = Double(timeComponents[0]) + Double(timeComponents[1]) / 60.0 + Double(timeComponents[2]) / 3600.0
+                                                    
+                                                    let date = Date() // get the current date
+                                                    let calendar = Calendar.current // get the current calendar
+                                                    let weekDay = calendar.component(.weekday, from: date) // get the day of the week (Sunday is 1, Monday is 2, etc.)
+                                                    
+                                                    let hallHours = hours[hallData.name]![String(weekDay)]!
+                                                    for i in hallHours{
+                                                        if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
+                                                            opendict[hallData.name] = "open"
+                                                        } else{
+                                                            opendict[hallData.name] = "closed"
+                                                            
+                                                        }
+                                                    }
+                                                    ifdininghalls = true
+                                                    
                                                 }
                                             }
                                         }
                                         .padding()
-                                        HStack {
-                                            Text("Quick Service Restaurants")
-                                                .font(.system(size:28, weight: .medium, design: .default))
-                                                .foregroundColor(.black)
-                                        }
-                                        VStack{
-                                            let sortedOutput = output.sorted { $0.name < $1.name }
-                                            ForEach(sortedOutput, id: \.self) { hall in
-                                                NavigationLink(destination: fixed_menu(hall: hall), label: {
-                                                    FoodIcon(hall: hall)
-                                                }
-                                                )}}
                                     }
+                                }
+                                .padding()
+                                HStack {
+                                    Text("Quick Service Restaurants")
+                                        .font(.system(size:28, weight: .medium, design: .default))
+                                        .foregroundColor(.black)
+                                }
+                                VStack{
+                                    let sortedOutput = output.sorted { $0.name < $1.name }
+                                    ForEach(sortedOutput, id: \.self) { hall in
+                                        NavigationLink(destination: fixed_menu(hall: hall), label: {
+                                            if ifrestaurants{
+                                                FoodIcon(hall: hall, hours: hours, open: opendict[hall.name]!)
+                                                
+                                            }
+                                        }
+                                        ).onAppear(){
+                                            let dateFormatter = DateFormatter()
+                                            dateFormatter.timeZone = TimeZone.current
+                                            dateFormatter.dateFormat = "HH:mm:ss"
+                                            let localTime = dateFormatter.string(from: Date())
+                                            let timeComponents = localTime.split(separator: ":").compactMap { Int($0) }
+                                            let decimalTime = Double(timeComponents[0]) + Double(timeComponents[1]) / 60.0 + Double(timeComponents[2]) / 3600.0
+                                            let date = Date() // get the current date
+                                            let calendar = Calendar.current // get the current calendar
+                                            let weekDay = calendar.component(.weekday, from: date) // get the day of the week (Sunday is 1, Monday is 2, etc.)
+                                            
+                                            let hallHours = hours[hall.name]![String(weekDay)]!
+                                            for i in hallHours{
+                                                if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
+                                                    opendict[hall.name] = "open"
+                                                } else{
+                                                    opendict[hall.name] = "closed"
+                                                    
+                                                }
+                                            }
+                                            ifrestaurants = true
+                                            
+                                        }
+                                    }
+                                    
                                 }
                             }
                         }
@@ -286,29 +345,29 @@ struct SearchingView: View {
 
 
 
-    struct ContentView_Previews: PreviewProvider {
-        static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
-                                    [
-                                        "Breakfast" : ["cereal", "oatmeal", "eggs"],
-                                        "Lunch" : ["Noodles", "Chicken", "Bistro"],
-                                        "Dinner" : ["Tenders", "Salad", "Tomatoe Soup"]
-                                    ],
-                                 
-                                 "Bruin Plate" :
-                                    [
-                                        "Breakfast" : ["Bread", "Coffee", "Fruits"],
-                                        "Lunch" : ["Falafels", "Pizza", "French Fries"],
-                                        "Dinner" : ["Tacos", "Quesadillas", "Chicken Tikka"]
-                                    ]
-        ]
-        
-        static var previews: some View {
-            // 5. Use the right SecondView initializator
-            ContentView(APIoutput: APIpreview,
-                        output: getFixedMenus(selectedKey: "diningmenus"),
-                        selectedKey: "diningmenus")
-        }
-    }
+//    struct ContentView_Previews: PreviewProvider {
+//        static let APIpreview = ["Epicuria at Covel" :["Breakfast" : ["eggs", "bacon", "cheese"],"Lunch" : ["sandwhich", "burgers", "fries"],"Dinner" : ["nachos", "pasta", "soda"]],"De Neve" :
+//                                    [
+//                                        "Breakfast" : ["cereal", "oatmeal", "eggs"],
+//                                        "Lunch" : ["Noodles", "Chicken", "Bistro"],
+//                                        "Dinner" : ["Tenders", "Salad", "Tomatoe Soup"]
+//                                    ],
+//
+//                                 "Bruin Plate" :
+//                                    [
+//                                        "Breakfast" : ["Bread", "Coffee", "Fruits"],
+//                                        "Lunch" : ["Falafels", "Pizza", "French Fries"],
+//                                        "Dinner" : ["Tacos", "Quesadillas", "Chicken Tikka"]
+//                                    ]
+//        ]
+//
+//        static var previews: some View {
+//            // 5. Use the right SecondView initializator
+//            ContentView(APIoutput: APIpreview,
+//                        output: getFixedMenus(selectedKey: "diningmenus"),
+//                        selectedKey: "diningmenus")
+//        }
+//    }
     
     
     

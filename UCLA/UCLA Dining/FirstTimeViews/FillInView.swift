@@ -38,7 +38,7 @@ struct FillInView: View {
                         Button(action: {
                             withAnimation {
                                 if(selectedKey != nil){
-                                    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+                                    let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
                                     let directory2 = directory?.appendingPathComponent("\(self.selectedKey!)/")
                                     do{
                                         try FileManager.default.removeItem(at: directory2!)

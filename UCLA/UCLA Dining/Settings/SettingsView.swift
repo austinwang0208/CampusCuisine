@@ -88,11 +88,6 @@ struct SettingsView: View {
     }
 }
 
-
-func deleteDir(){
-    print("HI")
-}
-
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()

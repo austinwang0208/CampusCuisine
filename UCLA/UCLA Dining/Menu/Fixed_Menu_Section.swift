@@ -54,7 +54,7 @@ struct Fixed_Menu_Section: View {
                 VStack {
 //                    let temp = hall.fixed_menu![section_number] + " pdf"
 //                    let PDFurl = Bundle.main.url(forResource: temp, withExtension: "pdf")!//might need to add ! to unwrap unsure
-                    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+                    let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
                     let newkey = hall.name.replacingOccurrences(of: " ", with: "_")
                     let pdfpath = directory!.appendingPathComponent("\(hall.selectedKey)/\(newkey)_Menu_\(section_number).pdf")
                     CustomPDFView(displayedPDFURL: pdfpath)
@@ -69,7 +69,7 @@ struct Fixed_Menu_Section: View {
 }
 
 func printstuff(hall_name: String, section_number: Int){
-    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+    let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
     let newkey = hall_name.replacingOccurrences(of: " ", with: "_")
     let pdfpath = directory!.appendingPathComponent("\(newkey)_Menu_\(section_number).pdf")
     print("pdfpath ", pdfpath)

@@ -32,6 +32,7 @@ struct LaunchAnimation: View {
     
     //for storing API call output
     @State private var result: [String: [String : [String]]]?
+    @State private var hours: [String: [String : [[Float]]]]?
     @State private var images_loaded: Bool = false
     
     //for knowing which school we need to call api for
@@ -44,6 +45,7 @@ struct LaunchAnimation: View {
     var body: some View {
         if result != nil && isActive && images_loaded {
             ContentView(APIoutput : result!,
+                        hours : hours!,
                         output: getFixedMenus(selectedKey: selectedKey),
                         selectedKey: selectedKey
             )
@@ -91,18 +93,24 @@ struct LaunchAnimation: View {
                         }
                     }
                     
+                    getHours { hours in
+                        switch hours {
+                        case .success(let dictionary):
+                            self.hours = dictionary
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 }
             }
         }
 
     }
     func getImageFromAPI(selectedKey: String, result: [String:[String: [String]]]?, output: [Hall]) async {
-//        for key in output {
-//            print(key.name)
-//        }
-        let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        
+        
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let directory2 = directory?.appendingPathComponent("\(selectedKey)/")
-        //print(directory2)
         do{
             try FileManager.default.createDirectory(at: directory2!, withIntermediateDirectories: false)
         } catch let error {
@@ -114,27 +122,20 @@ struct LaunchAnimation: View {
                 let path = directory2?.appendingPathComponent("\(newkey).jpg")
                 // + "/" + "\(newkey).jpg"
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
-                    //print("getting images from API")
                     let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
                     
                     let url = URL(string: complete_api)!
-                    //print(path)
-                    
-                    //request.httpMethod = "GET"
-                    //request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
                     
                     let image = try? await downloadWithAsync(url: url)
                     
                     
                     guard
                         let data = image?.jpegData(compressionQuality: 1.0) else {
-                        print("error for some other reason")
                         return
                     }
                     
                     do {
                         try data.write(to: path!)
-                        print("successful")
                     } catch let error{
                         print("error saving \(error)")
                     }
@@ -146,7 +147,6 @@ struct LaunchAnimation: View {
                 let path = directory2?.appendingPathComponent("\(newkey).jpg")
                 // + "/" + "\(newkey).jpg"
                 if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: path) != true{
-                    //print("getting images from API")
                     let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey).jpg"
                     let url = URL(string: complete_api)!
                     
@@ -157,63 +157,27 @@ struct LaunchAnimation: View {
                     
                     guard
                         let data = image?.jpegData(compressionQuality: 1.0) else {
-                        print("error for some reason")
                         return
                     }
                     
                     do {
                         try data.write(to: path!)
-                        //print("successful")
                     } catch let error{
                         print("error saving \(error)")
                     }
                 }
                 
-                
-                print("getting pdfs from API")
-                
                 for i in 1...key.sections!{
                     let pdfpath = directory2?.appendingPathComponent("\(newkey)_Menu_\(i).pdf")
                     if checkIfFileExists(selectedKey: selectedKey, key: newkey, path: pdfpath) != true{
                         let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/" + "\(newkey)_Menu_\(i).pdf"
-                        print("complete_api ", complete_api)
                         let pdfFile = try? Data.init(contentsOf: URL(string: complete_api)!)
 
                         do {
                             try pdfFile?.write(to: pdfpath!, options: .atomic)
-                            //print(pdfpath)
-                            print("saved")
                         } catch {
                             print("error saving pdf")
                         }
-                        
-//                        let url = URL(string: complete_api)!
-//                        var request = URLRequest(url: url)
-//                        request.httpMethod = "GET"
-//                        request.addValue("application/pdf", forHTTPHeaderField: "Content-Type")
-//                        request.addValue("application/pdf", forHTTPHeaderField: "Accept")
-//                        print(request)
-//
-//
-//                        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//                            if let error = error {
-//                                return
-//                            }
-//
-//                            if let data = data, let response = response as? HTTPURLResponse {
-//                                print("check")
-//                                if response.statusCode == 200 {
-//                                    do {
-//                                        print(pdfpath)
-//                                        try data.write(to: pdfpath!)
-//                                    } catch {
-//                                        print("\(error) error writing")
-//                                        return
-//                                    }
-//                                }
-//                            }
-//                        }
-//                        print("end")
                         
                         
                     }
@@ -221,11 +185,7 @@ struct LaunchAnimation: View {
                 }
                 
             }
-            
-            //all images are loaded into cache
-            images_loaded = true
-            print("settings images_loaded \(images_loaded)")
-        }
+            images_loaded = true        }
     }
     
     func handleResponse(data: Data?, response: URLResponse?) -> UIImage? {
@@ -251,10 +211,8 @@ struct LaunchAnimation: View {
     func checkIfFileExists(selectedKey: String, key: String, path:URL?) -> Bool {
         if let path = path {
             if FileManager.default.fileExists(atPath: path.path){
-                //print("image already exists")
                 return true
             }else {
-                //print("image does not exist")
                 return false
             }
         }
@@ -262,8 +220,56 @@ struct LaunchAnimation: View {
     }
     
     func makePostRequest(completion: @escaping (Result<[String: [String : [String]]], Error>) -> Void) {
-        print("calling API..." + selectedKey)
-        let complete_api = "https://49jmxvbvc9.execute-api.us-west-1.amazonaws.com/v2/" + selectedKey
+            let complete_api = "https://49jmxvbvc9.execute-api.us-west-1.amazonaws.com/v2/" + selectedKey
+            let url = URL(string: complete_api)!
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            //let parameters = ["key": "value"]
+            //request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                if let data = data, let response = response as? HTTPURLResponse {
+                    if response.statusCode == 200 {
+                        
+                        do {
+                            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                            guard let dictionary = jsonObject as? [String: Any] else {
+                                
+                                completion(.failure(APIError.invalidResponse))
+                                return
+                            }
+                            var result: [String: [String : [String]]] = [:]
+                            for (key, value) in dictionary {
+                                //alter code here to make output for dict of dicts
+                                if let array = value as? [String : [String]] {
+                                    result[key] = array
+                                } else {
+                                    completion(.failure(APIError.invalidResponse))
+                                    return
+                                }
+                            }
+
+                            completion(.success(result))
+                        } catch {
+                            completion(.failure(error))
+                        }
+                    } else {
+                        completion(.failure(APIError.invalidStatusCode))
+                    }
+                }
+            }
+            task.resume()
+        }
+    
+    func getHours(completion: @escaping (Result<[String: [String : [[Float]]]], Error>) -> Void) {
+        let complete_api = "https:// REMOVED.execute-api.us-west-1.amazonaws.com/v1test/s3?key=" + selectedKey + "/hours.json"
         let url = URL(string: complete_api)!
 
         var request = URLRequest(url: url)
@@ -283,20 +289,16 @@ struct LaunchAnimation: View {
                 if response.statusCode == 200 {
                     do {
                         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-                        guard let dictionary = jsonObject as? [String: Any] else {
+                        guard let dictionary = jsonObject as? [String: [String: [[Float]]]] else {
                             completion(.failure(APIError.invalidResponse))
                             return
                         }
                         
-                        var result: [String: [String : [String]]] = [:]
+                        var result: [String: [String : [[Float]]]] = [:]
                         for (key, value) in dictionary {
                             //alter code here to make output for dict of dicts
-                            if let array = value as? [String : [String]] {
-                                result[key] = array
-                            } else {
-                                completion(.failure(APIError.invalidResponse))
-                                return
-                            }
+                            let arr = value as?[String : [[Float]]]
+                            result[key] = arr
                         }
 
                         completion(.success(result))
