@@ -231,10 +231,10 @@ struct SearchingView: View {
                                                     for i in hallHours{
                                                         if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
                                                             opendict[hallData.name] = "open"
-                                                        } else{
-                                                            opendict[hallData.name] = "closed"
-                                                            
                                                         }
+                                                    }
+                                                    if opendict[hallData.name] != "open"{
+                                                        opendict[hallData.name] = "closed"
                                                     }
                                                     ifdininghalls = true
                                                     
@@ -274,9 +274,9 @@ struct SearchingView: View {
                                             for i in hallHours{
                                                 if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
                                                     opendict[hall.name] = "open"
-                                                } else{
+                                                }
+                                                if opendict[hall.name] != "open"{
                                                     opendict[hall.name] = "closed"
-                                                    
                                                 }
                                             }
                                             ifrestaurants = true
