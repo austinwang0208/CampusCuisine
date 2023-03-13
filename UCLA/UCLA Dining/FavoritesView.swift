@@ -55,55 +55,61 @@ struct FavoritesView: View {
         return items
     }
     var body: some View {
-        VStack{
-            let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
-            let res = Dictionary(uniqueKeysWithValues:
-                                    hallNames.map { name in
-                (name, Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData))
-            }
-            )
-            
-            let searchData = getData().filter { selectedItems.contains($0.food) }
-            ScrollView{
-                ForEach(searchData, id: \.id) { itemData in
-                    Divider()
-                    Button(action: {
-                        // Do something here if you need to
-                    }) {
-                        NavigationLink(destination: Menu(hall: res[itemData.hallname]!)) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
-                                    .font(.system(size:17, weight: .medium, design: .default))
-                                Group {
-                                    Text(itemData.mealtime)
-                                    Text(itemData.hallname)
-                                }
-                                .foregroundColor(.gray)
-                                .font(.system(size:15, weight: .medium, design: .default))
-                            }
-                            .padding(.leading, 16)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.vertical,4)
+            VStack{
+                let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
+                let res = Dictionary(uniqueKeysWithValues:
+                                        hallNames.map { name in
+                    (name, Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData))
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .navigationBarTitle("Favorites Available Today", displayMode: .inline)
+                )
+                
+                let searchData = getData().filter { selectedItems.contains($0.food) }
+                ScrollView{
+                    ForEach(searchData, id: \.id) { itemData in
+                        Divider()
+                        Button(action: {
+                            // Do something here if you need to
+                        }) {
+                            NavigationLink(destination: Menu(hall: res[itemData.hallname]!)) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
+                                        .font(.system(size:17, weight: .medium, design: .default))
+                                    Group {
+                                        Text(itemData.mealtime)
+                                        Text(itemData.hallname)
+                                    }
+                                    .foregroundColor(.gray)
+                                    .font(.system(size:15, weight: .medium, design: .default))
+                                }
+                                .padding(.leading, 16)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .padding(.vertical,4)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .navigationBarTitle("Favorites Available Today", displayMode: .inline)
+                }
             }
-            
-            
-            
-        }
-        .onAppear {
-            loadSelectedItems()
-        }
+            .onAppear {
+                loadSelectedItems()
+            }
     }
     
 }
+
+//struct FavoriteAdView: View {
+//    var body: some View {
+//        VStack {
+//            BannerAd(unitID: "ca-app-pub- REMOVED")
+//        }.frame(height: 45)
+//    }
+//}
 //
-//struct FavoritesView_Previews: PreviewProvider {
+//
+//struct FavoritesAdView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        FavoritesView(APIoutput: APIoutput, selectedKey: selectedKey, output: output)
+//        FavoriteAdView()
 //    }
 //}

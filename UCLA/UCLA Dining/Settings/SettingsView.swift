@@ -81,6 +81,9 @@ struct SettingsView: View {
                                 .padding([.vertical, .horizontal] , 20)
                         }
                     }//.listStyle(PlainListStyle())
+                    VStack {
+                        BannerAd(unitID: "ca-app-pub-7275807859221897/8737393464")
+                    }.frame(height: 45)
                 }
                 }
             }.navigationBarTitle("Settings", displayMode: .inline)

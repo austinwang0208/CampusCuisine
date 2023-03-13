@@ -15,31 +15,42 @@ struct FooterView: View {
     @Binding var selectedView: Int
     
     var body: some View {
-        HStack {
-            Button(action: {
-                // set selected view to 0 when the left button is clicked
-                selectedView = 0
-            }, label: {
-                Image(systemName: "fork.knife")
-                    .font(.title2)
-                    .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
-            }).frame(maxWidth: .infinity)
-            
-            Button(action: {
-                // set selected view to 1 when the right button is clicked
-                selectedView = 1
-            }, label: {
-                Image(systemName: "heart.fill")
-                    .font(.title2)
-                    .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
-            }).frame(maxWidth: .infinity)
-        }.overlay(
-            Rectangle()
-                .frame(height: 0.5)
-                .foregroundColor(Color.black)
-                .offset(y: -18)
-                .padding(.horizontal, -100)
-        )
+        ZStack{
+            VStack{
+                if selectedView == 1 {
+                    VStack {
+                        BannerAd(unitID: "ca-app-pub- REMOVED")
+                    }.frame(height: 45)
+                        .padding()
+                }
+                HStack {
+                    Button(action: {
+                        // set selected view to 0 when the left button is clicked
+                        selectedView = 0
+                    }, label: {
+                        Image(systemName: "fork.knife")
+                            .font(.title2)
+                            .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
+                    }).frame(maxWidth: .infinity)
+                    
+                    Button(action: {
+                        // set selected view to 1 when the right button is clicked
+                        selectedView = 1
+                    }, label: {
+                        Image(systemName: "heart.fill")
+                            .font(.title2)
+                            .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
+                    }).frame(maxWidth: .infinity)
+                }
+                .overlay(
+                    Rectangle()
+                        .frame(height: 0.5)
+                        .foregroundColor(Color.black)
+                        .offset(y: -18)
+                        .padding(.horizontal, -100)
+                )
+            }
+        }
     }
 }
 
