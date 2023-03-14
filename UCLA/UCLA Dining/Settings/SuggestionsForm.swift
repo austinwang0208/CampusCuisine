@@ -14,30 +14,34 @@ struct SuggestionsForm: View {
     @State private var message: String = ""
     
     var body: some View {
-        VStack{
-            Form {
-                Section(header: Text("Issue")) {
-                    TextField("Enter the issue", text: $issue)
-                }.frame(height:30)
-                
-                Section(header: Text("Contact Information (optional)")) {
-                    TextField("Enter your email or phone number", text: $contact)
-                }.frame(height:30)
-                
-                Button(action: {
-                    submitSuggestion(issue: self.issue, contact: self.contact)
-                }) {
-                    Text("Submit Suggestion")
-                }.frame(height:30)
-                
-                if !message.isEmpty {
-                    Text(message)
-                        .foregroundColor(.green)
+        GeometryReader { geometry in
+            ScrollView {
+                VStack{
+                    Form {
+                        Section(header: Text("Issue")) {
+                            TextField("Enter the issue", text: $issue)
+                        }.frame(height:30)
+
+                        Section(header: Text("Contact Information (optional)")) {
+                            TextField("Enter your email or phone number", text: $contact)
+                        }.frame(height:30)
+
+                        Button(action: {
+                            submitSuggestion(issue: self.issue, contact: self.contact)
+                        }) {
+                            Text("Submit Suggestion")
+                        }.frame(height:30)
+
+                        if !message.isEmpty {
+                            Text(message)
+                                .foregroundColor(.green)
+                        }
+                    }.frame(height: geometry.size.height)
                 }
-            }.frame(height:750)
-            //.navigationBarTitle("Suggestions")
+            }
         }
     }
+
     
     func submitSuggestion(issue: String, contact: String) {
         let parameters: [String: Any] = ["issue": issue, "contact": contact]

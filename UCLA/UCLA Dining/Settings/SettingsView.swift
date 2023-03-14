@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    //@State private var changeSchools = false
     @State private var isPresented: Bool = false
     @State private var selectedKey: String? = UserDefaults.standard.string(forKey: "selectedKey")
     @State private var refresh: Bool = false
@@ -16,7 +15,6 @@ struct SettingsView: View {
     @State private var showNavigationBar = true
     
     var body: some View {
-        //NavigationStack {
             ZStack {
                 //Color.white
                 VStack(spacing: 0) {
@@ -36,10 +34,12 @@ struct SettingsView: View {
                                         .font(.headline)
                                         .foregroundColor(.black)
                                         .padding([.vertical, .horizontal] , 20)
-                                        
-                                    Image("\(selectedKey!) designer text")
-                                        .padding(.vertical, 20)
-                                    //.font(.system(size: 18, design: .default))
+                                    if (selectedKey != nil) {
+                                        Image("\(selectedKey!) designer text")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .padding(.vertical, 20)
+                                    }
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -49,45 +49,20 @@ struct SettingsView: View {
                                 FillInView(selectedKey: $selectedKey, refresh: $refresh)
                             }
                         }.frame(height: 450)
-                        //.listStyle(PlainListStyle())
-                        //Text("Help us Out!")
-                        //    .font(.system(size:28, weight: .medium, design: .default))
-                        //    .foregroundColor(.black)
                         
                     List {
-//                        Button(action: {
-//                            //let appId = "1449187448"
-//                            //let urlString = "itms-apps://itunes.apple.com/app/id\(appId)?action=write-review"
-//                            let urlString = "https:///www.google.com"
-//                            
-//                            if let url = URL(string: urlString) {
-//                                UIApplication.shared.open(url)
-//                            }
-//                        }) {
-//                            Text("Leave A Review: ")
-//                                .font(.headline)
-//                                .foregroundColor(.black)
-//                                .padding([.vertical, .horizontal] , 20)
-//                        }
-//                        NavigationLink(destination: LeaveUsAReviewView()) {
-//                            Text("Rate our App:")
-//                                .font(.headline)
-//                                .padding(.vertical, 20)
-//                        }
-                            
                         NavigationLink(destination: SuggestionsForm()) {
                             Text("Have Something to Report?")
                                 .font(.headline)
                                 .padding([.vertical, .horizontal] , 20)
                         }
-                    }//.listStyle(PlainListStyle())
+                    }
                     VStack {
                         BannerAd(unitID: "ca-app-pub-7275807859221897/8737393464")
                     }.frame(height: 45)
                 }
                 }
             }.navigationBarTitle("Settings", displayMode: .inline)
-            //.navigationBarHidden(!showNavigationBar)
     }
 }
 
