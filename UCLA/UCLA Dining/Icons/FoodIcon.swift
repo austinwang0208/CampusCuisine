@@ -39,7 +39,7 @@ struct FoodIcon: View {
                 Text(open)
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
                     .foregroundColor(color)
-                    .font(.system(size: 15, weight: .light, design: .default))
+                    .font(.system(size: 15, weight: .medium, design: .default))
                     
             }.frame(width: 350, height: 40)
         }
@@ -52,9 +52,9 @@ struct FoodIcon: View {
     
     func changeColor(open: String) -> Color{
         if open == "open"{
-            return Color(.green)
+            return Color(red : 29/255, green : 163/255, blue : 101/255)
         } else {
-            return Color(.red)
+            return Color(red : 225/255, green : 43/255, blue : 43/255)
         }
     }
 }

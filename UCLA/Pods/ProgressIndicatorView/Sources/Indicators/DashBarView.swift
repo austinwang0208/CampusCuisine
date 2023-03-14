@@ -11,7 +11,7 @@ import SwiftUI
 struct DashBarView: View {
     
     @Binding var progress: CGFloat
-    let numberOfItems: Int
+    var numberOfItems: Int
     let backgroundColor: Color
     
     private let spacing: CGFloat = 4.0
