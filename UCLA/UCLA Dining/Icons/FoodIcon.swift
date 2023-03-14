@@ -40,7 +40,6 @@ struct FoodIcon: View {
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
                     .foregroundColor(color)
                     .font(.system(size: 15, weight: .bold, design: .default))
-                    
             }.frame(width: 350, height: 40)
         }
         .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))

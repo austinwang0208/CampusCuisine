@@ -214,6 +214,12 @@ struct SearchingView: View {
                                                 NavigationLink(destination: Menu(hall: hallData)) {
                                                     if ifdininghalls{
                                                         FoodIcon(hall: hallData, hours: hours, open: opendict[hallData.name]!)
+                                                            .overlay(
+                                                                RoundedRectangle(cornerRadius: 20)
+                                                                    .fill(opendict[hallData.name] == "Closed" ? Color.gray.opacity(0.5) : Color.clear)
+                                                                    .frame(width: 350, height: 200)
+                                                            )
+                                                            
                                                     }
                                                 }.onAppear(){
                                                     let dateFormatter = DateFormatter()
@@ -256,6 +262,11 @@ struct SearchingView: View {
                                         NavigationLink(destination: fixed_menu(hall: hall), label: {
                                             if ifrestaurants{
                                                 FoodIcon(hall: hall, hours: hours, open: opendict[hall.name]!)
+                                                    .overlay(
+                                                        RoundedRectangle(cornerRadius: 20)
+                                                            .fill(opendict[hall.name] == "Closed" ? Color.gray.opacity(0.5) : Color.clear)
+                                                            .frame(width: 350, height: 200)
+                                                    )
                                                 
                                             }
                                         }
@@ -310,12 +321,16 @@ struct SearchingView: View {
                                                     Group {
                                                         Text(itemData.mealtime)
                                                         Text(itemData.hallname)
+                                                    
                                                     }
                                                     .foregroundColor(.gray)
                                                     .font(.system(size:15, weight: .medium, design: .default))
                                                 }
                                                 .padding(.leading, 16)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
+                                                Image(systemName: "heart.fill")
+                                                    .foregroundColor(.red)
+                                                    .padding(.trailing, 16)
                                             }
                                         }
                                         .buttonStyle(PlainButtonStyle())
