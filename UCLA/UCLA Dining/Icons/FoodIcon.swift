@@ -39,7 +39,7 @@ struct FoodIcon: View {
                 Text(open)
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
                     .foregroundColor(color)
-                    .font(.system(size: 15, weight: .light, design: .default))
+                    .font(.system(size: 15, weight: .bold, design: .default))
                     
             }.frame(width: 350, height: 40)
         }
@@ -51,10 +51,10 @@ struct FoodIcon: View {
     }
     
     func changeColor(open: String) -> Color{
-        if open == "open"{
-            return Color(.green)
+        if open == "Open"{
+            return Color("light green")
         } else {
-            return Color(.red)
+            return Color("light red")
         }
     }
 }
@@ -110,6 +110,6 @@ struct RoundedCorners: Shape {
 //
 //        static var previews: some View {
 //            // 5. Use the right SecondView initializator
-//            FoodIcon(hall: HallPreview,)
+//            FoodIcon(hall: HallPreview)
 //        }
 //}

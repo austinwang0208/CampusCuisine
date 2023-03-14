@@ -230,11 +230,11 @@ struct SearchingView: View {
                                                     let hallHours = hours[hallData.name]![String(weekDay)]!
                                                     for i in hallHours{
                                                         if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
-                                                            opendict[hallData.name] = "open"
+                                                            opendict[hallData.name] = "Open"
                                                         }
                                                     }
-                                                    if opendict[hallData.name] != "open"{
-                                                        opendict[hallData.name] = "closed"
+                                                    if opendict[hallData.name] != "Open"{
+                                                        opendict[hallData.name] = "Closed"
                                                     }
                                                     ifdininghalls = true
                                                     
@@ -273,10 +273,10 @@ struct SearchingView: View {
                                             let hallHours = hours[hall.name]![String(weekDay)]!
                                             for i in hallHours{
                                                 if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
-                                                    opendict[hall.name] = "open"
+                                                    opendict[hall.name] = "Open"
                                                 }
-                                                if opendict[hall.name] != "open"{
-                                                    opendict[hall.name] = "closed"
+                                                if opendict[hall.name] != "Open"{
+                                                    opendict[hall.name] = "Closed"
                                                 }
                                             }
                                             ifrestaurants = true

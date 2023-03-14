@@ -21,7 +21,7 @@ struct FooterView: View {
                     VStack {
                         BannerAd(unitID: "ca-app-pub- REMOVED")
                     }.frame(height: 45)
-                        .padding()
+                        .padding(.bottom, 5)
                 }
                 HStack {
                     Button(action: {
@@ -99,7 +99,7 @@ struct FooterView_Previews: PreviewProvider {
          FooterView(APIoutput: APIpreview,
                     selectedKey: "diningmenus",
                     output: getFixedMenus(selectedKey: "diningmenus"),
-                    selectedView: .constant(0)
+                    selectedView: .constant(1)
         )
     }
 }
