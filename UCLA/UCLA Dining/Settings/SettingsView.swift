@@ -114,11 +114,14 @@ struct SettingsView: View {
                             .frame(height:50)
                             .padding(.top, 20)
                             Spacer()
-                            Spacer()
-                            VStack {
-                                BannerAd(unitID: "ca-app-pub- REMOVED")
-                            }.frame(height: 45)
-                        }.frame(height:400)
+                        }.frame(height: 400)
+                        GeometryReader { geometry in
+                                VStack {
+                                    Spacer()
+                                    BannerAd(unitID: "ca-app-pub- REMOVED")
+                                        .frame(width: geometry.size.width, height: 45)
+                                }
+                            }
                     }
                     
                 }

@@ -50,7 +50,7 @@ struct FoodIcon: View {
     }
     
     func changeColor(open: String) -> Color{
-        if open == "Open"{
+        if open.prefix(4) == "Open"{
             return Color("light green")
         } else {
             return Color("light red")
