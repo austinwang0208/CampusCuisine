@@ -36,10 +36,18 @@ struct FoodIcon: View {
                     .font(.system(size: 17, weight: .medium, design: .default))
                 Spacer()
                 //opendict[hall.name]!
-                Text(open)
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
+                let firstWord = open.components(separatedBy: " ").first ?? ""
+                let restOfString = open.replacingOccurrences(of: firstWord, with: "")
+
+                Text(firstWord)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: -10))
                     .foregroundColor(color)
                     .font(.system(size: 15, weight: .bold, design: .default))
+                
+                Text(restOfString)
+                    .foregroundColor(.gray)
+                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 10))
+                    .font(.system(size: 13, weight: .light, design: .default))
             }.frame(width: 350, height: 40)
         }
         .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))

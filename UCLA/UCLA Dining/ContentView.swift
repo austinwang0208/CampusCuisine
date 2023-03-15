@@ -222,26 +222,7 @@ struct SearchingView: View {
                                                             
                                                     }
                                                 }.onAppear(){
-                                                    let dateFormatter = DateFormatter()
-                                                    dateFormatter.timeZone = TimeZone.current
-                                                    dateFormatter.dateFormat = "HH:mm:ss"
-                                                    let localTime = dateFormatter.string(from: Date())
-                                                    let timeComponents = localTime.split(separator: ":").compactMap { Int($0) }
-                                                    let decimalTime = Double(timeComponents[0]) + Double(timeComponents[1]) / 60.0 + Double(timeComponents[2]) / 3600.0
-                                                    
-                                                    let date = Date() // get the current date
-                                                    let calendar = Calendar.current // get the current calendar
-                                                    let weekDay = calendar.component(.weekday, from: date) // get the day of the week (Sunday is 1, Monday is 2, etc.)
-                                                    
-                                                    let hallHours = hours[hallData.name]![String(weekDay)]!
-                                                    for i in hallHours{
-                                                        if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
-                                                            opendict[hallData.name] = "Open"
-                                                        }
-                                                    }
-                                                    if opendict[hallData.name] != "Open"{
-                                                        opendict[hallData.name] = "Closed"
-                                                    }
+                                                    changeTime(hall: hallData)
                                                     ifdininghalls = true
                                                     
                                                 }
@@ -271,25 +252,7 @@ struct SearchingView: View {
                                             }
                                         }
                                         ).onAppear(){
-                                            let dateFormatter = DateFormatter()
-                                            dateFormatter.timeZone = TimeZone.current
-                                            dateFormatter.dateFormat = "HH:mm:ss"
-                                            let localTime = dateFormatter.string(from: Date())
-                                            let timeComponents = localTime.split(separator: ":").compactMap { Int($0) }
-                                            let decimalTime = Double(timeComponents[0]) + Double(timeComponents[1]) / 60.0 + Double(timeComponents[2]) / 3600.0
-                                            let date = Date() // get the current date
-                                            let calendar = Calendar.current // get the current calendar
-                                            let weekDay = calendar.component(.weekday, from: date) // get the day of the week (Sunday is 1, Monday is 2, etc.)
-                                            
-                                            let hallHours = hours[hall.name]![String(weekDay)]!
-                                            for i in hallHours{
-                                                if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
-                                                    opendict[hall.name] = "Open"
-                                                }
-                                                if opendict[hall.name] != "Open"{
-                                                    opendict[hall.name] = "Closed"
-                                                }
-                                            }
+                                            changeTime(hall: hall)
                                             ifrestaurants = true
                                             
                                         }
@@ -352,8 +315,60 @@ struct SearchingView: View {
                             
                         }
                     }
-
+    
+    func changeTime(hall: Hall){
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let localTime = dateFormatter.string(from: Date())
+        let timeComponents = localTime.split(separator: ":").compactMap { Int($0) }
+        let decimalTime = Double(timeComponents[0]) + Double(timeComponents[1]) / 60.0 + Double(timeComponents[2]) / 3600.0
+        
+        let date = Date() // get the current date
+        let calendar = Calendar.current // get the current calendar
+        let weekDay = calendar.component(.weekday, from: date) // get the day of the week (Sunday is 1, Monday is 2, etc.)
+        
+        let hallHours = hours[hall.name]![String(weekDay)]!
+        for i in hallHours{
+            if (Float(decimalTime) > i[0]) && (Float(decimalTime) < i[1]){
+                var number = i[1]
+                var meridiem = ""
+                if i[1] < 12{
+                    meridiem += "AM"
+                } else {
+                    meridiem += "PM"
+                    number -= 12
                 }
+                var remainder = Float(0.0)
+                if round(number) != number{
+                    remainder = number.truncatingRemainder(dividingBy: 1)
+                    remainder *= 60
+                }
+                if remainder == 0{
+                    meridiem = "\(Int(floor(number))):\(Int(remainder))\(Int(remainder)) \(meridiem)"
+                } else{
+                    meridiem = "\(Int(floor(number))):\(Int(remainder)) \(meridiem)"
+                }
+                print(number)
+                opendict[hall.name] = "Open until \(meridiem)"
+            }
+            if (i[1] - Float(decimalTime) <= 1) && (opendict.keys.contains(hall.name)) && (opendict[hall.name]!.prefix(4) == "Open"){
+                let minutes = (i[1] - Float(decimalTime)) * 60
+                let str = "Closing in \(Int(minutes))m"
+                opendict[hall.name] = str
+            }
+            if ((i[0] - Float(decimalTime)) < 1) && ((i[0] - Float(decimalTime)) > 0) {
+                let minutes = (i[0] - Float(decimalTime)) * 60
+                let str = "Opens in \(Int(minutes))m"
+                opendict[hall.name] = str
+            }
+        }
+        if !(opendict.keys.contains(hall.name)) {
+            opendict[hall.name] = "Closed"
+        }
+    }
+
+}
 
 
     
@@ -386,4 +401,3 @@ struct SearchingView: View {
 //
 //
     
-

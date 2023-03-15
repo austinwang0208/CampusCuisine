@@ -42,6 +42,7 @@ struct FooterView: View {
                             .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
                     }).frame(maxWidth: .infinity)
                 }
+                .frame(height:20)
                 .overlay(
                     Rectangle()
                         .frame(height: 0.5)
