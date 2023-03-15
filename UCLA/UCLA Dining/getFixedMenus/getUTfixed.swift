@@ -7,12 +7,20 @@
 
 import Foundation
 
-func getUTAfixed() -> [Hall] {
+func getUTfixed() -> [Hall] {
     let ChicFilAData = Hall(
         selectedKey: "utaustindiningmenus",
-        name: "Chic Fil A",
+        name: "Chick Fil A - Texas Union",
         //image: "Crepe Bistro",
-        fixed_menu: ["Chic Fil A Menu 1"],
+        fixed_menu: ["Chic Fil A - Texas Union Menu 1"],
+        sections: 1
+    )
+    
+    let ChicFilADataWCP = Hall(
+        selectedKey: "utaustindiningmenus",
+        name: "Chick Fil A - WCP",
+        //image: "Crepe Bistro",
+        fixed_menu: ["Chic Fil A - WCP Menu 1"],
         sections: 1
     )
     
@@ -60,7 +68,7 @@ func getUTAfixed() -> [Hall] {
         sections: 1
     )
 
-    let output = [ChicFilAData, PandaExpressData, ShakeSmartData, TowerData, UnionCoffeeData,Sushidata, TacosData   ]
+    let output = [ChicFilAData, PandaExpressData, ShakeSmartData, TowerData, UnionCoffeeData,Sushidata, TacosData, ChicFilADataWCP]
     return output
 }
 

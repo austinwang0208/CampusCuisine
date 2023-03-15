@@ -23,7 +23,8 @@ struct ProgressBar: View {
             
             VStack {
                 
-                ProgressIndicatorView(isVisible: $showProgressIndicator, type: .bar(progress: $progress, backgroundColor: .gray.opacity(0.25)))
+                ProgressIndicatorView(isVisible: $showProgressIndicator, type: .bar(progress: $progress, backgroundColor:
+                        .gray.opacity(0.25)))
                     .frame(height: 10.0)
                     .foregroundColor(Color(red: 208/255, green: 190/255, blue: 128/255))
                     .padding([.bottom, .horizontal], size)
@@ -38,11 +39,11 @@ struct ProgressBar: View {
         .onReceive(timer) { _ in
             switch progress {
             case ...0.3, 0.4...0.6:
-                progress += 1 / 10
-            case 0.3...0.4:
                 progress += 1 / 30
+            case 0.3...0.4:
+                progress += 1 / 60
             case 0.6...0.70:
-                progress += 1/20
+                progress += 1/60
             case 0.70...0.99:
                 progress += 1/200
               default:

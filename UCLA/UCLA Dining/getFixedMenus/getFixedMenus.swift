@@ -31,7 +31,7 @@ func getFixedMenus(selectedKey: String) -> [Hall] {
         output = getUCBfixed()
     }
     else if (selectedKey == "utaustindiningmenus") {
-        output = getUTAfixed()
+        output = getUTfixed()
     }
     
     return output
