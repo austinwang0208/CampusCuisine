@@ -9,7 +9,6 @@ def lambda_handler(event, context):
 #Set up a connection to S3
     s3 = boto3.client('s3')
 
-
     dt = datetime.now()
     day = dt.strftime('%A')
 
@@ -33,16 +32,20 @@ def lambda_handler(event, context):
                     for span_tag in li_tag.find_all('span'):
                         if span_tag.text not in items:
                             items.append(span_tag.text)
-                x = meal.findNext("h4").text.capitalize()
+                x = meal.findNext("h4").text.title().strip()
                 if menu_items[place].get(x) is not None:
                     menu_items[place][x] = menu_items[place][x] + items
                 else:
                     menu_items[place][x] = items
+
+
+
         for hall in menu_items:
             for meal in meals:
                 if menu_items[hall].get(meal) is None:
                     menu_items[hall][meal] = []
 
+    
     #return menu_items
     # Set the name of the S3 bucket and the key for the object
     bucket_name = "ucddiningmenus"
