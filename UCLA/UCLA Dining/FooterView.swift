@@ -34,6 +34,11 @@ struct FooterView: View {
                             .padding(.bottom, 5)
                     }
                     //Spacer()
+                    Rectangle()
+                        .frame(height: 0.5)
+                        .foregroundColor(Color.black)
+                        .offset(y: -18)
+                        .padding(.horizontal, -100)
                     HStack {
                         Button(action: {
                             // set selected view to 0 when the left button is clicked
@@ -56,18 +61,20 @@ struct FooterView: View {
                     }
                     .padding(.top)
                     .frame(height:20)
-                    .overlay(
-                        Rectangle()
-                            .frame(height: 0.5)
-                            .foregroundColor(Color.black)
-                            .offset(y: -18)
-                            .padding(.horizontal, -100)
-                    )
+//                    .overlay(
+//                        Rectangle()
+//                            .frame(height: 0.5)
+//                            .foregroundColor(Color.black)
+//                            .offset(y: -18)
+//                            .padding(.horizontal, -100)
+//                    )
                 }
             }
         }
         else {
+            let searchbarcolor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
             ZStack{
+                
                 VStack{
                     if selectedView == 1 {
                         VStack {
@@ -75,35 +82,39 @@ struct FooterView: View {
                         }.frame(height: 45)
                             .padding(.bottom, 5)
                     }
-                    HStack {
-                        Button(action: {
-                            // set selected view to 0 when the left button is clicked
-                            selectedView = 0
-                        }, label: {
-                            Image(systemName: "fork.knife")
-                                .font(.title2)
-                                .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
-                        }).frame(maxWidth: .infinity)
-
-                        Button(action: {
-                            // set selected view to 1 when the right button is clicked
-                            selectedView = 1
-                        }, label: {
-                            Image(systemName: "heart.fill")
-                                .font(.title2)
-                                .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
-                        }).frame(maxWidth: .infinity)
+                    ZStack {
+                        HStack {
+                            Button(action: {
+                                // set selected view to 0 when the left button is clicked
+                                selectedView = 0
+                            }, label: {
+                                Image(systemName: "fork.knife")
+                                    .font(.title2)
+                                    .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
+                            }).frame(maxWidth: .infinity)
+                            
+                            Button(action: {
+                                // set selected view to 1 when the right button is clicked
+                                selectedView = 1
+                            }, label: {
+                                Image(systemName: "heart.fill")
+                                    .font(.title2)
+                                    .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
+                            }).frame(maxWidth: .infinity)
+                        }
                     }
-                    .frame(height:20)
-                    .overlay(
-                        Rectangle()
-                            .frame(height: 0.5)
-                            .foregroundColor(Color.black)
-                            .offset(y: -18)
-                            .padding(.horizontal, -100)
-                    )
+                    .frame(height:15)
+//                    .overlay(
+//                        Rectangle()
+//                            .frame(height: 0.5)
+//                            .foregroundColor(Color.black)
+//                            .offset(y: -18)
+//                            .padding(.horizontal, -100)
+//                    )
                 }
-            }.padding()
+            }
+            .foregroundColor(Color(searchbarcolor))
+            .padding()
         }
     }
 }
