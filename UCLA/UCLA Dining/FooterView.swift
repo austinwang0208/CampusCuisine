@@ -14,47 +14,99 @@ struct FooterView: View {
     let NoData = ["No Data displayed" : ["Nothing to show"]]
     @Binding var selectedView: Int
     
+    //for checking screen is big enough to fit footer without padding
+    @State var isLargeDevice: Bool = {
+        if UIScreen.main.bounds.height > 800 {
+            return true
+        } else {
+            return false
+        }
+    }()
+    
     var body: some View {
-        ZStack{
-            VStack{
-                if selectedView == 1 {
-                    VStack {
-                        BannerAd(unitID: "ca-app-pub- REMOVED")
-                    }.frame(height: 45)
-                        .padding(.bottom, 5)
+        if isLargeDevice{
+            ZStack{
+                VStack{
+                    if selectedView == 1 {
+                        VStack {
+                            BannerAd(unitID: "ca-app-pub- REMOVED")
+                        }.frame(height: 45)
+                            .padding(.bottom, 5)
+                    }
+                    //Spacer()
+                    HStack {
+                        Button(action: {
+                            // set selected view to 0 when the left button is clicked
+                            selectedView = 0
+                        }, label: {
+                            Image(systemName: "fork.knife")
+                                .font(.title2)
+                                .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
+                        }).frame(maxWidth: .infinity)
+
+                        
+                        Button(action: {
+                            // set selected view to 1 when the right button is clicked
+                            selectedView = 1
+                        }, label: {
+                            Image(systemName: "heart.fill")
+                                .font(.title2)
+                                .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
+                        }).frame(maxWidth: .infinity)
+                    }
+                    .padding(.top)
+                    .frame(height:20)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 0.5)
+                            .foregroundColor(Color.black)
+                            .offset(y: -18)
+                            .padding(.horizontal, -100)
+                    )
                 }
-                HStack {
-                    Button(action: {
-                        // set selected view to 0 when the left button is clicked
-                        selectedView = 0
-                    }, label: {
-                        Image(systemName: "fork.knife")
-                            .font(.title2)
-                            .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
-                    }).frame(maxWidth: .infinity)
-                    
-                    Button(action: {
-                        // set selected view to 1 when the right button is clicked
-                        selectedView = 1
-                    }, label: {
-                        Image(systemName: "heart.fill")
-                            .font(.title2)
-                            .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
-                    }).frame(maxWidth: .infinity)
-                }
-                .frame(height:20)
-                .overlay(
-                    Rectangle()
-                        .frame(height: 0.5)
-                        .foregroundColor(Color.black)
-                        .offset(y: -18)
-                        .padding(.horizontal, -100)
-                )
             }
+        }
+        else {
+            ZStack{
+                VStack{
+                    if selectedView == 1 {
+                        VStack {
+                            BannerAd(unitID: "ca-app-pub- REMOVED")
+                        }.frame(height: 45)
+                            .padding(.bottom, 5)
+                    }
+                    HStack {
+                        Button(action: {
+                            // set selected view to 0 when the left button is clicked
+                            selectedView = 0
+                        }, label: {
+                            Image(systemName: "fork.knife")
+                                .font(.title2)
+                                .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
+                        }).frame(maxWidth: .infinity)
+
+                        Button(action: {
+                            // set selected view to 1 when the right button is clicked
+                            selectedView = 1
+                        }, label: {
+                            Image(systemName: "heart.fill")
+                                .font(.title2)
+                                .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
+                        }).frame(maxWidth: .infinity)
+                    }
+                    .frame(height:20)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 0.5)
+                            .foregroundColor(Color.black)
+                            .offset(y: -18)
+                            .padding(.horizontal, -100)
+                    )
+                }
+            }.padding()
         }
     }
 }
-
 
 
     

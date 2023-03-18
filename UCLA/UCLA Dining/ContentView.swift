@@ -26,7 +26,6 @@ struct ContentView: View {
     @State private var showResults = false
 //    @StateObject var oo = SearchObservableObject()
     
-    
     let attrs = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
     ]
@@ -199,7 +198,9 @@ struct SearchingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
                 } else {
-                    Section(footer:FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output, selectedView: $selectedView)){
+                    Section(footer:
+                        FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output, selectedView: $selectedView)
+                    ){
                         if selectedView == 0{
                             ScrollView {
                                 ZStack {
