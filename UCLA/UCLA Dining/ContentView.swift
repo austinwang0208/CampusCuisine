@@ -273,11 +273,16 @@ struct SearchingView: View {
                                     let hall = Hall(selectedKey: selectedKey, name: name, dishes: dishes)
                                     result[name] = hall
                                 }
+                                let selectedItemsFiltered = selectedItems.filter { item in
+                                    return getData().contains { data in
+                                        return data.food == item
+                                    }
+                                }
 
                                 // Create a scrollable view
                                 ScrollView {
                                     // Iterate over selected items
-                                    ForEach(Array(selectedItems), id: \.self) { itemData in
+                                    ForEach(Array(selectedItemsFiltered), id: \.self) { itemData in
                                         Divider()
 
                                         // Filter data by item
@@ -285,6 +290,7 @@ struct SearchingView: View {
                                             .compactMap { $0.food == itemData ? $0 : nil }
 
                                         // Create a disclosure group for the item
+                                        
                                         VStack {
                                             DisclosureGroup {
                                                 // Iterate over filtered data
@@ -313,12 +319,14 @@ struct SearchingView: View {
                                             } label: {
                                                 Text(itemData)
                                                     .frame(maxWidth: .infinity, alignment: .leading)
+
                                             }
                                             .padding(.vertical, 8)
                                             .padding(.horizontal, 8)
                                         }
 
                                     }
+                                    Divider()
                                     .navigationBarTitle("Favorites Available Today", displayMode: .inline)
                                 }
                             }
