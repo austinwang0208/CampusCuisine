@@ -200,7 +200,8 @@ struct SearchingView: View {
                 } else {
                     Section(footer:
                         FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output, selectedView: $selectedView)
-                    ){
+                    )
+                    {
                         if selectedView == 0{
                             ScrollView {
                                 ZStack {
