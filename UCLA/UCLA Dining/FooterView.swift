@@ -25,6 +25,7 @@ struct FooterView: View {
     
     var body: some View {
         if isLargeDevice{
+            ZStack{
                 VStack{
                     if selectedView == 1 {
                         VStack {
@@ -32,7 +33,13 @@ struct FooterView: View {
                         }.frame(height: 45)
                             .padding(.bottom, 5)
                     }
-                    Divider()
+                    //Spacer()
+
+                    Rectangle()
+                        .frame(height: 0.5)
+                        .offset(y:-8)
+                        .foregroundColor(Color.black)
+                        .padding(.horizontal, -100)
                     HStack {
                         Button(action: {
                             // set selected view to 0 when the left button is clicked
@@ -53,10 +60,26 @@ struct FooterView: View {
                                 .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
                         }).frame(maxWidth: .infinity)
                     }
+                    .padding(.top)
+                    .frame(height:20)
+                    
+
                 }
-        }
+            }
+
+//                    .overlay(
+//                        Rectangle()
+//                            .frame(height: 0.5)
+//                            .foregroundColor(Color.black)
+//                            .offset(y: -18)
+//                            .padding(.horizontal, -100)
+//                    )
+                }
+
         else {
+            let searchbarcolor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
             ZStack{
+                
                 VStack{
                     if selectedView == 1 {
                         VStack {
@@ -64,28 +87,44 @@ struct FooterView: View {
                         }.frame(height: 45)
                             .padding(.bottom, 5)
                     }
-                    Divider()
-                    HStack {
-                        Button(action: {
-                            // set selected view to 0 when the left button is clicked
-                            selectedView = 0
-                        }, label: {
-                            Image(systemName: "fork.knife")
-                                .font(.title2)
-                                .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
-                        }).frame(maxWidth: .infinity)
+                    Rectangle()
+                        .frame(height: 0.5)
+                        .foregroundColor(Color.black)
+                        .offset(y: -24)
+                        .padding(.horizontal, -100)
+                    ZStack {
+                        HStack {
+                            Button(action: {
+                                // set selected view to 0 when the left button is clicked
+                                selectedView = 0
+                            }, label: {
+                                Image(systemName: "fork.knife")
+                                    .font(.title2)
+                                    .foregroundColor(selectedView == 0 ? Color("NavBar color") : .primary)
+                            }).frame(maxWidth: .infinity)
                             
-                        Button(action: {
-                            // set selected view to 1 when the right button is clicked
-                            selectedView = 1
-                        }, label: {
-                            Image(systemName: "heart.fill")
-                                .font(.title2)
-                                .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
-                        }).frame(maxWidth: .infinity)
+                            Button(action: {
+                                // set selected view to 1 when the right button is clicked
+                                selectedView = 1
+                            }, label: {
+                                Image(systemName: "heart.fill")
+                                    .font(.title2)
+                                    .foregroundColor(selectedView == 1 ? Color("NavBar color") : .primary)
+                            }).frame(maxWidth: .infinity)
+                        }
+                        .padding(.bottom, 9)
                     }
+                    .frame(height:10)
+//                    .overlay(
+//                        Rectangle()
+//                            .frame(height: 0.5)
+//                            .foregroundColor(Color.black)
+//                            .offset(y: -18)
+//                            .padding(.horizontal, -100)
+//                    )
                 }
             }
+            .foregroundColor(Color(searchbarcolor))
             .padding()
         }
     }

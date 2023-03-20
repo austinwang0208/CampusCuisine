@@ -200,8 +200,7 @@ struct SearchingView: View {
                 } else {
                     Section(footer:
                         FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output, selectedView: $selectedView)
-                    )
-                    {
+                    ){
                         if selectedView == 0{
                             ScrollView {
                                 ZStack {
@@ -296,7 +295,6 @@ struct SearchingView: View {
                                             DisclosureGroup {
                                                 // Iterate over filtered data
                                                 ForEach(searchData, id: \.id) { itemData in
-                                                    Divider()
                                                     NavigationLink(destination: Menu(hall: halls[itemData.hallname]!)) {
                                                         HStack {
                                                             VStack(alignment: .leading, spacing: 4) {
@@ -316,11 +314,14 @@ struct SearchingView: View {
                                                         .padding(.horizontal, 16)
                                                         .frame(maxWidth: .infinity, alignment: .leading)
                                                     }
+                                                    if searchData.last?.id != itemData.id {
+                                                        Divider()
+                                                    }
                                                 }
                                             } label: {
                                                 Text(itemData.replacingOccurrences(of: "&amp;", with: "&"))
                                                     .frame(maxWidth: .infinity, alignment: .leading)
-
+                                                Divider()
                                             }
                                             .padding(.vertical, 8)
                                             .padding(.horizontal, 8)
