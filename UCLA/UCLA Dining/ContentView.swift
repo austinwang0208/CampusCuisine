@@ -264,48 +264,63 @@ struct SearchingView: View {
                         }
                         else{
                             VStack{
+                                // Get a sorted array of hall names
                                 let hallNames = Array(APIoutput.keys).sorted {$0 < $1}
-                                let res = Dictionary(uniqueKeysWithValues:
-                                                        hallNames.map { name in
-                                    (name, Hall(selectedKey: selectedKey, name: name, dishes: APIoutput[name] ?? NoData))
+
+                                // Create a dictionary of Hall objects keyed by hall names
+                                let halls = hallNames.reduce(into: [String: Hall]()) { result, name in
+                                    let dishes = APIoutput[name] ?? NoData
+                                    let hall = Hall(selectedKey: selectedKey, name: name, dishes: dishes)
+                                    result[name] = hall
                                 }
-                                )
-                                
-                                let searchData = getData().filter { selectedItems.contains($0.food) }
-                                ScrollView{
-                                    ForEach(searchData, id: \.id) { itemData in
+
+                                // Create a scrollable view
+                                ScrollView {
+                                    // Iterate over selected items
+                                    ForEach(Array(selectedItems), id: \.self) { itemData in
                                         Divider()
-                                        Button(action: {
-                                            // Do something here if you need to
-                                        }) {
-                                            NavigationLink(destination: Menu(hall: res[itemData.hallname]!)) {
-                                                VStack(alignment: .leading, spacing: 4) {
-                                                    Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
-                                                        .font(.system(size:17, weight: .medium, design: .default))
-                                                    Group {
-                                                        Text(itemData.mealtime)
-                                                        Text(itemData.hallname)
-                                                    
+
+                                        // Filter data by item
+                                        let searchData = getData()
+                                            .compactMap { $0.food == itemData ? $0 : nil }
+
+                                        // Create a disclosure group for the item
+                                        VStack {
+                                            DisclosureGroup {
+                                                // Iterate over filtered data
+                                                ForEach(searchData, id: \.id) { itemData in
+                                                    Divider()
+                                                    NavigationLink(destination: Menu(hall: halls[itemData.hallname]!)) {
+                                                        HStack {
+                                                            VStack(alignment: .leading, spacing: 4) {
+                                                                Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
+                                                                    .font(.system(size:17, weight: .medium, design: .default))
+                                                                Group {
+                                                                    Text(itemData.mealtime)
+                                                                    Text(itemData.hallname)
+                                                                }
+                                                                .foregroundColor(.gray)
+                                                                .font(.system(size:15, weight: .medium, design: .default))
+                                                            }
+                                                            Spacer()
+                                                            Image(systemName: "heart.fill")
+                                                                .foregroundColor(.red)
+                                                        }
+                                                        .padding(.horizontal, 16)
+                                                        .frame(maxWidth: .infinity, alignment: .leading)
                                                     }
-                                                    .foregroundColor(.gray)
-                                                    .font(.system(size:15, weight: .medium, design: .default))
                                                 }
-                                                .padding(.leading, 16)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                                Image(systemName: "heart.fill")
-                                                    .foregroundColor(.red)
-                                                    .padding(.trailing, 16)
+                                            } label: {
+                                                Text(itemData)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
                                             }
+                                            .padding(.vertical, 8)
+                                            .padding(.horizontal, 8)
                                         }
-                                        .buttonStyle(PlainButtonStyle())
-                                        .padding(.vertical,4)
+
                                     }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
                                     .navigationBarTitle("Favorites Available Today", displayMode: .inline)
                                 }
-                                
-                                
-                                
                             }
                             .onAppear {
                                 loadSelectedItems()
