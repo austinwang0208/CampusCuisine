@@ -81,7 +81,7 @@ struct Menu: View {
                                     else{
                                         ForEach(hall.dishes![key]!, id: \.self) { value in
                                             HStack {
-                                                Text(value)
+                                                Text(value.replacingOccurrences(of: "&amp;", with: "&"))
                                                 Spacer()
                                                 if selectedItems.contains(value) {
                                                     Button(action: {

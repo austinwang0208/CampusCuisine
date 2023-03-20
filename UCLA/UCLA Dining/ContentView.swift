@@ -317,7 +317,7 @@ struct SearchingView: View {
                                                     }
                                                 }
                                             } label: {
-                                                Text(itemData)
+                                                Text(itemData.replacingOccurrences(of: "&amp;", with: "&"))
                                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                             }
