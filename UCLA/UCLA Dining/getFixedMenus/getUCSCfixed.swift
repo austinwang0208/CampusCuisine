@@ -22,13 +22,13 @@ func getUCSCfixed() -> [Hall] {
         fixed_menu: ["Global Village Cafe Menu 1"],
         sections: 1
     )
-    let College8Data = Hall(
-        selectedKey: "ucscdiningmenus",
-        name: "College 8 Cafe",
-        //image: "Crepe Bistro",
-        fixed_menu: ["College 8 Cafe Menu 1"],
-        sections: 1
-    )
+//    let College8Data = Hall(
+//        selectedKey: "ucscdiningmenus",
+//        name: "College 8 Cafe",
+//        //image: "Crepe Bistro",
+//        fixed_menu: ["College 8 Cafe Menu 1"],
+//        sections: 1
+//    )
     let OakesData = Hall(
         selectedKey: "ucscdiningmenus",
         name: "Oakes Cafe",
@@ -44,6 +44,6 @@ func getUCSCfixed() -> [Hall] {
         sections: 1
     )
     
-    let output = [IvetaData, GlobalVillageData,College8Data,StevensonData,OakesData]
+    let output = [IvetaData, GlobalVillageData,StevensonData,OakesData]
     return output
 }
