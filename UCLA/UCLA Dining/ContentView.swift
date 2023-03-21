@@ -307,12 +307,11 @@ struct SearchingView: View {
                                                     NavigationLink(destination: Menu(hall: halls[itemData.hallname]!)) {
                                                         HStack {
                                                             VStack(alignment: .leading, spacing: 4) {
-                                                                Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
+                                                                Text(itemData.hallname.replacingOccurrences(of: "&amp;", with: "&"))
                                                                     .font(.system(size:17, weight: .medium, design: .default))
                                                                     .lineLimit(1)
                                                                 Group {
                                                                     Text(itemData.mealtime)
-                                                                    Text(itemData.hallname)
                                                                 }
                                                                 .foregroundColor(.gray)
                                                                 .font(.system(size:15, weight: .medium, design: .default))
@@ -323,6 +322,7 @@ struct SearchingView: View {
                                                         }
                                                         .padding(.horizontal, 16)
                                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                                        .padding(.top, searchData.first?.id == itemData.id ? 8 : 0) // add padding to the top of the first item in each DisclosureGroup
                                                     }
                                                     if searchData.last?.id != itemData.id {
                                                         Divider()
@@ -337,6 +337,8 @@ struct SearchingView: View {
                                             .padding(.vertical, 8)
                                             .padding(.horizontal, 8)
                                         }
+
+
 
                                     }
                                     Divider()
