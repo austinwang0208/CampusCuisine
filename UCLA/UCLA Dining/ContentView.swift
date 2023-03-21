@@ -172,7 +172,9 @@ struct SearchingView: View {
             
             let searchData = getData().filter { $0.food.contains(searchText) }
             ScrollView{
-                ForEach(searchData, id: \.id) { itemData in
+                ForEach(searchData.indices, id: \.self) { index in
+                    let itemData = searchData[index]
+                    let isLastItem = index == searchData.count - 1
                     Divider()
                     Button(action: {
                         // Do something here if you need to
@@ -181,6 +183,7 @@ struct SearchingView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
                                     .font(.system(size:17, weight: .medium, design: .default))
+                                    .lineLimit(1)
                                 Group {
                                     Text(itemData.mealtime)
                                     Text(itemData.hallname)
@@ -190,13 +193,19 @@ struct SearchingView: View {
                             }
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            
                         }
+                        
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.vertical,4)
+                    if isLastItem {
+                        Divider()
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+
                 } else {
                     Section(footer:
                         FooterView(APIoutput: APIoutput, selectedKey: selectedKey, output: output, selectedView: $selectedView)
@@ -300,6 +309,7 @@ struct SearchingView: View {
                                                             VStack(alignment: .leading, spacing: 4) {
                                                                 Text(itemData.food.replacingOccurrences(of: "&amp;", with: "&"))
                                                                     .font(.system(size:17, weight: .medium, design: .default))
+                                                                    .lineLimit(1)
                                                                 Group {
                                                                     Text(itemData.mealtime)
                                                                     Text(itemData.hallname)
@@ -321,6 +331,7 @@ struct SearchingView: View {
                                             } label: {
                                                 Text(itemData.replacingOccurrences(of: "&amp;", with: "&"))
                                                     .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .lineLimit(1)
                                                 Divider()
                                             }
                                             .padding(.vertical, 8)
