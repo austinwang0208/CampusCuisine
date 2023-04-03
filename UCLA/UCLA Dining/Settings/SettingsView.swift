@@ -15,6 +15,9 @@ struct SettingsView: View {
     
     @State private var showNavigationBar = true
     
+    let appId = "6445905781"
+    let reviewUrl = "https://apps.apple.com/app/id6445905781?action=write-review"
+    
     var body: some View {
         GeometryReader{ geometry in
             VStack() {
@@ -30,7 +33,7 @@ struct SettingsView: View {
                                 ZStack {
                                     Color.white
                                     VStack {
-                                        Text("Looking for a place to eat? Campus Dining got you covered")
+                                        Text("Looking for a place to eat? Campus Cuisine got you covered")
                                             .foregroundColor(.black)
                                             .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)) // add padding
                                             .frame(maxWidth: .infinity)
@@ -62,9 +65,11 @@ struct SettingsView: View {
                                     Color.white
                                     VStack {
                                         Text("Your current school is:")
-                                        Image("\(selectedKey!) designer text")
-                                            .resizable()
-                                            .frame(width: 100.0, height: 70.0)
+                                        if (selectedKey != nil) {
+                                            Image("\(selectedKey!) designer text")
+                                                .resizable()
+                                                .frame(width: 100.0, height: 70.0)
+                                        }
                                         Button(action: {
                                             self.isPresented = true
                                             self.showNavigationBar = false
@@ -92,6 +97,26 @@ struct SettingsView: View {
                                 }
                                 .frame(height: 200)
                             }
+                            
+                            Section {
+                                Button(action: {
+                                            if let url = URL(string: self.reviewUrl), UIApplication.shared.canOpenURL(url) {
+                                                if #available(iOS 10.0, *) {
+                                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                                } else {
+                                                    UIApplication.shared.openURL(url)
+                                                }
+                                            }
+                                        }) {
+                                            Text("Write a review")
+                                                .font(.headline)
+                                                .foregroundColor(.white)
+                                                .padding()
+                                                .background(Color(red: 0.3608, green: 0.5843, blue: 0.8705))
+                                                .cornerRadius(10)
+                                        }
+                            }
+                            
                             Section {
                                 ZStack{
                                     Color.white

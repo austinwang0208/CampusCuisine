@@ -27,12 +27,12 @@ struct FooterView: View {
         if isLargeDevice{
             ZStack{
                 VStack{
-                    if selectedView == 1 {
-                        VStack {
-                            BannerAd(unitID: "ca-app-pub- REMOVED")
-                        }.frame(height: 45)
-                            .padding(.bottom, 5)
-                    }
+//                    if selectedView == 1 {
+//                        VStack {
+//                            BannerAd(unitID: "ca-app-pub-7275807859221897/9700298377")
+//                        }.frame(height: 45)
+//                            .padding(.bottom, 5)
+//                    }
                     //Spacer()
 
                     Rectangle()
